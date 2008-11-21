@@ -120,23 +120,23 @@ public class Friendship {
 		if (jsonObject.has("trusted")) {
 			friendship.setTrusted(jsonObject.getBoolean("trusted"));
 		}
-		if (jsonObject.has("checkinStreamFeeding")) {
-			friendship.setCheckinStreamFeeding(jsonObject.getBoolean("checkinStreamFeeding"));
+		if (jsonObject.has("checkin_stream_feeding")) {
+			friendship.setCheckinStreamFeeding(jsonObject.getBoolean("checkin_stream_feeding"));
 		}
-		if (jsonObject.has("checkinSMSNotifications")) {
-			friendship.setCheckinSMSNotifications(jsonObject.getBoolean("checkinSMSNotifications"));
+		if (jsonObject.has("checkin_sms_notifications")) {
+			friendship.setCheckinSMSNotifications(jsonObject.getBoolean("checkin_sms_notifications"));
 		}
-		if (jsonObject.has("checkinEmailNotifications")) {
-			friendship.setCheckinEmailNotifications(jsonObject.getBoolean("checkinEmailNotifications"));
+		if (jsonObject.has("checkin_email_notifications")) {
+			friendship.setCheckinEmailNotifications(jsonObject.getBoolean("checkin_email_notifications"));
 		}
-		if (jsonObject.has("postStreamFeeding")) {
-			friendship.setPostStreamFeeding(jsonObject.getBoolean("postStreamFeeding"));
+		if (jsonObject.has("post_stream_feeding")) {
+			friendship.setPostStreamFeeding(jsonObject.getBoolean("post_stream_feeding"));
 		}
-		if (jsonObject.has("postSMSNotifications")) {
-			friendship.setPostSMSNotifications(jsonObject.getBoolean("postSMSNotifications"));
+		if (jsonObject.has("post_sms_notifications")) {
+			friendship.setPostSMSNotifications(jsonObject.getBoolean("post_sms_notifications"));
 		}
-		if (jsonObject.has("postEmailNotifications")) {
-			friendship.setPostEmailNotifications(jsonObject.getBoolean("postEmailNotifications"));
+		if (jsonObject.has("post_email_notifications")) {
+			friendship.setPostEmailNotifications(jsonObject.getBoolean("post_email_notifications"));
 		}
 		if (jsonObject.has("created_at")) {
 			friendship.setCreatedAt(jsonObject.getString("created_at"));

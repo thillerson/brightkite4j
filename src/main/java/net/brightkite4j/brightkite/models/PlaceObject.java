@@ -55,7 +55,7 @@ public abstract class PlaceObject {
 		return _public;
 	}
 
-	public void setPublic(boolean _public) {
+	protected void setPublic(boolean _public) {
 		this._public = _public;
 	}
 
@@ -95,7 +95,11 @@ public abstract class PlaceObject {
 		
 		// cheez alert
 		if (jsonObject.has("photo")) {
-			placeObject = Photo.fromJSON(jsonObject);
+			placeObject = new Photo();
+
+			Photo photo = (Photo)placeObject;
+			photo.setPhoto(jsonObject.getString("photo"));
+			
 		} else {
 			placeObject = new Note();
 		}

@@ -87,11 +87,11 @@ public class Checkin {
 		if (jsonObject.has("public")) {
 			checkin.setPublic(jsonObject.getBoolean("public"));
 		}
-		if (jsonObject.has("created_at_as_words")) {
-			checkin.setCreatedAtAsWords(jsonObject.getString("created_at_as_words"));
-		}
 		if (jsonObject.has("created_at")) {
 			checkin.setCreatedAt(jsonObject.getString("created_at"));
+		}
+		if (jsonObject.has("created_at_as_words")) {
+			checkin.setCreatedAtAsWords(jsonObject.getString("created_at_as_words"));
 		}
 
 		return checkin;

@@ -23,13 +23,7 @@ public class Photo extends PlaceObject {
 		if (jsonObject == null) {
 			return null;
 		}
-		Photo photo = new Photo();
-		
-		if (jsonObject.has("photo")) {
-			photo.setPhoto(jsonObject.getString("photo"));
-		}
-
-		return photo;
+		return (Photo)PlaceObject.fromJSON(jsonObject);
 	}
 	
 	@Override

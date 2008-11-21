@@ -114,7 +114,7 @@ public class Person {
 		if (jsonObject.has("small_avatar_url")) {
 			person.setSmallAvatarUrl(jsonObject.getString("small_avatar_url"));
 		}
-		if (jsonObject.has("smallerAvatarUrl")) {
+		if (jsonObject.has("smaller_avatar_url")) {
 			person.setSmallerAvatarUrl(jsonObject.getString("smaller_avatar_url"));
 		}
 		if (jsonObject.has("tiny_avatar_url")) {

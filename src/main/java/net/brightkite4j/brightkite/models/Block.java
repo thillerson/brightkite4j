@@ -59,7 +59,7 @@ public class Block {
 			block.setBlocker(jsonObject.getString("blocker"));
 		}
 		if (jsonObject.has("blockee")) {
-			block.setBlocker(jsonObject.getString("blockee"));
+			block.setBlockee(jsonObject.getString("blockee"));
 		}
 
 		return block;
