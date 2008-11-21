@@ -1,11 +1,13 @@
 package net.brightkite4j.brightkite.models;
 
+import net.brightkite4j.brightkite.utils.BrightkiteUtils;
 import net.sf.json.JSONObject;
 
 import org.apache.commons.lang.builder.EqualsBuilder;
 import org.apache.commons.lang.builder.HashCodeBuilder;
 import org.apache.commons.lang.builder.ToStringBuilder;
 import org.apache.commons.lang.builder.ToStringStyle;
+import org.joda.time.DateTime;
 
 public class Person {
 	
@@ -18,6 +20,7 @@ public class Person {
 	private String smallAvatarUrl;
 	private String smallerAvatarUrl;
 	private String tinyAvatarUrl;
+	private DateTime lastCheckedIn;
 
 	public String getLogin() {
 		return login;
@@ -91,6 +94,18 @@ public class Person {
 		this.tinyAvatarUrl = tinyAvatarUrl;
 	}
 
+	public DateTime getLastCheckedIn() {
+		return lastCheckedIn;
+	}
+
+	public void setLastCheckedIn(DateTime lastCheckedIn) {
+		this.lastCheckedIn = lastCheckedIn;
+	}
+
+	public void setLastCheckedIn(String lastCheckedInString) {
+		this.lastCheckedIn = BrightkiteUtils.parseDateTimeFromString(lastCheckedInString);
+	}
+
 	protected final static Person fromJSON(JSONObject jsonObject) {
 		if (jsonObject == null) {
 			return null;
@@ -105,7 +120,7 @@ public class Person {
 		if (jsonObject.has("age")) {
 			person.setAge(jsonObject.getString("age"));
 		}
-		if (jsonObject.has("sex")) {
+		if (jsonObject.has("sex")) { // lolz!
 			person.setSex(jsonObject.getString("sex"));
 		}
 		if (jsonObject.has("website")) {
@@ -119,6 +134,9 @@ public class Person {
 		}
 		if (jsonObject.has("tiny_avatar_url")) {
 			person.setTinyAvatarUrl(jsonObject.getString("tiny_avatar_url"));
+		}
+		if (jsonObject.has("last_checked_in")) {
+			person.setLastCheckedIn(jsonObject.getString("last_checked_in"));
 		}
 		
 		return person;

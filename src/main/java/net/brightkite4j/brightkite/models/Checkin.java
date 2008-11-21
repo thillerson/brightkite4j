@@ -69,8 +69,12 @@ public class Checkin {
 	protected void setCreatedAtAsWords(String createdAtAsWords) {
 		this.createdAtAsWords = createdAtAsWords;
 	}
+	
+	public final static Checkin fromJSONString(String jsonString) {
+		return fromJSON(JSONObject.fromObject(jsonString));
+	}
 
-	protected final static Checkin fromJSON(JSONObject jsonObject) {
+	public final static Checkin fromJSON(JSONObject jsonObject) {
 		if (jsonObject == null) {
 			return null;
 		}

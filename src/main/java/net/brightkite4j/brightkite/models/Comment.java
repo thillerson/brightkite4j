@@ -51,8 +51,12 @@ public class Comment {
 	protected void setCreatedAt(String createdAtString) {
 		this.createdAt = BrightkiteUtils.parseDateTimeFromString(createdAtString);
 	}
+	
+	public final static Comment fromJSONString(String jsonString) {
+		return fromJSON(JSONObject.fromObject(jsonString));
+	}
 
-	protected final static Comment fromJSON(JSONObject jsonObject) {
+	public final static Comment fromJSON(JSONObject jsonObject) {
 		if (jsonObject == null) {
 			return null;
 		}
@@ -65,6 +69,9 @@ public class Comment {
 		}
 		if (jsonObject.has("created_at")) {
 			comment.setCreatedAt(jsonObject.getString("created_at"));
+		}
+		if (jsonObject.has("place_object")) {
+			comment.setPlaceObject(PlaceObject.fromJSON(jsonObject.getJSONObject("place_object")));
 		}
 
 		return comment;

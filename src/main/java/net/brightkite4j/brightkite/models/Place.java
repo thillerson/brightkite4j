@@ -129,8 +129,8 @@ public class Place {
 		if (jsonObject.has("name")) {
 			person.setName(jsonObject.getString("name"));
 		}
-		if (jsonObject.has("displayLocation")) {
-			person.setDisplayLocation(jsonObject.getString("displayLocation"));
+		if (jsonObject.has("display_location")) {
+			person.setDisplayLocation(jsonObject.getString("display_location"));
 		}
 		if (jsonObject.has("scope")) {
 			person.setScope(jsonObject.getString("scope"));

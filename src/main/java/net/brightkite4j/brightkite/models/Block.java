@@ -43,11 +43,11 @@ public class Block {
 		setCreatedAt(BrightkiteUtils.parseDateTimeFromString(createdAtString));
 	}
 	
-	protected final static Block fromJSONString(String jsonString) {
+	public final static Block fromJSONString(String jsonString) {
 		return fromJSON(JSONObject.fromObject(jsonString));
 	}
 
-	protected final static Block fromJSON(JSONObject jsonObject) {
+	public final static Block fromJSON(JSONObject jsonObject) {
 		if (jsonObject == null) {
 			return null;
 		}
