@@ -1,7 +1,6 @@
 package net.brightkite4j.brightkite.models;
 
 import net.brightkite4j.brightkite.utils.BrightkiteUtils;
-import net.sf.json.JSONObject;
 
 import org.apache.commons.lang.builder.EqualsBuilder;
 import org.apache.commons.lang.builder.HashCodeBuilder;
@@ -39,18 +38,6 @@ public abstract class BrightkiteObject {
 	}
 	public void setCreatedAtAsWords(String createdAtAsWords) {
 		this.createdAtAsWords = createdAtAsWords;
-	}
-	
-	public final static void finishDeserialization(JSONObject jsonObject, BrightkiteObject bk) {
-		if (jsonObject.has("id")) {
-			bk.setId(jsonObject.getString("id"));
-		}
-		if (jsonObject.has("created_at")) {
-			bk.setCreatedAt(jsonObject.getString("created_at"));
-		}
-		if (jsonObject.has("created_at_as_words")) {
-			bk.setCreatedAtAsWords(jsonObject.getString("created_at_as_words"));
-		}
 	}
 	
 	@Override

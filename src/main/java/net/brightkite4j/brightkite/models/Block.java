@@ -23,8 +23,4 @@ public class Block extends BrightkiteObject {
 		this.blockee = blockee;
 	}
 
-	public final static Block fromJSON(String jsonString) {
-		return (Block)BrightkiteUtils.fromJSON(jsonString, Block.class);
-	}
-	
 }

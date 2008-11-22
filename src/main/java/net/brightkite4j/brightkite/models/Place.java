@@ -1,7 +1,5 @@
 package net.brightkite4j.brightkite.models;
 
-import net.sf.json.JSONObject;
-
 public class Place extends BrightkiteObject {
 	
 	private String name;
@@ -104,50 +102,4 @@ public class Place extends BrightkiteObject {
 		this.longitude = d;
 	}
 
-	public final static Place fromJSON(String jsonObject) {
-		return fromJSON(JSONObject.fromObject(jsonObject));
-	}
-
-	public final static Place fromJSON(JSONObject jsonObject) {
-		if (jsonObject == null) {
-			return null;
-		}
-		Place place = new Place();
-		if (jsonObject.has("name")) {
-			place.setName(jsonObject.getString("name"));
-		}
-		if (jsonObject.has("display_location")) {
-			place.setDisplayLocation(jsonObject.getString("display_location"));
-		}
-		if (jsonObject.has("scope")) {
-			place.setScope(jsonObject.getString("scope"));
-		}
-		if (jsonObject.has("street")) {
-			place.setStreet(jsonObject.getString("street"));
-		}
-		if (jsonObject.has("street2")) {
-			place.setStreet2(jsonObject.getString("street2"));
-		}
-		if (jsonObject.has("city")) {
-			place.setCity(jsonObject.getString("city"));
-		}
-		if (jsonObject.has("state")) {
-			place.setState(jsonObject.getString("state"));
-		}
-		if (jsonObject.has("zip")) {
-			place.setZip(jsonObject.getString("zip"));
-		}
-		if (jsonObject.has("country")) {
-			place.setCountry(jsonObject.getString("country"));
-		}
-		if (jsonObject.has("latitude")) {
-			place.setLatitude(jsonObject.getDouble("latitude"));
-		}
-		if (jsonObject.has("longitude")) {
-			place.setLongitude(jsonObject.getDouble("longitude"));
-		}
-		BrightkiteObject.finishDeserialization(jsonObject, place);
-
-		return place;
-	}
 }

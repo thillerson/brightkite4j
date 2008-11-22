@@ -1,7 +1,6 @@
 package net.brightkite4j.brightkite.models;
 
 import net.brightkite4j.brightkite.utils.BrightkiteUtils;
-import net.sf.json.JSONObject;
 
 import org.joda.time.DateTime;
 
@@ -100,47 +99,6 @@ public class Person extends BrightkiteObject {
 
 	public void setLastCheckedIn(String lastCheckedInString) {
 		this.lastCheckedIn = BrightkiteUtils.parseDateTimeFromString(lastCheckedInString);
-	}
-
-	public final static Person fromJSON(String jsonObject) {
-		return fromJSON(JSONObject.fromObject(jsonObject));
-	}
-
-	public final static Person fromJSON(JSONObject jsonObject) {
-		if (jsonObject == null) {
-			return null;
-		}
-		Person person = new Person();
-		if (jsonObject.has("login")) {
-			person.setLogin(jsonObject.getString("login"));
-		}
-		if (jsonObject.has("fullname")) {
-			person.setFullname(jsonObject.getString("fullname"));
-		}
-		if (jsonObject.has("age")) {
-			person.setAge(jsonObject.getString("age"));
-		}
-		if (jsonObject.has("sex")) { // lolz!
-			person.setSex(jsonObject.getString("sex"));
-		}
-		if (jsonObject.has("website")) {
-			person.setWebsite(jsonObject.getString("website"));
-		}
-		if (jsonObject.has("small_avatar_url")) {
-			person.setSmallAvatarUrl(jsonObject.getString("small_avatar_url"));
-		}
-		if (jsonObject.has("smaller_avatar_url")) {
-			person.setSmallerAvatarUrl(jsonObject.getString("smaller_avatar_url"));
-		}
-		if (jsonObject.has("tiny_avatar_url")) {
-			person.setTinyAvatarUrl(jsonObject.getString("tiny_avatar_url"));
-		}
-		if (jsonObject.has("last_checked_in")) {
-			person.setLastCheckedIn(jsonObject.getString("last_checked_in"));
-		}
-		BrightkiteObject.finishDeserialization(jsonObject, person);
-		
-		return person;
 	}
 
 }
