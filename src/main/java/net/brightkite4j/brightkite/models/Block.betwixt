@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<info>
+	<element name='block'>
+		<element name="blocker" property="blocker" />
+		<element name="blockee" property="blockee" />
+		<element name="created_at" property="createdAtTimestamp" />
+	</element>
+</info>

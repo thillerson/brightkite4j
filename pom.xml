@@ -27,9 +27,14 @@
       <version>2.3</version>
     </dependency>
     <dependency>
-		<groupId>com.wutka</groupId>
-		<artifactId>jox</artifactId>
-		<version>1.16</version>
+		<groupId>commons-betwixt</groupId>
+		<artifactId>commons-betwixt</artifactId>
+		<version>1.0-beta-1</version>
+    </dependency>
+    <dependency>
+		<groupId>commons-digester</groupId>
+		<artifactId>commons-digester</artifactId>
+		<version>1.8</version>
     </dependency>
     <dependency>
       <groupId>joda-time</groupId>

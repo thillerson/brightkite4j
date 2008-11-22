@@ -29,7 +29,11 @@ public abstract class BrightkiteObject {
 		this.createdAt = createdAt;
 	}
 	
-	public void setCreatedAt(String timestamp) {
+	public String getCreatedAtTimestamp() {
+		return createdAt.toString();
+	}
+	
+	public void setCreatedAtTimestamp(String timestamp) {
 		this.createdAt = BrightkiteUtils.parseDateTimeFromString(timestamp);
 	}
 	

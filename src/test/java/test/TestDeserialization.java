@@ -2,14 +2,10 @@ package test;
 
 import static org.junit.Assert.*;
 
-import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
-import java.io.InputStream;
 import java.io.Reader;
-import java.io.StringReader;
-import java.nio.CharBuffer;
 
 import net.brightkite4j.brightkite.models.*;
 
@@ -17,22 +13,14 @@ import org.joda.time.DateTime;
 import org.joda.time.DateTimeZone;
 import org.junit.Test;
 
-import com.wutka.jox.JOXBeanInputStream;
-
 public class TestDeserialization {
 	
 	@Test
 	public void testDeserializeBlockFromXML() throws Exception {
-		String blockXML = "<block>" +
-				"<blocker>FrankZappa</blocker>" +
-				"<blockee>batman</blockee>" +
-				"<created_at type=\"datetime\">2008-07-10T20:08:35Z</created_at>" +
-				"</block>";
-        InputStream xmlReader = new ByteArrayInputStream(blockXML.getBytes());
-        JOXBeanInputStream joxIn = new JOXBeanInputStream(xmlReader);
-        Block testBlock = (Block)joxIn.readObject(Block.class);
-        
-        System.out.println(testBlock);
+		String xml = readTestData("block.xml");
+
+		Block testBlock = Block.fromXML(xml);
+
 		DateTime createdAt = testBlock.getCreatedAt();
 		
 		DateTime expectedCreatedAt = new DateTime(
@@ -44,7 +32,25 @@ public class TestDeserialization {
 		assertTrue(expectedCreatedAt.isEqual(createdAt));
 	}
 	
+	@Test
+	public void testDeserializeCheckinFromXML() throws Exception {
+		String xml = readTestData("checkin.xml");
 
+		Checkin testCheckin = Checkin.fromXML(xml);  
+		
+		System.out.println(testCheckin);
+		DateTime createdAt = testCheckin.getCreatedAt();
+		
+		DateTime expectedCreatedAt = new DateTime(
+				2008, 6, 10, 22, 46, 15, 0, DateTimeZone.UTC
+		);
+
+		assertEquals("da4b9237bacccdf19c0760cab7aec4a8359010b0", testCheckin.getId());
+		assertTrue(testCheckin.isPublic());
+		assertEquals("29 days", testCheckin.getCreatedAtAsWords());
+		assertTrue(expectedCreatedAt.isEqual(createdAt));
+	}
+	
 	private String TEST_DATA_DIR = "src/test/data/";
 
 	private int MAX_TEST_DATA_FILE_SIZE = 16384;
@@ -54,11 +60,18 @@ public class TestDeserialization {
 	}
 
 	private String readFromFile(File file) throws IOException {
-		Reader reader = new FileReader(file);
-		CharBuffer charBuffer = CharBuffer.allocate(MAX_TEST_DATA_FILE_SIZE);
-		reader.read(charBuffer);
-		charBuffer.position(0);
-		return charBuffer.toString();
+		Reader is = new FileReader(file);
+		StringBuffer sb = new StringBuffer( );
+		char[] b = new char[MAX_TEST_DATA_FILE_SIZE];
+		int n;
+		
+		    // Read a block. If it gets any chars, append them.
+		while ((n = is.read(b)) > 0) {
+		    sb.append(b, 0, n);
+		}
+		
+		// Only construct the String object once, here.
+		return sb.toString( );
 	}
 
 }

@@ -1,0 +1,21 @@
+<checkin>
+	<creator>
+		<fullname></fullname>
+		<login>firetoad</login>
+		<small_avatar_url>/images/default_user_avatar_small.png</small_avatar_url>
+		<smaller_avatar_url>/images/default_user_avatar_smaller.png</smaller_avatar_url>
+		<tiny_avatar_url>/images/default_user_avatar_tiny.png</tiny_avatar_url>
+	</creator>
+	<public type="boolean">true</public>
+	<created_at_as_words>29 days</created_at_as_words>
+	<id>da4b9237bacccdf19c0760cab7aec4a8359010b0</id>
+	<place>
+		<longitude>-105.256712</longitude>
+		<scope>address</scope>
+		<latitude>40.044001</latitude>
+		<name>3850 Paseo del Prado St, Boulder, CO 80301, USA</name>
+		<display_location>3850 Paseo Del Prado St, Boulder, CO 80301, USA</display_location>
+		<id>356a192b7913b04c54574d18c28d46e6395428ab</id>
+	</place>
+	<created_at type="datetime">2008-06-10T22:46:15Z</created_at>
+</checkin>
