@@ -1,20 +1,12 @@
 package net.brightkite4j.brightkite.models;
 
-import net.brightkite4j.brightkite.utils.BrightkiteUtils;
 import net.sf.json.JSONObject;
 
-import org.apache.commons.lang.builder.EqualsBuilder;
-import org.apache.commons.lang.builder.HashCodeBuilder;
-import org.apache.commons.lang.builder.ToStringBuilder;
-import org.apache.commons.lang.builder.ToStringStyle;
-import org.joda.time.DateTime;
-
-public class Placemark {
+public class Placemark extends BrightkiteObject {
 	
 	private String placemark;
 	private Person user;
 	private Place place;
-	private DateTime createdAt;
 
 	public String getPlacemark() {
 		return placemark;
@@ -40,19 +32,11 @@ public class Placemark {
 		this.place = place;
 	}
 
-	public DateTime getCreatedAt() {
-		return createdAt;
+	public final static Placemark fromJSON(String jsonObject) {
+		return fromJSON(JSONObject.fromObject(jsonObject));
 	}
 
-	protected void setCreatedAt(DateTime createdAt) {
-		this.createdAt = createdAt;
-	}
-	
-	protected void setCreatedAt(String createdAtString) {
-		this.createdAt = BrightkiteUtils.parseDateTimeFromString(createdAtString);
-	}
-
-	protected final static Placemark fromJSON(JSONObject jsonObject) {
+	public final static Placemark fromJSON(JSONObject jsonObject) {
 		if (jsonObject == null) {
 			return null;
 		}
@@ -66,26 +50,9 @@ public class Placemark {
 		if (jsonObject.has("place")) {
 			placemark.setPlace(Place.fromJSON(jsonObject.getJSONObject("place")));
 		}
-		if (jsonObject.has("created_at")) {
-			placemark.setCreatedAt(jsonObject.getString("created_at"));
-		}
+		BrightkiteObject.finishDeserialization(jsonObject, placemark);
 		
 		return placemark;
 	}
 
-	@Override
-	public String toString() {
-		return ToStringBuilder.reflectionToString(this,
-				ToStringStyle.MULTI_LINE_STYLE);
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		return EqualsBuilder.reflectionEquals(this, obj);
-	}
-
-	@Override
-	public int hashCode() {
-		return HashCodeBuilder.reflectionHashCode(this);
-	}
 }

@@ -1,22 +1,13 @@
 package net.brightkite4j.brightkite.models;
 
-import net.brightkite4j.brightkite.utils.BrightkiteUtils;
 import net.sf.json.JSONObject;
 
-import org.apache.commons.lang.builder.EqualsBuilder;
-import org.apache.commons.lang.builder.HashCodeBuilder;
-import org.apache.commons.lang.builder.ToStringBuilder;
-import org.apache.commons.lang.builder.ToStringStyle;
-import org.joda.time.DateTime;
-
-public class DirectMessage {
+public class DirectMessage extends BrightkiteObject {
 	
 	private String body;
 	private String status;
 	private Person sender;
 	private Person recipient;
-	private DateTime createdAt;
-	private String createdAtAsWords;
 
 	public String getBody() {
 		return body;
@@ -50,27 +41,11 @@ public class DirectMessage {
 		this.recipient = recipient;
 	}
 
-	public DateTime getCreatedAt() {
-		return createdAt;
+	public final static DirectMessage fromJSON(String jsonObject) {
+		return fromJSON(JSONObject.fromObject(jsonObject));
 	}
-
-	protected void setCreatedAt(DateTime createdAt) {
-		this.createdAt = createdAt;
-	}
-
-	protected void setCreatedAt(String createdAtString) {
-		this.createdAt = BrightkiteUtils.parseDateTimeFromString(createdAtString);
-	}
-
-	public String getCreatedAtAsWords() {
-		return createdAtAsWords;
-	}
-
-	protected void setCreatedAtAsWords(String createdAtAsWords) {
-		this.createdAtAsWords = createdAtAsWords;
-	}
-
-	protected final static DirectMessage fromJSON(JSONObject jsonObject) {
+	
+	public final static DirectMessage fromJSON(JSONObject jsonObject) {
 		if (jsonObject == null) {
 			return null;
 		}
@@ -87,29 +62,9 @@ public class DirectMessage {
 		if (jsonObject.has("recipient")) {
 			directMessage.setRecipient(Person.fromJSON(jsonObject.getJSONObject("recipient")));
 		}
-		if (jsonObject.has("created_at")) {
-			directMessage.setCreatedAt(jsonObject.getString("created_at"));
-		}
-		if (jsonObject.has("created_at_as_words")) {
-			directMessage.setCreatedAtAsWords(jsonObject.getString("created_at_as_words"));
-		}
+		BrightkiteObject.finishDeserialization(jsonObject, directMessage);
 
 		return directMessage;
 	}
 	
-	@Override
-	public String toString() {
-		return ToStringBuilder.reflectionToString(this,
-				ToStringStyle.MULTI_LINE_STYLE);
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		return EqualsBuilder.reflectionEquals(this, obj);
-	}
-
-	@Override
-	public int hashCode() {
-		return HashCodeBuilder.reflectionHashCode(this);
-	}
 }

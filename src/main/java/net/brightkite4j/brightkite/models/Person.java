@@ -3,13 +3,9 @@ package net.brightkite4j.brightkite.models;
 import net.brightkite4j.brightkite.utils.BrightkiteUtils;
 import net.sf.json.JSONObject;
 
-import org.apache.commons.lang.builder.EqualsBuilder;
-import org.apache.commons.lang.builder.HashCodeBuilder;
-import org.apache.commons.lang.builder.ToStringBuilder;
-import org.apache.commons.lang.builder.ToStringStyle;
 import org.joda.time.DateTime;
 
-public class Person {
+public class Person extends BrightkiteObject {
 	
 	private String login;
 	private String fullname;
@@ -106,7 +102,11 @@ public class Person {
 		this.lastCheckedIn = BrightkiteUtils.parseDateTimeFromString(lastCheckedInString);
 	}
 
-	protected final static Person fromJSON(JSONObject jsonObject) {
+	public final static Person fromJSON(String jsonObject) {
+		return fromJSON(JSONObject.fromObject(jsonObject));
+	}
+
+	public final static Person fromJSON(JSONObject jsonObject) {
 		if (jsonObject == null) {
 			return null;
 		}
@@ -138,23 +138,9 @@ public class Person {
 		if (jsonObject.has("last_checked_in")) {
 			person.setLastCheckedIn(jsonObject.getString("last_checked_in"));
 		}
+		BrightkiteObject.finishDeserialization(jsonObject, person);
 		
 		return person;
 	}
 
-	@Override
-	public String toString() {
-		return ToStringBuilder.reflectionToString(this,
-				ToStringStyle.MULTI_LINE_STYLE);
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		return EqualsBuilder.reflectionEquals(this, obj);
-	}
-
-	@Override
-	public int hashCode() {
-		return HashCodeBuilder.reflectionHashCode(this);
-	}
 }

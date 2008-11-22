@@ -1,20 +1,12 @@
 package net.brightkite4j.brightkite.models;
 
-import net.brightkite4j.brightkite.utils.BrightkiteUtils;
 import net.sf.json.JSONObject;
 
-import org.apache.commons.lang.builder.EqualsBuilder;
-import org.apache.commons.lang.builder.HashCodeBuilder;
-import org.apache.commons.lang.builder.ToStringBuilder;
-import org.apache.commons.lang.builder.ToStringStyle;
-import org.joda.time.DateTime;
-
-public class Comment {
+public class Comment extends BrightkiteObject {
 	
 	private PlaceObject placeObject;
 	private Person user;
 	private String comment;
-	private DateTime createdAt;
 	
 	public PlaceObject getPlaceObject() {
 		return placeObject;
@@ -40,19 +32,7 @@ public class Comment {
 		this.comment = comment;
 	}
 
-	public DateTime getCreatedAt() {
-		return createdAt;
-	}
-
-	protected void setCreatedAt(DateTime createdAt) {
-		this.createdAt = createdAt;
-	}
-	
-	protected void setCreatedAt(String createdAtString) {
-		this.createdAt = BrightkiteUtils.parseDateTimeFromString(createdAtString);
-	}
-	
-	public final static Comment fromJSONString(String jsonString) {
+	public final static Comment fromJSON(String jsonString) {
 		return fromJSON(JSONObject.fromObject(jsonString));
 	}
 
@@ -67,29 +47,12 @@ public class Comment {
 		if (jsonObject.has("user")) {
 			comment.setUser(Person.fromJSON(jsonObject.getJSONObject("user")));
 		}
-		if (jsonObject.has("created_at")) {
-			comment.setCreatedAt(jsonObject.getString("created_at"));
-		}
 		if (jsonObject.has("place_object")) {
 			comment.setPlaceObject(PlaceObject.fromJSON(jsonObject.getJSONObject("place_object")));
 		}
+		BrightkiteObject.finishDeserialization(jsonObject, comment);
 
 		return comment;
 	}
 
-	@Override
-	public String toString() {
-		return ToStringBuilder.reflectionToString(this,
-				ToStringStyle.MULTI_LINE_STYLE);
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		return EqualsBuilder.reflectionEquals(this, obj);
-	}
-
-	@Override
-	public int hashCode() {
-		return HashCodeBuilder.reflectionHashCode(this);
-	}
 }

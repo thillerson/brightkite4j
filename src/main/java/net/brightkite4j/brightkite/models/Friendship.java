@@ -1,15 +1,8 @@
 package net.brightkite4j.brightkite.models;
 
-import net.brightkite4j.brightkite.utils.BrightkiteUtils;
 import net.sf.json.JSONObject;
 
-import org.apache.commons.lang.builder.EqualsBuilder;
-import org.apache.commons.lang.builder.HashCodeBuilder;
-import org.apache.commons.lang.builder.ToStringBuilder;
-import org.apache.commons.lang.builder.ToStringStyle;
-import org.joda.time.DateTime;
-
-public class Friendship {
+public class Friendship extends BrightkiteObject {
 	
 	private Person user;
 	private Person friendable;
@@ -20,7 +13,6 @@ public class Friendship {
 	private boolean postStreamFeeding;
 	private boolean postSMSNotifications;
 	private boolean postEmailNotifications;
-	private DateTime createdAt;
 	
 	public Person getUser() {
 		return user;
@@ -94,19 +86,11 @@ public class Friendship {
 		this.postEmailNotifications = postEmailNotifications;
 	}
 
-	public DateTime getCreatedAt() {
-		return createdAt;
+	public final static Friendship fromJSON(String jsonObject) {
+		return fromJSON(JSONObject.fromObject(jsonObject));
 	}
 
-	protected void setCreatedAt(DateTime createdAt) {
-		this.createdAt = createdAt;
-	}
-	
-	protected void setCreatedAt(String createdAtString) {
-		this.createdAt = BrightkiteUtils.parseDateTimeFromString(createdAtString);
-	}
-	
-	protected final static Friendship fromJSON(JSONObject jsonObject) {
+	public final static Friendship fromJSON(JSONObject jsonObject) {
 		if (jsonObject == null) {
 			return null;
 		}
@@ -138,26 +122,9 @@ public class Friendship {
 		if (jsonObject.has("post_email_notifications")) {
 			friendship.setPostEmailNotifications(jsonObject.getBoolean("post_email_notifications"));
 		}
-		if (jsonObject.has("created_at")) {
-			friendship.setCreatedAt(jsonObject.getString("created_at"));
-		}
+		BrightkiteObject.finishDeserialization(jsonObject, friendship);
 		
 		return friendship;
 	}
 
-	@Override
-	public String toString() {
-		return ToStringBuilder.reflectionToString(this,
-				ToStringStyle.MULTI_LINE_STYLE);
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		return EqualsBuilder.reflectionEquals(this, obj);
-	}
-
-	@Override
-	public int hashCode() {
-		return HashCodeBuilder.reflectionHashCode(this);
-	}
 }

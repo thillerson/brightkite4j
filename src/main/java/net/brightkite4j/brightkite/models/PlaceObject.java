@@ -1,32 +1,18 @@
 package net.brightkite4j.brightkite.models;
 
-import org.joda.time.DateTime;
-
-import net.brightkite4j.brightkite.utils.BrightkiteUtils;
 import net.sf.json.JSONObject;
 
-public abstract class PlaceObject {
+public abstract class PlaceObject extends BrightkiteObject {
 
-	private String id;
 	private String body;
 	private Person creator;
 	private Place place;
 	private boolean _public;
 	private boolean about;
-	private DateTime createdAt;
-	private String createdAtAsWords;
 
 	public abstract boolean isNote();
 	public abstract boolean isPhoto();
 	
-	public String getId() {
-		return id;
-	}
-
-	protected void setId(String id) {
-		this.id = id;
-	}
-
 	public String getBody() {
 		return body;
 	}
@@ -67,26 +53,6 @@ public abstract class PlaceObject {
 		this.about = about;
 	}
 
-	public DateTime getCreatedAt() {
-		return createdAt;
-	}
-
-	protected void setCreatedAt(DateTime createdAt) {
-		this.createdAt = createdAt;
-	}
-	
-	protected void setCreatedAt(String createdAtString) {
-		this.createdAt = BrightkiteUtils.parseDateTimeFromString(createdAtString);
-	}
-
-	public String getCreatedAtAsWords() {
-		return createdAtAsWords;
-	}
-
-	protected void setCreatedAtAsWords(String createdAtAsWords) {
-		this.createdAtAsWords = createdAtAsWords;
-	}
-
 	protected static PlaceObject fromJSON(JSONObject jsonObject) {
 		if (jsonObject == null) {
 			return null;
@@ -103,9 +69,6 @@ public abstract class PlaceObject {
 		} else {
 			placeObject = new Note();
 		}
-		if (jsonObject.has("id")) {
-			placeObject.setId(jsonObject.getString("id"));
-		}
 		if (jsonObject.has("body")) {
 			placeObject.setBody(jsonObject.getString("body"));
 		}
@@ -121,12 +84,7 @@ public abstract class PlaceObject {
 		if (jsonObject.has("about")) {
 			placeObject.setAbout(jsonObject.getBoolean("about"));
 		}
-		if (jsonObject.has("created_at")) {
-			placeObject.setCreatedAt(jsonObject.getString("created_at"));
-		}
-		if (jsonObject.has("created_at_as_words")) {
-			placeObject.setCreatedAtAsWords(jsonObject.getString("created_at_as_words"));
-		}
+		BrightkiteObject.finishDeserialization(jsonObject, placeObject);
 
 		return placeObject;
 	}

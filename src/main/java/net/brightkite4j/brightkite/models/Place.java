@@ -2,14 +2,8 @@ package net.brightkite4j.brightkite.models;
 
 import net.sf.json.JSONObject;
 
-import org.apache.commons.lang.builder.EqualsBuilder;
-import org.apache.commons.lang.builder.HashCodeBuilder;
-import org.apache.commons.lang.builder.ToStringBuilder;
-import org.apache.commons.lang.builder.ToStringStyle;
-
-public class Place {
+public class Place extends BrightkiteObject {
 	
-	private String id;
 	private String name;
 	private String displayLocation;
 	private String scope;
@@ -21,14 +15,6 @@ public class Place {
 	private String country;
 	private double latitude;
 	private double longitude;
-
-	public String getId() {
-		return id;
-	}
-
-	protected void setId(String id) {
-		this.id = id;
-	}
 
 	public String getName() {
 		return name;
@@ -118,63 +104,50 @@ public class Place {
 		this.longitude = d;
 	}
 
-	protected final static Place fromJSON(JSONObject jsonObject) {
+	public final static Place fromJSON(String jsonObject) {
+		return fromJSON(JSONObject.fromObject(jsonObject));
+	}
+
+	public final static Place fromJSON(JSONObject jsonObject) {
 		if (jsonObject == null) {
 			return null;
 		}
-		Place person = new Place();
-		if (jsonObject.has("id")) {
-			person.setId(jsonObject.getString("id"));
-		}
+		Place place = new Place();
 		if (jsonObject.has("name")) {
-			person.setName(jsonObject.getString("name"));
+			place.setName(jsonObject.getString("name"));
 		}
 		if (jsonObject.has("display_location")) {
-			person.setDisplayLocation(jsonObject.getString("display_location"));
+			place.setDisplayLocation(jsonObject.getString("display_location"));
 		}
 		if (jsonObject.has("scope")) {
-			person.setScope(jsonObject.getString("scope"));
+			place.setScope(jsonObject.getString("scope"));
 		}
 		if (jsonObject.has("street")) {
-			person.setStreet(jsonObject.getString("street"));
+			place.setStreet(jsonObject.getString("street"));
 		}
 		if (jsonObject.has("street2")) {
-			person.setStreet2(jsonObject.getString("street2"));
+			place.setStreet2(jsonObject.getString("street2"));
 		}
 		if (jsonObject.has("city")) {
-			person.setCity(jsonObject.getString("city"));
+			place.setCity(jsonObject.getString("city"));
 		}
 		if (jsonObject.has("state")) {
-			person.setState(jsonObject.getString("state"));
+			place.setState(jsonObject.getString("state"));
 		}
 		if (jsonObject.has("zip")) {
-			person.setZip(jsonObject.getString("zip"));
+			place.setZip(jsonObject.getString("zip"));
 		}
 		if (jsonObject.has("country")) {
-			person.setCountry(jsonObject.getString("country"));
+			place.setCountry(jsonObject.getString("country"));
 		}
 		if (jsonObject.has("latitude")) {
-			person.setLatitude(jsonObject.getDouble("latitude"));
+			place.setLatitude(jsonObject.getDouble("latitude"));
 		}
 		if (jsonObject.has("longitude")) {
-			person.setLongitude(jsonObject.getDouble("longitude"));
+			place.setLongitude(jsonObject.getDouble("longitude"));
 		}
-		
-		return person;
-	}
-	@Override
-	public String toString() {
-		return ToStringBuilder.reflectionToString(this,
-				ToStringStyle.MULTI_LINE_STYLE);
-	}
+		BrightkiteObject.finishDeserialization(jsonObject, place);
 
-	@Override
-	public boolean equals(Object obj) {
-		return EqualsBuilder.reflectionEquals(this, obj);
-	}
-
-	@Override
-	public int hashCode() {
-		return HashCodeBuilder.reflectionHashCode(this);
+		return place;
 	}
 }
