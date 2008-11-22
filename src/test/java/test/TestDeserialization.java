@@ -38,17 +38,34 @@ public class TestDeserialization {
 
 		Checkin testCheckin = Checkin.fromXML(xml);  
 		
-		System.out.println(testCheckin);
 		DateTime createdAt = testCheckin.getCreatedAt();
+		Person creator = testCheckin.getCreator();
+		Place place = testCheckin.getPlace();
 		
 		DateTime expectedCreatedAt = new DateTime(
 				2008, 6, 10, 22, 46, 15, 0, DateTimeZone.UTC
 		);
 
+		//Checkin
 		assertEquals("da4b9237bacccdf19c0760cab7aec4a8359010b0", testCheckin.getId());
 		assertTrue(testCheckin.isPublic());
 		assertEquals("29 days", testCheckin.getCreatedAtAsWords());
 		assertTrue(expectedCreatedAt.isEqual(createdAt));
+		
+		//Creator
+		assertEquals("", creator.getFullname());
+		assertEquals("firetoad", creator.getLogin());
+		assertEquals("/images/default_user_avatar_small.png", creator.getSmallAvatarUrl());
+		assertEquals("/images/default_user_avatar_smaller.png", creator.getSmallerAvatarUrl());
+		assertEquals("/images/default_user_avatar_tiny.png", creator.getTinyAvatarUrl());
+		
+		//Place
+		assertEquals("address", place.getScope());
+		assertEquals("356a192b7913b04c54574d18c28d46e6395428ab", place.getId());
+		assertEquals("3850 Paseo del Prado St, Boulder, CO 80301, USA", place.getName());
+		assertEquals("3850 Paseo Del Prado St, Boulder, CO 80301, USA", place.getDisplayLocation());
+		assertEquals(-105.256712, place.getLongitude(), 0.000001);
+		assertEquals(40.044001, place.getLatitude(), 0.000001);
 	}
 	
 	private String TEST_DATA_DIR = "src/test/data/";

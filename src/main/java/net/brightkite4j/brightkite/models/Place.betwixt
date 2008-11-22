@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <info primitiveTypes='element'>
-	<element name='block'>
-		<element name="created_at" property="createdAtTimestamp" />
+	<element name='place'>
+		<element name="display_location" property="displayLocation" />
 		<addDefaults />
 	</element>
 </info>

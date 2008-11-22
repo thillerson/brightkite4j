@@ -18,7 +18,7 @@ public class Place extends BrightkiteObject {
 		return name;
 	}
 
-	protected void setName(String name) {
+	public void setName(String name) {
 		this.name = name;
 	}
 
@@ -26,7 +26,7 @@ public class Place extends BrightkiteObject {
 		return displayLocation;
 	}
 
-	protected void setDisplayLocation(String displayLocation) {
+	public void setDisplayLocation(String displayLocation) {
 		this.displayLocation = displayLocation;
 	}
 
@@ -34,7 +34,7 @@ public class Place extends BrightkiteObject {
 		return scope;
 	}
 
-	protected void setScope(String scope) {
+	public void setScope(String scope) {
 		this.scope = scope;
 	}
 
@@ -42,7 +42,7 @@ public class Place extends BrightkiteObject {
 		return street;
 	}
 
-	protected void setStreet(String street) {
+	public void setStreet(String street) {
 		this.street = street;
 	}
 
@@ -50,7 +50,7 @@ public class Place extends BrightkiteObject {
 		return street2;
 	}
 
-	protected void setStreet2(String street2) {
+	public void setStreet2(String street2) {
 		this.street2 = street2;
 	}
 
@@ -58,7 +58,7 @@ public class Place extends BrightkiteObject {
 		return city;
 	}
 
-	protected void setCity(String city) {
+	public void setCity(String city) {
 		this.city = city;
 	}
 
@@ -66,7 +66,7 @@ public class Place extends BrightkiteObject {
 		return state;
 	}
 
-	protected void setState(String state) {
+	public void setState(String state) {
 		this.state = state;
 	}
 
@@ -74,7 +74,7 @@ public class Place extends BrightkiteObject {
 		return zip;
 	}
 
-	protected void setZip(String zip) {
+	public void setZip(String zip) {
 		this.zip = zip;
 	}
 
@@ -82,7 +82,7 @@ public class Place extends BrightkiteObject {
 		return country;
 	}
 
-	protected void setCountry(String country) {
+	public void setCountry(String country) {
 		this.country = country;
 	}
 
@@ -90,7 +90,7 @@ public class Place extends BrightkiteObject {
 		return latitude;
 	}
 
-	protected void setLatitude(double d) {
+	public void setLatitude(double d) {
 		this.latitude = d;
 	}
 
@@ -98,7 +98,7 @@ public class Place extends BrightkiteObject {
 		return longitude;
 	}
 
-	protected void setLongitude(double d) {
+	public void setLongitude(double d) {
 		this.longitude = d;
 	}
 

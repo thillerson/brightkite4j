@@ -1,0 +1,13 @@
+<person>
+	<last_checked_in nil="true"></last_checked_in>
+	<age nil="true"></age>
+	<fullname nil="true"></fullname>
+	<login>FrankZappa</login>
+	<website nil="true"></website>
+	<description>Totally sweet</description>
+	<small_avatar_url>/images/default_user_avatar_small.png</small_avatar_url>
+	<smaller_avatar_url>/images/default_user_avatar_smaller.png</smaller_avatar_url>
+	<sex>unspecified</sex>
+	<tiny_avatar_url>/images/default_user_avatar_tiny.png</tiny_avatar_url>
+	<place nil="true"></place>
+</person>

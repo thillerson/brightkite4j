@@ -21,7 +21,7 @@ public class Person extends BrightkiteObject {
 		return login;
 	}
 
-	protected void setLogin(String login) {
+	public void setLogin(String login) {
 		this.login = login;
 	}
 
@@ -29,7 +29,7 @@ public class Person extends BrightkiteObject {
 		return fullname;
 	}
 
-	protected void setFullname(String fullname) {
+	public void setFullname(String fullname) {
 		this.fullname = fullname;
 	}
 
@@ -37,7 +37,7 @@ public class Person extends BrightkiteObject {
 		return description;
 	}
 
-	protected void setDescription(String description) {
+	public void setDescription(String description) {
 		this.description = description;
 	}
 
@@ -45,7 +45,7 @@ public class Person extends BrightkiteObject {
 		return age;
 	}
 
-	protected void setAge(String age) {
+	public void setAge(String age) {
 		this.age = age;
 	}
 
@@ -53,7 +53,7 @@ public class Person extends BrightkiteObject {
 		return sex;
 	}
 
-	protected void setSex(String sex) {
+	public void setSex(String sex) {
 		this.sex = sex;
 	}
 
@@ -61,7 +61,7 @@ public class Person extends BrightkiteObject {
 		return website;
 	}
 
-	protected void setWebsite(String website) {
+	public void setWebsite(String website) {
 		this.website = website;
 	}
 
@@ -69,7 +69,7 @@ public class Person extends BrightkiteObject {
 		return smallAvatarUrl;
 	}
 
-	protected void setSmallAvatarUrl(String smallAvatarUrl) {
+	public void setSmallAvatarUrl(String smallAvatarUrl) {
 		this.smallAvatarUrl = smallAvatarUrl;
 	}
 
@@ -77,7 +77,7 @@ public class Person extends BrightkiteObject {
 		return smallerAvatarUrl;
 	}
 
-	protected void setSmallerAvatarUrl(String smallerAvatarUrl) {
+	public void setSmallerAvatarUrl(String smallerAvatarUrl) {
 		this.smallerAvatarUrl = smallerAvatarUrl;
 	}
 
@@ -85,7 +85,7 @@ public class Person extends BrightkiteObject {
 		return tinyAvatarUrl;
 	}
 
-	protected void setTinyAvatarUrl(String tinyAvatarUrl) {
+	public void setTinyAvatarUrl(String tinyAvatarUrl) {
 		this.tinyAvatarUrl = tinyAvatarUrl;
 	}
 
@@ -97,7 +97,7 @@ public class Person extends BrightkiteObject {
 		this.lastCheckedIn = lastCheckedIn;
 	}
 
-	public void setLastCheckedIn(String lastCheckedInString) {
+	public void setLastCheckedInTimestamp(String lastCheckedInString) {
 		this.lastCheckedIn = BrightkiteUtils.parseDateTimeFromString(lastCheckedInString);
 	}
 

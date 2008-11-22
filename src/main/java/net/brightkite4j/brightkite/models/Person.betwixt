@@ -1,0 +1,10 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<info primitiveTypes='element'>
+	<element name='person'>
+		<element name="small_avatar_url" property="smallAvatarUrl" />
+		<element name="smaller_avatar_url" property="smallerAvatarUrl" />
+		<element name="tiny_avatar_url" property="tinyAvatarUrl" />
+		<element name="last_checked_in" property="lastCheckedInTimestamp" />
+		<addDefaults />
+	</element>
+</info>
