@@ -18,7 +18,7 @@ public abstract class BrightkiteObject {
 		return id;
 	}
 	
-	protected void setId(String id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 

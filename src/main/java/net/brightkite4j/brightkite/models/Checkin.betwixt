@@ -1,9 +1,10 @@
 <?xml version='1.0' encoding='UTF-8' ?>
-<info>
+<info primitiveTypes='element'>
+	<hide property='creator'/>
+	<hide property='place'/>
 	<element name='checkin'>
-		<element name="id" property="id" />
-		<element name="public" property="public" />
-		<element name="created_at_as_words" property="createdAtAsWords" />
 		<element name="created_at" property="createdAtTimestamp" />
+		<element name="created_at_as_words" property="createdAtAsWords" />
+		<addDefaults />
 	</element>
 </info>

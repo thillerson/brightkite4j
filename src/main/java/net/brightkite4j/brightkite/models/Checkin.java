@@ -13,7 +13,7 @@ public class Checkin extends BrightkiteObject {
 		return place;
 	}
 
-	protected void setPlace(Place place) {
+	public void setPlace(Place place) {
 		this.place = place;
 	}
 
@@ -21,7 +21,7 @@ public class Checkin extends BrightkiteObject {
 		return creator;
 	}
 
-	protected void setCreator(Person creator) {
+	public void setCreator(Person creator) {
 		this.creator = creator;
 	}
 
@@ -29,7 +29,7 @@ public class Checkin extends BrightkiteObject {
 		return _public;
 	}
 
-	protected void setPublic(boolean _public) {
+	public void setPublic(boolean _public) {
 		this._public = _public;
 	}
 	
