@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<info primitiveTypes='element'>
+	<element name='friendship'>
+		<element name="created_at" property="createdAtTimestamp" />
+		<element name="post_email_notifications" property="postEmailNotifications" />
+		<element name="checkin_email_notifications" property="checkinEmailNotifications" />
+		<element name="post_stream_feeding" property="postStreamFeeding" />
+		<element name="checkin_stream_feeding" property="checkinStreamFeeding" />
+		<element name="post_sms_notifications" property="postSMSNotifications" />
+		<element name="checkin_sms_notifications" property="checkinSMSNotifications" />
+		<addDefaults />
+	</element>
+</info>

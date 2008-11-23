@@ -1,5 +1,5 @@
 <person>
-	<last_checked_in nil="true"></last_checked_in>
+	<last_checked_in type="datetime">2008-07-10T20:08:35Z</last_checked_in>
 	<age nil="true"></age>
 	<fullname nil="true"></fullname>
 	<login>FrankZappa</login>

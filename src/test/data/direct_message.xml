@@ -1,0 +1,20 @@
+<direct_message>
+	<body>Nudge Nudge! This would be a good time to check in and post something, I'm wondering what you're up to.</body>
+	<created_at_as_words>19 days</created_at_as_words>
+	<status>unread</status>
+	<sender>
+		<fullname></fullname>
+		<login>firetoad</login>
+		<small_avatar_url>/images/default_user_avatar_small.png</small_avatar_url>
+		<smaller_avatar_url>/images/default_user_avatar_smaller.png</smaller_avatar_url>
+		<tiny_avatar_url>/images/default_user_avatar_tiny.png</tiny_avatar_url>
+	</sender>
+	<recipient>
+		<fullname>Me!</fullname>
+		<login>mike</login>
+		<small_avatar_url>/images/default_user_avatar_small.png</small_avatar_url>
+		<smaller_avatar_url>/images/default_user_avatar_smaller.png</smaller_avatar_url>
+		<tiny_avatar_url>/images/default_user_avatar_tiny.png</tiny_avatar_url>
+	</recipient>
+	<created_at type="datetime">2008-06-20T21:33:28Z</created_at>
+</direct_message>

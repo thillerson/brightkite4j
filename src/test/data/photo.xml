@@ -1,0 +1,24 @@
+<photo>
+	<created_at type="datetime">2008-07-03T19:53:58Z</created_at>
+	<creator>
+		<smaller_avatar_url>/images/user/avatar/2292/me-smaller.png</smaller_avatar_url>
+		<login>mcollins</login>
+		<tiny_avatar_url>/images/user/avatar/2292/me-tiny.png</tiny_avatar_url>
+		<fullname>M. Collins</fullname>
+		<small_avatar_url>/images/user/avatar/2292/me-small.png</small_avatar_url>
+	</creator>
+	<public type="boolean">true</public>
+	<about type="boolean">false</about>
+	<created_at_as_words>7 days</created_at_as_words>
+	<place>
+		<name>Brightkite HQ</name>
+		<longitude>-104.982480</longitude>
+		<latitude>39.762146</latitude>
+		<scope>address</scope>
+		<id>356a192b7913b04c54574d18c28d46e6395428ab</id>
+		<display_location>2911 Walnut St, Denver, CO 80205, USA</display_location>
+	</place>
+	<photo>http://brightkite.com/images/photo_object/photos/4/0/402907/elnino33.jpg</photo>
+	<body>El Niño</body>
+	<id>3a76426bffc90ffae044d5b29b10be6350a27397</id>
+</photo>

@@ -1,0 +1,24 @@
+<friendship>
+	<post_email_notifications type="boolean">false</post_email_notifications>
+	<trusted type="boolean">false</trusted>
+	<checkin_stream_feeding type="boolean">true</checkin_stream_feeding>
+	<checkin_sms_notifications type="boolean">false</checkin_sms_notifications>
+	<friendable>
+		<fullname></fullname>
+		<login>firetoad</login>
+		<small_avatar_url>/images/default_user_avatar_small.png</small_avatar_url>
+		<smaller_avatar_url>/images/default_user_avatar_smaller.png</smaller_avatar_url>
+		<tiny_avatar_url>/images/default_user_avatar_tiny.png</tiny_avatar_url>
+	</friendable>
+	<user>
+		<fullname>Me!</fullname>
+		<login>mike</login>
+		<small_avatar_url>/images/default_user_avatar_small.png</small_avatar_url>
+		<smaller_avatar_url>/images/default_user_avatar_smaller.png</smaller_avatar_url>
+		<tiny_avatar_url>/images/default_user_avatar_tiny.png</tiny_avatar_url>
+	</user>
+	<checkin_email_notifications type="boolean">false</checkin_email_notifications>
+	<post_stream_feeding type="boolean">true</post_stream_feeding>
+	<created_at type="datetime">2008-06-18T22:50:17Z</created_at>
+	<post_sms_notifications type="boolean">false</post_sms_notifications>
+</friendship>

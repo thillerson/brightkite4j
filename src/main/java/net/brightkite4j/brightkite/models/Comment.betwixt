@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<info primitiveTypes='element'>
+	<hide property="placeObject" />
+	<element name='comment'>
+		<addDefaults />
+	</element>
+</info>

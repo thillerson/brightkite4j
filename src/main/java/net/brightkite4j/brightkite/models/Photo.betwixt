@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<info primitiveTypes='element'>
+	<element name='photo'>
+		<element name="created_at_as_words" property="createdAtAsWords" />
+		<element name="created_at" property="createdAtTimestamp" />
+		<addDefaults />
+	</element>
+</info>

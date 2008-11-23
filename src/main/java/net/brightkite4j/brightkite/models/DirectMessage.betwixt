@@ -1,0 +1,10 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<info primitiveTypes='element'>
+	<element name='direct_message'>
+		<hide property="read" />
+		<hide property="unread" />
+		<element name='created_at' property='createdAtTimestamp' />
+		<element name='created_at_as_words' property='createdAtAsWords' />
+		<addDefaults />
+	</element>
+</info>

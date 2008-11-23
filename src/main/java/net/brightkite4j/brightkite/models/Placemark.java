@@ -1,5 +1,8 @@
 package net.brightkite4j.brightkite.models;
 
+import net.brightkite4j.brightkite.exceptions.DeserializationException;
+import net.brightkite4j.brightkite.utils.BrightkiteUtils;
+
 public class Placemark extends BrightkiteObject {
 	
 	private String placemark;
@@ -10,7 +13,7 @@ public class Placemark extends BrightkiteObject {
 		return placemark;
 	}
 
-	protected void setPlacemark(String placemark) {
+	public void setPlacemark(String placemark) {
 		this.placemark = placemark;
 	}
 
@@ -18,7 +21,7 @@ public class Placemark extends BrightkiteObject {
 		return user;
 	}
 
-	protected void setUser(Person user) {
+	public void setUser(Person user) {
 		this.user = user;
 	}
 
@@ -26,8 +29,17 @@ public class Placemark extends BrightkiteObject {
 		return place;
 	}
 
-	protected void setPlace(Place place) {
+	public void setPlace(Place place) {
 		this.place = place;
+	}
+	
+	public final static Placemark fromXML(String xml) {
+		try {
+			Placemark placemark = (Placemark)BrightkiteUtils.fromXML(xml, Placemark.class);
+			return placemark;
+		} catch (Exception e) {
+			throw new DeserializationException("Could not deserialize Placemark.", e);
+		}
 	}
 
 }

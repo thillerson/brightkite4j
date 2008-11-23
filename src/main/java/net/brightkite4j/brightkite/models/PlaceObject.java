@@ -8,14 +8,14 @@ public abstract class PlaceObject extends BrightkiteObject {
 	private boolean _public;
 	private boolean about;
 
-	public abstract boolean isNote();
-	public abstract boolean isPhoto();
+	public abstract boolean aNote();
+	public abstract boolean aPhoto();
 	
 	public String getBody() {
 		return body;
 	}
 
-	protected void setBody(String body) {
+	public void setBody(String body) {
 		this.body = body;
 	}
 
@@ -23,7 +23,7 @@ public abstract class PlaceObject extends BrightkiteObject {
 		return creator;
 	}
 
-	protected void setCreator(Person creator) {
+	public void setCreator(Person creator) {
 		this.creator = creator;
 	}
 
@@ -31,7 +31,7 @@ public abstract class PlaceObject extends BrightkiteObject {
 		return place;
 	}
 
-	protected void setPlace(Place place) {
+	public void setPlace(Place place) {
 		this.place = place;
 	}
 
@@ -39,7 +39,7 @@ public abstract class PlaceObject extends BrightkiteObject {
 		return _public;
 	}
 
-	protected void setPublic(boolean _public) {
+	public void setPublic(boolean _public) {
 		this._public = _public;
 	}
 
@@ -47,7 +47,7 @@ public abstract class PlaceObject extends BrightkiteObject {
 		return about;
 	}
 
-	protected void setAbout(boolean about) {
+	public void setAbout(boolean about) {
 		this.about = about;
 	}
 	

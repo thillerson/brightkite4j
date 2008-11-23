@@ -1,5 +1,8 @@
 package net.brightkite4j.brightkite.models;
 
+import net.brightkite4j.brightkite.exceptions.DeserializationException;
+import net.brightkite4j.brightkite.utils.BrightkiteUtils;
+
 public class Friendship extends BrightkiteObject {
 	
 	private Person user;
@@ -16,7 +19,7 @@ public class Friendship extends BrightkiteObject {
 		return user;
 	}
 
-	protected void setUser(Person user) {
+	public void setUser(Person user) {
 		this.user = user;
 	}
 
@@ -24,7 +27,7 @@ public class Friendship extends BrightkiteObject {
 		return friendable;
 	}
 
-	protected void setFriendable(Person friendable) {
+	public void setFriendable(Person friendable) {
 		this.friendable = friendable;
 	}
 
@@ -32,7 +35,7 @@ public class Friendship extends BrightkiteObject {
 		return trusted;
 	}
 
-	protected void setTrusted(boolean trusted) {
+	public void setTrusted(boolean trusted) {
 		this.trusted = trusted;
 	}
 
@@ -40,7 +43,7 @@ public class Friendship extends BrightkiteObject {
 		return checkinStreamFeeding;
 	}
 
-	protected void setCheckinStreamFeeding(boolean checkinStreamFeeding) {
+	public void setCheckinStreamFeeding(boolean checkinStreamFeeding) {
 		this.checkinStreamFeeding = checkinStreamFeeding;
 	}
 
@@ -48,7 +51,7 @@ public class Friendship extends BrightkiteObject {
 		return checkinSMSNotifications;
 	}
 
-	protected void setCheckinSMSNotifications(boolean checkinSMSNotifications) {
+	public void setCheckinSMSNotifications(boolean checkinSMSNotifications) {
 		this.checkinSMSNotifications = checkinSMSNotifications;
 	}
 
@@ -56,7 +59,7 @@ public class Friendship extends BrightkiteObject {
 		return checkinEmailNotifications;
 	}
 
-	protected void setCheckinEmailNotifications(boolean checkinEmailNotifications) {
+	public void setCheckinEmailNotifications(boolean checkinEmailNotifications) {
 		this.checkinEmailNotifications = checkinEmailNotifications;
 	}
 
@@ -64,7 +67,7 @@ public class Friendship extends BrightkiteObject {
 		return postStreamFeeding;
 	}
 
-	protected void setPostStreamFeeding(boolean postStreamFeeding) {
+	public void setPostStreamFeeding(boolean postStreamFeeding) {
 		this.postStreamFeeding = postStreamFeeding;
 	}
 
@@ -72,7 +75,7 @@ public class Friendship extends BrightkiteObject {
 		return postSMSNotifications;
 	}
 
-	protected void setPostSMSNotifications(boolean postSMSNotifications) {
+	public void setPostSMSNotifications(boolean postSMSNotifications) {
 		this.postSMSNotifications = postSMSNotifications;
 	}
 
@@ -82,6 +85,15 @@ public class Friendship extends BrightkiteObject {
 
 	protected void setPostEmailNotifications(boolean postEmailNotifications) {
 		this.postEmailNotifications = postEmailNotifications;
+	}
+	
+	public final static Friendship fromXML(String xml) {
+		try {
+			Friendship friendship = (Friendship)BrightkiteUtils.fromXML(xml, Friendship.class);
+			return friendship;
+		} catch (Exception e) {
+			throw new DeserializationException("Unable to desierialize Friendship.", e);
+		}
 	}
 
 }

@@ -1,0 +1,40 @@
+<person>
+    <notify_friendships_email type="boolean">true</notify_friendships_email>
+    <private_checkins_visibility_friends>city</private_checkins_visibility_friends>
+    <smaller_avatar_url>/images/default_user_avatar_smaller.png</smaller_avatar_url>
+    <nearby_post_email_notifications type="boolean">false</nearby_post_email_notifications>
+    <notify_direct_message_sms type="boolean">true</notify_direct_message_sms>
+    <disable_email type="boolean">false</disable_email>
+    <sex>male</sex>
+    <nearby_notifications_radius type="integer">200</nearby_notifications_radius>
+    <private_checkins_visibility_trusted_friends>exact</private_checkins_visibility_trusted_friends>
+    <tiny_avatar_url>/images/default_user_avatar_tiny.png</tiny_avatar_url>
+    <notify_twitter_photo type="boolean">true</notify_twitter_photo>
+    <disable_sms type="boolean">false</disable_sms>
+    <fullname/>
+    <nearby_notifications_scope>all</nearby_notifications_scope>
+    <private_posts_visibility>hide</private_posts_visibility>
+    <phone nil="true"/>
+    <description>
+        Just another Brightkite user.
+    </description>
+    <notify_direct_message_email type="boolean">true</notify_direct_message_email>
+    <notify_twitter_checkin type="boolean">true</notify_twitter_checkin>
+    <age nil="true"/>
+    <nearby_notifications_radius_text>block</nearby_notifications_radius_text>
+    <nearby_checkin_sms_notifications type="boolean">true</nearby_checkin_sms_notifications>
+    <private_posts_visibility_friends>city</private_posts_visibility_friends>
+    <privacy_mode>public</privacy_mode>
+    <login>firetoad</login>
+    <nearby_notifications type="boolean">true</nearby_notifications>
+    <nearby_checkin_email_notifications type="boolean">false</nearby_checkin_email_notifications>
+    <private_posts_visibility_trusted_friends>exact</private_posts_visibility_trusted_friends>
+    <website/>
+    <notify_friendships_sms type="boolean">false</notify_friendships_sms>
+    <private_checkins_visibility>city</private_checkins_visibility>
+    <notify_twitter_checkin_as_post type="boolean">true</notify_twitter_checkin_as_post>
+    <email>foo@bar.com</email>
+    <small_avatar_url>/images/default_user_avatar_small.png</small_avatar_url>
+    <nearby_post_sms_notifications type="boolean">true</nearby_post_sms_notifications>
+    <notify_twitter_text type="boolean">true</notify_twitter_text>
+</person>

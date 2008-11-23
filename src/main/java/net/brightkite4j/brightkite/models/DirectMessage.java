@@ -1,6 +1,12 @@
 package net.brightkite4j.brightkite.models;
 
+import net.brightkite4j.brightkite.exceptions.DeserializationException;
+import net.brightkite4j.brightkite.utils.BrightkiteUtils;
+
 public class DirectMessage extends BrightkiteObject {
+	
+	public static final String UNREAD_STATUS = "unread";
+	public static final String READ_STATUS = "read";
 	
 	private String body;
 	private String status;
@@ -11,7 +17,7 @@ public class DirectMessage extends BrightkiteObject {
 		return body;
 	}
 
-	protected void setBody(String body) {
+	public void setBody(String body) {
 		this.body = body;
 	}
 
@@ -19,7 +25,7 @@ public class DirectMessage extends BrightkiteObject {
 		return status;
 	}
 
-	protected void setStatus(String status) {
+	public void setStatus(String status) {
 		this.status = status;
 	}
 
@@ -27,7 +33,7 @@ public class DirectMessage extends BrightkiteObject {
 		return sender;
 	}
 
-	protected void setSender(Person sender) {
+	public void setSender(Person sender) {
 		this.sender = sender;
 	}
 
@@ -35,9 +41,32 @@ public class DirectMessage extends BrightkiteObject {
 		return recipient;
 	}
 
-	protected void setRecipient(Person recipient) {
+	public void setRecipient(Person recipient) {
 		this.recipient = recipient;
 	}
+	
+	public void markAsRead() {
+		status = READ_STATUS;
+	}
+	
+	public void markAsUnread() {
+		status = UNREAD_STATUS;
+	}
+	
+	public boolean isRead() {
+		return (status.equals(READ_STATUS));
+	}
 
+	public boolean isUnread() {
+		return (status.equals(UNREAD_STATUS));
+	}
+
+	public final static DirectMessage fromXML(String xml) {
+		try {
+			return (DirectMessage)BrightkiteUtils.fromXML(xml, DirectMessage.class);
+		} catch (Exception e) {
+			throw new DeserializationException("Unable to deserialize direct message.", e);
+		}
+	}
 	
 }

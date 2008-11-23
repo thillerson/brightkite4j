@@ -68,6 +68,229 @@ public class TestDeserialization {
 		assertEquals(40.044001, place.getLatitude(), 0.000001);
 	}
 	
+	@Test
+	public void testDeserializeDirectMessageFromXML() throws Exception {
+		String xml = readTestData("direct_message.xml");
+
+		DirectMessage directMessage = DirectMessage.fromXML(xml);  
+		
+		DateTime createdAt = directMessage.getCreatedAt();
+		Person sender = directMessage.getSender();
+		Person recipient = directMessage.getRecipient();
+		
+		DateTime expectedCreatedAt = new DateTime(
+				2008, 6, 20, 21, 33, 28, 0, DateTimeZone.UTC
+		);
+
+		//Checkin
+		assertEquals("Nudge Nudge! This would be a good time to check in and post something, I'm wondering what you're up to.", directMessage.getBody());
+		assertEquals("19 days", directMessage.getCreatedAtAsWords());
+		assertFalse(directMessage.isRead());
+		assertTrue(directMessage.isUnread());
+		assertTrue(expectedCreatedAt.isEqual(createdAt));
+		
+		//Sender
+		assertEquals("", sender.getFullname());
+		assertEquals("firetoad", sender.getLogin());
+		assertEquals("/images/default_user_avatar_small.png", sender.getSmallAvatarUrl());
+		assertEquals("/images/default_user_avatar_smaller.png", sender.getSmallerAvatarUrl());
+		assertEquals("/images/default_user_avatar_tiny.png", sender.getTinyAvatarUrl());
+		
+		//Recipient
+		assertEquals("Me!", recipient.getFullname());
+		assertEquals("mike", recipient.getLogin());
+		assertEquals("/images/default_user_avatar_small.png", recipient.getSmallAvatarUrl());
+		assertEquals("/images/default_user_avatar_smaller.png", recipient.getSmallerAvatarUrl());
+		assertEquals("/images/default_user_avatar_tiny.png", recipient.getTinyAvatarUrl());
+	}
+
+	@Test
+	public void testDeserializeFriendshipFromXML() throws Exception {
+		String xml = readTestData("friendship.xml");
+
+		Friendship friendship = Friendship.fromXML(xml);  
+		
+		DateTime createdAt = friendship.getCreatedAt();
+		Person friendable = friendship.getFriendable();
+		Person user = friendship.getUser();
+		
+		DateTime expectedCreatedAt = new DateTime(
+				2008, 6, 18, 22, 50, 17, 0, DateTimeZone.UTC
+		);
+
+		//Friendship
+		assertFalse(friendship.isPostEmailNotifications());
+		assertFalse(friendship.isCheckinEmailNotifications());
+		assertFalse(friendship.isTrusted());
+		assertTrue(friendship.isPostStreamFeeding());
+		assertTrue(friendship.isCheckinStreamFeeding());
+		assertFalse(friendship.isPostSMSNotifications());
+		assertFalse(friendship.isCheckinSMSNotifications());
+		assertTrue(expectedCreatedAt.isEqual(createdAt));
+		
+		//Friendable
+		assertEquals("", friendable.getFullname());
+		assertEquals("firetoad", friendable.getLogin());
+		assertEquals("/images/default_user_avatar_small.png", friendable.getSmallAvatarUrl());
+		assertEquals("/images/default_user_avatar_smaller.png", friendable.getSmallerAvatarUrl());
+		assertEquals("/images/default_user_avatar_tiny.png", friendable.getTinyAvatarUrl());
+		
+		//User
+		assertEquals("Me!", user.getFullname());
+		assertEquals("mike", user.getLogin());
+		assertEquals("/images/default_user_avatar_small.png", user.getSmallAvatarUrl());
+		assertEquals("/images/default_user_avatar_smaller.png", user.getSmallerAvatarUrl());
+		assertEquals("/images/default_user_avatar_tiny.png", user.getTinyAvatarUrl());
+	}
+
+	@Test
+	public void testDeserializePersonFromXML() throws Exception {
+		String xml = readTestData("person.xml");
+
+		Person person = Person.fromXML(xml);  
+		
+		DateTime expectedLastCheckedInAt = new DateTime(
+				2008, 7, 10, 20, 8, 35, 0, DateTimeZone.UTC
+		);
+
+		//Person
+		assertEquals("", person.getFullname());
+		assertEquals("FrankZappa", person.getLogin());
+		assertEquals("Totally sweet", person.getDescription());
+		assertEquals("", person.getWebsite());
+		assertEquals("", person.getAge());
+		assertEquals("unspecified", person.getSex());
+		assertEquals("/images/default_user_avatar_small.png", person.getSmallAvatarUrl());
+		assertEquals("/images/default_user_avatar_smaller.png", person.getSmallerAvatarUrl());
+		assertEquals("/images/default_user_avatar_tiny.png", person.getTinyAvatarUrl());
+		assertTrue(expectedLastCheckedInAt.isEqual(person.getLastCheckedIn()));
+	}
+
+	@Test
+	public void testDeserializePlaceFromXML() throws Exception {
+		String xml = readTestData("place.xml");
+
+		Place place = Place.fromXML(xml);
+		
+		//Place
+		assertEquals("da4b9237bacccdf19c0760cab7aec4a8359010b0", place.getId());
+		assertEquals("country", place.getScope());
+		assertEquals("USA", place.getName());
+		assertEquals("USA", place.getDisplayLocation());
+		assertEquals("", place.getStreet());
+		assertEquals("", place.getStreet2());
+		assertEquals("", place.getCity());
+		assertEquals("", place.getState());
+		assertEquals("", place.getZip());
+		assertEquals(-95.712891, place.getLongitude(), 0.000001);
+		assertEquals(37.090240, place.getLatitude(), 0.000001);
+	}
+
+	@Test
+	public void testDeserializePlacemarkFromXML() throws Exception {
+		String xml = readTestData("placemark.xml");
+
+		Placemark placemark = Placemark.fromXML(xml);
+		Place place = placemark.getPlace();
+		Person user = placemark.getUser();
+		
+		DateTime expectedCreatedAt = new DateTime(
+				2008, 6, 10, 16, 36, 31, 0, DateTimeZone.forOffsetHours(-6)
+		);
+		
+		//Placemark
+		//TODO: how do we set placemark?
+//		assertEquals("blee", placemark.getPlacemark());
+		assertTrue(expectedCreatedAt.isEqual(placemark.getCreatedAt()));
+		
+		//Place
+		assertEquals("356a192b7913b04c54574d18c28d46e6395428ab", place.getId());
+		assertEquals("address", place.getScope());
+		assertEquals("3850 Paseo del Prado St, Boulder, CO 80301, USA", place.getName());
+		assertEquals("3850 Paseo Del Prado St, Boulder, CO 80301, USA", place.getDisplayLocation());
+		assertEquals(-105.256712, place.getLongitude(), 0.000001);
+		assertEquals(40.044001, place.getLatitude(), 0.000001);
+		
+		//Person
+		assertEquals("", user.getFullname());
+		assertEquals("firetoad", user.getLogin());
+		assertEquals("/images/default_user_avatar_small.png", user.getSmallAvatarUrl());
+		assertEquals("/images/default_user_avatar_smaller.png", user.getSmallerAvatarUrl());
+		assertEquals("/images/default_user_avatar_tiny.png", user.getTinyAvatarUrl());
+	}
+
+	@Test
+	public void testDeserializeNoteFromXML() throws Exception {
+		String xml = readTestData("note.xml");
+
+		Note note = Note.fromXML(xml);
+		Place place = note.getPlace();
+		Person creator = note.getCreator();
+		
+		DateTime expectedCreatedAt = new DateTime(
+				2008, 7, 1, 16, 57, 37, 0, DateTimeZone.UTC
+		);
+		
+		//Note
+		assertEquals("fe2ef495a1152561572949784c16bf23abb28057", note.getId());
+		assertEquals("No para hasta conquistar! Vamos Espa–a!", note.getBody());
+		assertEquals("9 days", note.getCreatedAtAsWords());
+		assertTrue(note.isAbout());
+		assertTrue(note.isPublic());
+		assertTrue(expectedCreatedAt.isEqual(note.getCreatedAt()));
+		
+		//Place
+		assertEquals("da4b9237bacccdf19c0760cab7aec4a8359010b0", place.getId());
+		assertEquals("country", place.getScope());
+		assertEquals("USA", place.getName());
+		assertEquals("USA", place.getDisplayLocation());
+		assertEquals(-95.712891, place.getLongitude(), 0.000001);
+		assertEquals(37.090240, place.getLatitude(), 0.000001);
+		
+		//Person
+		assertEquals("", creator.getFullname());
+		assertEquals("FrankZappa", creator.getLogin());
+		assertEquals("/images/default_user_avatar_small.png", creator.getSmallAvatarUrl());
+		assertEquals("/images/default_user_avatar_smaller.png", creator.getSmallerAvatarUrl());
+		assertEquals("/images/default_user_avatar_tiny.png", creator.getTinyAvatarUrl());
+	}
+
+	@Test
+	public void testDeserializePhotoFromXML() throws Exception {
+		String xml = readTestData("photo.xml");
+
+		Photo photo = Photo.fromXML(xml);
+		Place place = photo.getPlace();
+		Person creator = photo.getCreator();
+		
+		DateTime expectedCreatedAt = new DateTime(
+				2008, 7, 3, 19, 53, 58, 0, DateTimeZone.UTC
+		);
+		
+		//Photo
+		assertEquals("3a76426bffc90ffae044d5b29b10be6350a27397", photo.getId());
+		assertEquals("El Ni–o", photo.getBody());
+		assertEquals("7 days", photo.getCreatedAtAsWords());
+		assertFalse(photo.isAbout());
+		assertTrue(photo.isPublic());
+		assertTrue(expectedCreatedAt.isEqual(photo.getCreatedAt()));
+		
+		//Place
+		assertEquals("356a192b7913b04c54574d18c28d46e6395428ab", place.getId());
+		assertEquals("address", place.getScope());
+		assertEquals("Brightkite HQ", place.getName());
+		assertEquals("2911 Walnut St, Denver, CO 80205, USA", place.getDisplayLocation());
+		assertEquals(-104.982480, place.getLongitude(), 0.000001);
+		assertEquals(39.762146, place.getLatitude(), 0.000001);
+		
+		//Person
+		assertEquals("M. Collins", creator.getFullname());
+		assertEquals("mcollins", creator.getLogin());
+		assertEquals("/images/user/avatar/2292/me-small.png", creator.getSmallAvatarUrl());
+		assertEquals("/images/user/avatar/2292/me-smaller.png", creator.getSmallerAvatarUrl());
+		assertEquals("/images/user/avatar/2292/me-tiny.png", creator.getTinyAvatarUrl());
+	}
+
 	private String TEST_DATA_DIR = "src/test/data/";
 
 	private int MAX_TEST_DATA_FILE_SIZE = 16384;

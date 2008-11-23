@@ -1,5 +1,8 @@
 package net.brightkite4j.brightkite.models;
 
+import net.brightkite4j.brightkite.exceptions.DeserializationException;
+import net.brightkite4j.brightkite.utils.BrightkiteUtils;
+
 public class Place extends BrightkiteObject {
 	
 	private String name;
@@ -100,6 +103,15 @@ public class Place extends BrightkiteObject {
 
 	public void setLongitude(double d) {
 		this.longitude = d;
+	}
+	
+	public final static Place fromXML(String xml) {
+		try {
+			Place place = (Place)BrightkiteUtils.fromXML(xml, Place.class);
+			return place;
+		} catch (Exception e) {
+			throw new DeserializationException("Could not deserialize Place.", e);
+		}
 	}
 
 }

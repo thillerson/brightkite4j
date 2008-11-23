@@ -1,5 +1,6 @@
 package net.brightkite4j.brightkite.models;
 
+import net.brightkite4j.brightkite.exceptions.DeserializationException;
 import net.brightkite4j.brightkite.utils.BrightkiteUtils;
 
 import org.joda.time.DateTime;
@@ -97,8 +98,21 @@ public class Person extends BrightkiteObject {
 		this.lastCheckedIn = lastCheckedIn;
 	}
 
+	public String getLastCheckedInTimestamp() {
+		return lastCheckedIn.toString();
+	}
+	
 	public void setLastCheckedInTimestamp(String lastCheckedInString) {
 		this.lastCheckedIn = BrightkiteUtils.parseDateTimeFromString(lastCheckedInString);
+	}
+	
+	public final static Person fromXML(String xml) {
+		try {
+			Person person = (Person)BrightkiteUtils.fromXML(xml, Person.class);
+			return person;
+		} catch (Exception e) {
+			throw new DeserializationException("Cannot deserialize Person.", e);
+		}
 	}
 
 }
