@@ -1,5 +1,8 @@
 package net.brightkite4j.brightkite.models;
 
+import net.brightkite4j.brightkite.exceptions.DeserializationException;
+import net.brightkite4j.brightkite.utils.BrightkiteUtils;
+
 public class Comment extends BrightkiteObject {
 	
 	private PlaceObject placeObject;
@@ -28,6 +31,15 @@ public class Comment extends BrightkiteObject {
 
 	protected void setComment(String comment) {
 		this.comment = comment;
+	}
+	
+	public final static Comment fromXML(String xml) {
+		try {
+			Comment comment = (Comment)BrightkiteUtils.fromXML(xml, Comment.class);
+			return comment;
+		} catch (Exception e) {
+			throw new DeserializationException("Could not deserialize Comment.", e);
+		}
 	}
 
 }

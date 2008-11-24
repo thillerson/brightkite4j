@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.io.InputStream;
 
 import org.apache.commons.betwixt.io.BeanReader;
+import org.apache.commons.betwixt.strategy.ObjectStringConverter;
 import org.joda.time.DateTime;
 import org.joda.time.format.DateTimeFormatter;
 import org.joda.time.format.ISODateTimeFormat;
@@ -33,6 +34,8 @@ public class BrightkiteUtils {
 		InputStream blockXML = new ByteArrayInputStream(xml.getBytes());
 		BeanReader beanReader = new BeanReader( );
 		beanReader.registerBeanClass(clazz);
+		ObjectStringConverter converter = new BrightkiteObjectStringConverter();
+		beanReader.getBindingConfiguration().setObjectStringConverter(converter);
 		Object bean = beanReader.parse( blockXML );
 		return bean;
 	}

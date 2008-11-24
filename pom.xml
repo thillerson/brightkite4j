@@ -29,7 +29,7 @@
     <dependency>
 		<groupId>commons-betwixt</groupId>
 		<artifactId>commons-betwixt</artifactId>
-		<version>1.0-beta-1</version>
+		<version>0.8</version>
     </dependency>
     <dependency>
 		<groupId>commons-digester</groupId>

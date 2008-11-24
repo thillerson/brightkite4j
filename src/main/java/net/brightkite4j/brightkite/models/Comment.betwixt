@@ -1,7 +1,14 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <info primitiveTypes='element'>
-	<hide property="placeObject" />
 	<element name='comment'>
+		<hide property="placeObject" />
+		<element name="comment" property="comment">
+			<option>
+				<name>net.brightkite4j.elementSameAsParent</name>
+				<value>true</value>
+			</option>
+		</element>
+		<element name="created_at" property="createdAtTimestamp" />
 		<addDefaults />
 	</element>
 </info>

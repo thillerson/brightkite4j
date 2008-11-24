@@ -1,0 +1,48 @@
+<comment>
+	<place_object>
+		<created_at type="datetime">2008-07-03T19:53:58Z</created_at>
+		<creator>
+			<smaller_avatar_url>/images/user/avatar/2292/me-smaller.png</smaller_avatar_url>
+			<login>mcollins</login>
+			<tiny_avatar_url>/images/user/avatar/2292/me-tiny.png</tiny_avatar_url>
+			<fullname>M. Collins</fullname>
+			<small_avatar_url>/images/user/avatar/2292/me-small.png</small_avatar_url>
+		</creator>
+		<public type="boolean">true</public>
+		<about type="boolean">false</about>
+		<created_at_as_words>7 days</created_at_as_words>
+		<place>
+			<name>Brightkite HQ</name>
+			<longitude>-104.982480</longitude>
+			<latitude>39.762146</latitude>
+			<scope>address</scope>
+			<id>356a192b7913b04c54574d18c28d46e6395428ab</id>
+			<display_location>2911 Walnut St, Denver, CO 80205, USA</display_location>
+		</place>
+		<photo>http://brightkite.com/images/photo_object/photos/4/0/402907/elnino33.jpg</photo>
+		<body>El Niño</body>
+		<id>3a76426bffc90ffae044d5b29b10be6350a27397</id>
+	</place_object>
+	<user>
+		<last_checked_in type="datetime">2008-07-08T20:19:59Z</last_checked_in>
+		<age nil="true"></age>
+		<fullname></fullname>
+		<login>firetoad</login>
+		<website></website>
+		<description>GA:LEIR{JBGes[R*h30rheasOLFhESrtuhw2rt9hwet9q3784ht[q934hrtq[kehs;rf;ghkj[or239203h</description>
+		<small_avatar_url>/images/default_user_avatar_small.png</small_avatar_url>
+		<smaller_avatar_url>/images/default_user_avatar_smaller.png</smaller_avatar_url>
+		<sex>male</sex>
+		<tiny_avatar_url>/images/default_user_avatar_tiny.png</tiny_avatar_url>
+		<place>
+			<longitude>-104.982256</longitude>
+			<scope>address</scope>
+			<latitude>39.762314</latitude>
+			<name>2911 Walnut St, Denver, CO 80205, USA</name>
+			<display_location>2911 Walnut St, Denver, CO 80205, USA</display_location>
+			<id>1574bddb75c78a6fd2251d61e2993b5146201319</id>
+		</place>
+	</user>
+	<comment>wooo comment!</comment>
+	<created_at type="datetime">2008-06-12T21:59:27Z</created_at>
+</comment>

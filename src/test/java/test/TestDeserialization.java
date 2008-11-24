@@ -11,6 +11,7 @@ import net.brightkite4j.brightkite.models.*;
 
 import org.joda.time.DateTime;
 import org.joda.time.DateTimeZone;
+import org.junit.Ignore;
 import org.junit.Test;
 
 public class TestDeserialization {
@@ -53,7 +54,7 @@ public class TestDeserialization {
 		assertTrue(expectedCreatedAt.isEqual(createdAt));
 		
 		//Creator
-		assertEquals("", creator.getFullname());
+		assertNull(creator.getFullname());
 		assertEquals("firetoad", creator.getLogin());
 		assertEquals("/images/default_user_avatar_small.png", creator.getSmallAvatarUrl());
 		assertEquals("/images/default_user_avatar_smaller.png", creator.getSmallerAvatarUrl());
@@ -90,7 +91,7 @@ public class TestDeserialization {
 		assertTrue(expectedCreatedAt.isEqual(createdAt));
 		
 		//Sender
-		assertEquals("", sender.getFullname());
+		assertNull(sender.getFullname());
 		assertEquals("firetoad", sender.getLogin());
 		assertEquals("/images/default_user_avatar_small.png", sender.getSmallAvatarUrl());
 		assertEquals("/images/default_user_avatar_smaller.png", sender.getSmallerAvatarUrl());
@@ -129,7 +130,7 @@ public class TestDeserialization {
 		assertTrue(expectedCreatedAt.isEqual(createdAt));
 		
 		//Friendable
-		assertEquals("", friendable.getFullname());
+		assertNull(friendable.getFullname());
 		assertEquals("firetoad", friendable.getLogin());
 		assertEquals("/images/default_user_avatar_small.png", friendable.getSmallAvatarUrl());
 		assertEquals("/images/default_user_avatar_smaller.png", friendable.getSmallerAvatarUrl());
@@ -154,11 +155,11 @@ public class TestDeserialization {
 		);
 
 		//Person
-		assertEquals("", person.getFullname());
+		assertNull(person.getFullname());
 		assertEquals("FrankZappa", person.getLogin());
 		assertEquals("Totally sweet", person.getDescription());
-		assertEquals("", person.getWebsite());
-		assertEquals("", person.getAge());
+		assertNull(person.getWebsite());
+		assertNull(person.getAge());
 		assertEquals("unspecified", person.getSex());
 		assertEquals("/images/default_user_avatar_small.png", person.getSmallAvatarUrl());
 		assertEquals("/images/default_user_avatar_smaller.png", person.getSmallerAvatarUrl());
@@ -177,11 +178,11 @@ public class TestDeserialization {
 		assertEquals("country", place.getScope());
 		assertEquals("USA", place.getName());
 		assertEquals("USA", place.getDisplayLocation());
-		assertEquals("", place.getStreet());
-		assertEquals("", place.getStreet2());
-		assertEquals("", place.getCity());
-		assertEquals("", place.getState());
-		assertEquals("", place.getZip());
+		assertNull(place.getStreet());
+		assertNull(place.getStreet2());
+		assertNull(place.getCity());
+		assertNull(place.getState());
+		assertNull(place.getZip());
 		assertEquals(-95.712891, place.getLongitude(), 0.000001);
 		assertEquals(37.090240, place.getLatitude(), 0.000001);
 	}
@@ -199,8 +200,7 @@ public class TestDeserialization {
 		);
 		
 		//Placemark
-		//TODO: how do we set placemark?
-//		assertEquals("blee", placemark.getPlacemark());
+		assertEquals("blee", placemark.getPlacemark());
 		assertTrue(expectedCreatedAt.isEqual(placemark.getCreatedAt()));
 		
 		//Place
@@ -212,7 +212,7 @@ public class TestDeserialization {
 		assertEquals(40.044001, place.getLatitude(), 0.000001);
 		
 		//Person
-		assertEquals("", user.getFullname());
+		assertNull(user.getFullname());
 		assertEquals("firetoad", user.getLogin());
 		assertEquals("/images/default_user_avatar_small.png", user.getSmallAvatarUrl());
 		assertEquals("/images/default_user_avatar_smaller.png", user.getSmallerAvatarUrl());
@@ -248,7 +248,7 @@ public class TestDeserialization {
 		assertEquals(37.090240, place.getLatitude(), 0.000001);
 		
 		//Person
-		assertEquals("", creator.getFullname());
+		assertNull(creator.getFullname());
 		assertEquals("FrankZappa", creator.getLogin());
 		assertEquals("/images/default_user_avatar_small.png", creator.getSmallAvatarUrl());
 		assertEquals("/images/default_user_avatar_smaller.png", creator.getSmallerAvatarUrl());
@@ -290,6 +290,14 @@ public class TestDeserialization {
 		assertEquals("/images/user/avatar/2292/me-smaller.png", creator.getSmallerAvatarUrl());
 		assertEquals("/images/user/avatar/2292/me-tiny.png", creator.getTinyAvatarUrl());
 	}
+
+	@Ignore
+	public void testDeserializeCommentFromXML() throws Exception {
+		String xml = readTestData("comment_with_note.xml");
+
+		Comment comment = Comment.fromXML(xml);
+		assertEquals("wooo comment!", comment.getComment());
+}
 
 	private String TEST_DATA_DIR = "src/test/data/";
 
