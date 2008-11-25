@@ -293,11 +293,19 @@ public class TestDeserialization {
 
 	@Ignore
 	public void testDeserializeCommentFromXML() throws Exception {
-		String xml = readTestData("comment_with_note.xml");
 
+		String xml = readTestData("comment_with_note.xml");
 		Comment comment = Comment.fromXML(xml);
+		assertTrue(comment.getPlaceObject().isANote());
+		Note note = (Note)comment.getPlaceObject();
 		assertEquals("wooo comment!", comment.getComment());
-}
+		
+		xml = readTestData("comment_with_photo.xml");
+		comment = Comment.fromXML(xml);
+		assertTrue(comment.getPlaceObject().isANote());
+		Photo photo = (Photo)comment.getPlaceObject();
+		assertEquals("wooo comment!", comment.getComment());
+	}
 
 	private String TEST_DATA_DIR = "src/test/data/";
 

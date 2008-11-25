@@ -2,6 +2,7 @@ package net.brightkite4j.brightkite.models;
 
 import net.brightkite4j.brightkite.utils.BrightkiteUtils;
 
+import org.apache.commons.betwixt.strategy.ClassNormalizer;
 import org.apache.commons.lang.builder.EqualsBuilder;
 import org.apache.commons.lang.builder.HashCodeBuilder;
 import org.apache.commons.lang.builder.ToStringBuilder;
@@ -42,6 +43,10 @@ public abstract class BrightkiteObject {
 	}
 	public void setCreatedAtAsWords(String createdAtAsWords) {
 		this.createdAtAsWords = createdAtAsWords;
+	}
+	
+	public ClassNormalizer getNormalizerForClass() {
+		return null;
 	}
 	
 	@Override

@@ -1,54 +1,18 @@
 package net.brightkite4j.brightkite.models;
 
-public abstract class PlaceObject extends BrightkiteObject {
-
-	private String body;
-	private Person creator;
-	private Place place;
-	private boolean _public;
-	private boolean about;
-
-	public abstract boolean aNote();
-	public abstract boolean aPhoto();
+public interface PlaceObject {
 	
-	public String getBody() {
-		return body;
-	}
+	public boolean isANote();
+	public boolean isAPhoto();
+	public String getBody();
+	public void setBody(String body);
+	public Person getCreator();
+	public void setCreator(Person creator);
+	public Place getPlace();
+	public void setPlace(Place place);
+	public boolean isPublic();
+	public void setPublic(boolean _public);
+	public boolean isAbout();
+	public void setAbout(boolean about);
 
-	public void setBody(String body) {
-		this.body = body;
-	}
-
-	public Person getCreator() {
-		return creator;
-	}
-
-	public void setCreator(Person creator) {
-		this.creator = creator;
-	}
-
-	public Place getPlace() {
-		return place;
-	}
-
-	public void setPlace(Place place) {
-		this.place = place;
-	}
-
-	public boolean isPublic() {
-		return _public;
-	}
-
-	public void setPublic(boolean _public) {
-		this._public = _public;
-	}
-
-	public boolean isAbout() {
-		return about;
-	}
-
-	public void setAbout(boolean about) {
-		this.about = about;
-	}
-	
 }

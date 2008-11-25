@@ -13,7 +13,7 @@ public class Comment extends BrightkiteObject {
 		return placeObject;
 	}
 
-	protected void setPlaceObject(PlaceObject placeObject) {
+	public void setPlaceObject(PlaceObject placeObject) {
 		this.placeObject = placeObject;
 	}
 
@@ -21,7 +21,7 @@ public class Comment extends BrightkiteObject {
 		return user;
 	}
 
-	protected void setUser(Person user) {
+	public void setUser(Person user) {
 		this.user = user;
 	}
 
@@ -29,7 +29,7 @@ public class Comment extends BrightkiteObject {
 		return comment;
 	}
 
-	protected void setComment(String comment) {
+	public void setComment(String comment) {
 		this.comment = comment;
 	}
 	
