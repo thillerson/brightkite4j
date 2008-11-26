@@ -5,13 +5,7 @@ import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 
-import net.brightkite4j.brightkite.models.Note;
-import net.brightkite4j.brightkite.models.Photo;
-
 import org.apache.commons.betwixt.io.BeanReader;
-import org.apache.commons.betwixt.io.read.BeanCreationChain;
-import org.apache.commons.betwixt.io.read.BeanCreationList;
-import org.apache.commons.betwixt.strategy.ListedClassNormalizer;
 import org.joda.time.DateTime;
 import org.joda.time.format.DateTimeFormatter;
 import org.joda.time.format.ISODateTimeFormat;
@@ -34,16 +28,20 @@ public class BrightkiteUtils {
 		}
 	}
 	
+	public final static Object fromXML(String xml, BeanReader beanReader) throws IntrospectionException, IOException, SAXException {
+		InputStream blockXML = new ByteArrayInputStream(xml.getBytes());
+		Object bean = beanReader.parse(blockXML);
+		return bean;
+	}
+
 	@SuppressWarnings("unchecked")
 	public final static Object fromXML(String xml, Class clazz) throws IntrospectionException, IOException, SAXException {
 		InputStream blockXML = new ByteArrayInputStream(xml.getBytes());
 		BeanReader beanReader = new BeanReader();
-		BeanCreationList chain = BeanCreationList.createStandardChain();
-		chain.insertBeanCreator(1, new PlaceObjectBeanCreator());
 		beanReader.registerBeanClass(clazz);
-		beanReader.getReadConfiguration().setBeanCreationChain(chain);
 		Object bean = beanReader.parse(blockXML);
 		return bean;
 	}
+	
 	
 }

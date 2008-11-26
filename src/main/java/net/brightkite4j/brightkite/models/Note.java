@@ -3,7 +3,7 @@ package net.brightkite4j.brightkite.models;
 import net.brightkite4j.brightkite.exceptions.DeserializationException;
 import net.brightkite4j.brightkite.utils.BrightkiteUtils;
 
-public class Note extends BrightkiteObject implements PlaceObject {
+public class Note extends BrightkiteObject {
 
 	private String body;
 	private Person creator;
@@ -11,14 +11,6 @@ public class Note extends BrightkiteObject implements PlaceObject {
 	private boolean _public;
 	private boolean about;
 	
-	public boolean isANote() {
-		return true;
-	}
-
-	public boolean isAPhoto() {
-		return false;
-	}
-
 	public String getBody() {
 		return body;
 	}

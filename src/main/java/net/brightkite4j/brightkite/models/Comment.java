@@ -5,18 +5,9 @@ import net.brightkite4j.brightkite.utils.BrightkiteUtils;
 
 public class Comment extends BrightkiteObject {
 	
-	private PlaceObject placeObject;
 	private Person user;
 	private String comment;
 	
-	public PlaceObject getPlaceObject() {
-		return placeObject;
-	}
-
-	public void setPlaceObject(PlaceObject placeObject) {
-		this.placeObject = placeObject;
-	}
-
 	public Person getUser() {
 		return user;
 	}

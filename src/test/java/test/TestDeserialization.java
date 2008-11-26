@@ -256,7 +256,7 @@ public class TestDeserialization {
 	}
 
 	@Test
-	public void testDeserializePhotoFromXML() throws Exception {
+	public void testDeserializePlaceObjectFromPhotoXML() throws Exception {
 		String xml = readTestData("photo.xml");
 
 		Photo photo = Photo.fromXML(xml);
@@ -294,17 +294,16 @@ public class TestDeserialization {
 	@Ignore
 	public void testDeserializeCommentFromXML() throws Exception {
 
-		String xml = readTestData("comment_with_note.xml");
+		String xml = readTestData("comment.xml");
 		Comment comment = Comment.fromXML(xml);
-		assertTrue(comment.getPlaceObject().isANote());
-		Note note = (Note)comment.getPlaceObject();
-		assertEquals("wooo comment!", comment.getComment());
-		
-		xml = readTestData("comment_with_photo.xml");
-		comment = Comment.fromXML(xml);
-		assertTrue(comment.getPlaceObject().isANote());
-		Photo photo = (Photo)comment.getPlaceObject();
-		assertEquals("wooo comment!", comment.getComment());
+		DateTime expectedCreatedAt = new DateTime(
+				2008, 11, 22, 2, 36, 1, 0, DateTimeZone.UTC
+		);
+
+		assertEquals("84", comment.getComment());
+		assertEquals("3 days", comment.getCreatedAtAsWords());
+		assertTrue(expectedCreatedAt.isEqual(comment.getCreatedAt()));
+		assertEquals("Adam Flater", comment.getUser().getFullname());
 	}
 
 	private String TEST_DATA_DIR = "src/test/data/";

@@ -3,15 +3,55 @@ package net.brightkite4j.brightkite.models;
 import net.brightkite4j.brightkite.exceptions.DeserializationException;
 import net.brightkite4j.brightkite.utils.BrightkiteUtils;
 
-public class Photo extends Note {
+public class Photo extends BrightkiteObject {
 	
 	private String photo;
+	private String body;
+	private Person creator;
+	private Place place;
+	private boolean _public;
+	private boolean about;
 	
-	@Override
-	public boolean isAPhoto() {
-		return false;
+	public String getBody() {
+		return body;
 	}
 
+	public void setBody(String body) {
+		this.body = body;
+	}
+
+	public Person getCreator() {
+		return creator;
+	}
+
+	public void setCreator(Person creator) {
+		this.creator = creator;
+	}
+
+	public Place getPlace() {
+		return place;
+	}
+
+	public void setPlace(Place place) {
+		this.place = place;
+	}
+
+	public boolean isPublic() {
+		return _public;
+	}
+
+	public void setPublic(boolean _public) {
+		this._public = _public;
+	}
+
+	public boolean isAbout() {
+		return about;
+	}
+
+	public void setAbout(boolean about) {
+		this.about = about;
+	}
+	
 	public String getPhoto() {
 		return photo;
 	}
