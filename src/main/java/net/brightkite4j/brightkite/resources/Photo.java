@@ -1,10 +1,11 @@
-package net.brightkite4j.brightkite.models;
+package net.brightkite4j.brightkite.resources;
 
 import net.brightkite4j.brightkite.exceptions.DeserializationException;
 import net.brightkite4j.brightkite.utils.BrightkiteUtils;
 
-public class Note extends BrightkiteObject {
-
+public class Photo extends BrightkiteObject {
+	
+	private String photo;
 	private String body;
 	private Person creator;
 	private Place place;
@@ -51,13 +52,21 @@ public class Note extends BrightkiteObject {
 		this.about = about;
 	}
 	
-	public static Note fromXML(String xml) {
+	public String getPhoto() {
+		return photo;
+	}
+
+	public void setPhoto(String photo) {
+		this.photo = photo;
+	}
+
+	public final static Photo fromXML(String xml) {
 		try {
-			Note note = (Note)BrightkiteUtils.fromXML(xml, Note.class);
-			return note;
+			Photo photo = (Photo)BrightkiteUtils.fromXML(xml, Photo.class);
+			return photo;
 		} catch (Exception e) {
-			throw new DeserializationException("Could not deserialize Note.", e);
+			throw new DeserializationException("Could not deserialize Photo.", e);
 		}
 	}
-	
+
 }

@@ -1,4 +1,4 @@
-package net.brightkite4j.brightkite.models;
+package net.brightkite4j.brightkite.resources;
 
 import net.brightkite4j.brightkite.utils.BrightkiteUtils;
 

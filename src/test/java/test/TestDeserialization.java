@@ -7,7 +7,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.io.Reader;
 
-import net.brightkite4j.brightkite.models.*;
+import net.brightkite4j.brightkite.resources.*;
 
 import org.joda.time.DateTime;
 import org.joda.time.DateTimeZone;
