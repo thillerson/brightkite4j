@@ -16,6 +16,7 @@ public class Person extends BrightkiteObject {
 	private String smallAvatarUrl;
 	private String smallerAvatarUrl;
 	private String tinyAvatarUrl;
+	private Place place;
 	private DateTime lastCheckedIn;
 
 	public String getLogin() {
@@ -106,6 +107,14 @@ public class Person extends BrightkiteObject {
 		this.lastCheckedIn = BrightkiteUtils.parseDateTimeFromString(lastCheckedInString);
 	}
 	
+	public Place getPlace() {
+		return place;
+	}
+
+	public void setPlace(Place place) {
+		this.place = place;
+	}
+
 	public final static Person fromXML(String xml) {
 		try {
 			Person person = (Person)BrightkiteUtils.fromXML(xml, Person.class);

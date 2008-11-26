@@ -3,7 +3,7 @@ package net.brightkite4j.brightkite.resources;
 import net.brightkite4j.brightkite.exceptions.DeserializationException;
 import net.brightkite4j.brightkite.utils.BrightkiteUtils;
 
-public class Photo extends BrightkiteObject {
+public class Photo extends PlaceObject {
 	
 	private String photo;
 	private String body;

@@ -3,7 +3,7 @@ package net.brightkite4j.brightkite.resources;
 import net.brightkite4j.brightkite.exceptions.DeserializationException;
 import net.brightkite4j.brightkite.utils.BrightkiteUtils;
 
-public class Note extends BrightkiteObject {
+public class Note extends PlaceObject {
 
 	private String body;
 	private Person creator;

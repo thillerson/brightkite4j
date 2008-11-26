@@ -8,6 +8,7 @@ public class Place extends BrightkiteObject {
 	private String name;
 	private String displayLocation;
 	private String scope;
+	private String shortcode;
 	private String street;
 	private String street2;
 	private String city;
@@ -39,6 +40,14 @@ public class Place extends BrightkiteObject {
 
 	public void setScope(String scope) {
 		this.scope = scope;
+	}
+
+	public String getShortcode() {
+		return shortcode;
+	}
+
+	public void setShortcode(String shortcode) {
+		this.shortcode = shortcode;
 	}
 
 	public String getStreet() {
