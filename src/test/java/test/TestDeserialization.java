@@ -2,11 +2,6 @@ package test;
 
 import static org.junit.Assert.*;
 
-import java.io.File;
-import java.io.FileReader;
-import java.io.IOException;
-import java.io.Reader;
-
 import net.brightkite4j.brightkite.resources.*;
 
 import org.joda.time.DateTime;
@@ -18,7 +13,7 @@ public class TestDeserialization {
 	
 	@Test
 	public void testDeserializeBlockFromXML() throws Exception {
-		String xml = readTestData("block.xml");
+		String xml = UtilsForTesting.readTestData("block.xml");
 
 		Block testBlock = Block.fromXML(xml);
 
@@ -35,7 +30,7 @@ public class TestDeserialization {
 	
 	@Test
 	public void testDeserializeCheckinFromXML() throws Exception {
-		String xml = readTestData("checkin.xml");
+		String xml = UtilsForTesting.readTestData("checkin.xml");
 
 		Checkin testCheckin = Checkin.fromXML(xml);  
 		
@@ -71,7 +66,7 @@ public class TestDeserialization {
 	
 	@Test
 	public void testDeserializeDirectMessageFromXML() throws Exception {
-		String xml = readTestData("direct_message.xml");
+		String xml = UtilsForTesting.readTestData("direct_message.xml");
 
 		DirectMessage directMessage = DirectMessage.fromXML(xml);  
 		
@@ -107,7 +102,7 @@ public class TestDeserialization {
 
 	@Test
 	public void testDeserializeFriendshipFromXML() throws Exception {
-		String xml = readTestData("friendship.xml");
+		String xml = UtilsForTesting.readTestData("friendship.xml");
 
 		Friendship friendship = Friendship.fromXML(xml);  
 		
@@ -146,7 +141,7 @@ public class TestDeserialization {
 
 	@Test
 	public void testDeserializePersonFromXML() throws Exception {
-		String xml = readTestData("person.xml");
+		String xml = UtilsForTesting.readTestData("person.xml");
 
 		Person person = Person.fromXML(xml);  
 		
@@ -169,7 +164,7 @@ public class TestDeserialization {
 
 	@Test
 	public void testDeserializePlaceFromXML() throws Exception {
-		String xml = readTestData("place.xml");
+		String xml = UtilsForTesting.readTestData("place.xml");
 
 		Place place = Place.fromXML(xml);
 		
@@ -189,7 +184,7 @@ public class TestDeserialization {
 
 	@Test
 	public void testDeserializePlacemarkFromXML() throws Exception {
-		String xml = readTestData("placemark.xml");
+		String xml = UtilsForTesting.readTestData("placemark.xml");
 
 		Placemark placemark = Placemark.fromXML(xml);
 		Place place = placemark.getPlace();
@@ -221,7 +216,7 @@ public class TestDeserialization {
 
 	@Test
 	public void testDeserializeNoteFromXML() throws Exception {
-		String xml = readTestData("note.xml");
+		String xml = UtilsForTesting.readTestData("note.xml");
 
 		Note note = Note.fromXML(xml);
 		Place place = note.getPlace();
@@ -257,7 +252,7 @@ public class TestDeserialization {
 
 	@Test
 	public void testDeserializePlaceObjectFromPhotoXML() throws Exception {
-		String xml = readTestData("photo.xml");
+		String xml = UtilsForTesting.readTestData("photo.xml");
 
 		Photo photo = Photo.fromXML(xml);
 		Place place = photo.getPlace();
@@ -294,7 +289,7 @@ public class TestDeserialization {
 	@Ignore
 	public void testDeserializeCommentFromXML() throws Exception {
 
-		String xml = readTestData("comment.xml");
+		String xml = UtilsForTesting.readTestData("comment.xml");
 		Comment comment = Comment.fromXML(xml);
 		DateTime expectedCreatedAt = new DateTime(
 				2008, 11, 22, 2, 36, 1, 0, DateTimeZone.UTC
@@ -304,29 +299,6 @@ public class TestDeserialization {
 		assertEquals("3 days", comment.getCreatedAtAsWords());
 		assertTrue(expectedCreatedAt.isEqual(comment.getCreatedAt()));
 		assertEquals("Adam Flater", comment.getUser().getFullname());
-	}
-
-	private String TEST_DATA_DIR = "src/test/data/";
-
-	private int MAX_TEST_DATA_FILE_SIZE = 16384;
-
-	private String readTestData(String fileName) throws IOException {
-		return readFromFile(new File(TEST_DATA_DIR, fileName));
-	}
-
-	private String readFromFile(File file) throws IOException {
-		Reader is = new FileReader(file);
-		StringBuffer sb = new StringBuffer( );
-		char[] b = new char[MAX_TEST_DATA_FILE_SIZE];
-		int n;
-		
-		    // Read a block. If it gets any chars, append them.
-		while ((n = is.read(b)) > 0) {
-		    sb.append(b, 0, n);
-		}
-		
-		// Only construct the String object once, here.
-		return sb.toString( );
 	}
 
 }

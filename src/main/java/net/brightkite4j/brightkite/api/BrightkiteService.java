@@ -2,69 +2,75 @@ package net.brightkite4j.brightkite.api;
 
 import net.brightkite4j.brightkite.resources.*;
 
-interface BrightkiteService {
+public interface BrightkiteService {
 
-  boolean login(String username, String password);
-  void logout();
-  void getInvite(String email);
-  
-  Person getMe();
-  Person[] getMyFriends();
-  Person[] getMyPendingFriends();
-  Placemark[] getMyPlacemarks();
-  DirectMessage[] getMySentDirectMessages();
-  DirectMessage[] getMyRecievedDirectMessages();
-  Block[] getMyBlocks();
-  void changeMySettings(Person person);
-  
-  PlaceObject[] getFriendstream();
-  PlaceObject[] getNearbystream();
-  PlaceObject[] getMentions();
-  Comment[] getCommentstream();
-  
-  Checkin checkin(Place place);
-  void deleteCheckin(Checkin checkin);
+	public void setCredentials(String username, String password);
+	public void logout();
+	public void getInvite(String email);
 
-  Friendship makeFriendship(Friendship friendship);
-  void breakFriendship(Friendship friendship);
-  
-  DirectMessage dm(Person person);
-  DirectMessage directMessage(Person person);
-  void deleteDirectMessage(DirectMessage dm);
-  
-  Block blockPerson(Person person);
-  void deleteBlock(Block block);
-  
-  PlaceObject getPlaceObject(String id);
-  Note getNote(String id);
-  Photo getPhoto(String id);
-  Note leaveNote(Place place);
-  Photo leavePhoto(Place place);
-  void deletePlaceObject(PlaceObject placeObject);
-  PlaceObject[] searchObjects(String term);
-  
-  Comment getComment(String id);
-  Comment[] getCommentsAboutPlaceObject(PlaceObject placeObject);
-  Comment leaveComment(PlaceObject placeObject);
-  Comment leaveComment(PlaceObject placeObject, boolean watch);
-  void deleteComment(Comment comment);
-  
-  Person getPerson(String login);
-  Friendship getFriendshipForPerson(Person person);
-  Person[] searchPeople(String term);
-  Person[] getFriendsOfPerson(Person person);
-  Person[] getPendingFriendsOfPerson(Person person);
-  Note[] getNotesByPerson(Person person);
-  Photo[] getPhotosByPerson(Person person);
-  PlaceObject[] getPlaceObjectsByPerson(Person person);
-  
-  Place getPlace(String id);
-  Place[] searchPlaces(String term);
-  PlaceObject[] getPlaceObjectsAtPlace(Place place);
-  Person[] getPeopleAtPlace(Place place);
-  Person[] getPeopleAtPlace(Place place, Integer radius);
-  Person[] getPeopleAtPlace(Place place, Integer radius, Integer hoursAgo);
-  Placemark[] getPlacemarksAtPlace(Place place);
-  Checkin[] getCheckinsAtPlace(Place place);
+	public Person getMe();
+	public Person[] getMyFriends();
+	public Person[] getMyPendingFriends();
+	public Placemark[] getMyPlacemarks();
+	public DirectMessage[] getMySentDirectMessages();
+	public DirectMessage[] getMyRecievedDirectMessages();
+	public Block[] getMyBlocks();
+	public void changeMySettings(Person person);
+
+	public PlaceObject[] getFriendstream();
+	public PlaceObject[] getNearbystream();
+	public PlaceObject[] getMentions();
+	public Comment[] getCommentstream();
+
+	public Checkin checkin(Place place);
+	public void deleteCheckin(Checkin checkin);
+
+	public Friendship makeFriendship(Friendship friendship);
+	public void breakFriendship(Friendship friendship);
+
+	public DirectMessage dm(Person person);
+	public DirectMessage directMessage(Person person);
+	public void deleteDirectMessage(DirectMessage dm);
+
+	public Block blockPerson(Person person);
+	public void deleteBlock(Block block);
+
+	public PlaceObject getPlaceObject(String id);
+	public Note getNote(String id);
+	public Photo getPhoto(String id);
+	public Note leaveNote(Place place);
+	public Photo leavePhoto(Place place);
+	public void deletePlaceObject(PlaceObject placeObject);
+	public PlaceObject[] searchObjects(String term);
+
+	public Comment getComment(String id);
+	public Comment[] getCommentsAboutPlaceObject(PlaceObject placeObject);
+	public Comment leaveComment(PlaceObject placeObject);
+	public Comment leaveComment(PlaceObject placeObject, boolean watch);
+	public void deleteComment(Comment comment);
+
+	public Person getPerson(String login);
+	public Friendship getFriendshipForPerson(Person person);
+	public Person[] searchPeople(String term);
+	public Person[] getFriendsOfPerson(Person person);
+	public Person[] getPendingFriendsOfPerson(Person person);
+	public Note[] getNotesByPerson(Person person);
+	public Photo[] getPhotosByPerson(Person person);
+	public PlaceObject[] getPlaceObjectsByPerson(Person person);
+
+	public Place getPlace(String id);
+	public Place[] searchPlaces(String term);
+	public PlaceObject[] getPlaceObjectsAtPlace(Place place);
+	public Person[] getPeopleAtPlace(Place place);
+	public Person[] getPeopleAtPlace(Place place, Integer radius);
+	public Person[] getPeopleAtPlace(Place place, Integer radius, Integer hoursAgo);
+	public Placemark[] getPlacemarksAtPlace(Place place);
+	public Checkin[] getCheckinsAtPlace(Place place);
+	
+	public void setHttpService(HTTPService service);
+	public HTTPService getHttpService();
+	public MeXMLService getMeService();
+	public void setMeService(MeXMLService meService);
+
   
 }
