@@ -8,6 +8,7 @@ import java.util.List;
 import net.brightkite4j.brightkite.api.Brightkite;
 import net.brightkite4j.brightkite.api.HTTPService;
 import net.brightkite4j.brightkite.resources.Person;
+import net.brightkite4j.brightkite.resources.Photo;
 import net.brightkite4j.brightkite.resources.PlaceObject;
 
 import org.joda.time.DateTime;
@@ -68,6 +69,10 @@ public class TestServiceCalls {
 		List<PlaceObject> streamList = bk.getFriendstream();
 		
 		assertEquals(3, streamList.size());
+		Photo photo = (Photo)streamList.get(0);
+		// couple spot checks
+		assertEquals("Hooch", photo.getBody());
+		assertEquals("Jim Bob", photo.getCreator().getFullname());
 		verify(service);
 	}
 

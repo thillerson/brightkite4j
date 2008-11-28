@@ -71,8 +71,5 @@ public interface BrightkiteService {
 	
 	public void setHttpService(HTTPService service);
 	public HTTPService getHttpService();
-	public MeXMLService getMeService();
-	public void setMeService(MeXMLService meService);
-
   
 }
