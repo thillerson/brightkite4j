@@ -7,6 +7,7 @@ import net.brightkite4j.brightkite.resources.*;
 
 public class Brightkite implements BrightkiteService {
 	
+	public static final String URL_BASE = "http://brightkite.com";
 	private static Brightkite instance;
 	
 	private HTTPService httpService;
@@ -67,7 +68,7 @@ public class Brightkite implements BrightkiteService {
 		return null;
 	}
 	
-	public List<Block> getMyBlocks() {
+	public List<Person> getMyBlockedPeople() {
 		return null;
 	}
 	
@@ -81,15 +82,18 @@ public class Brightkite implements BrightkiteService {
 	}
 	
 	public List<PlaceObject> getNearbystream() {
-		return null;
+		authRequired();
+		return meService.getNearbystream();
 	}
 	
 	public List<PlaceObject> getMentions() {
-		return null;
+		authRequired();
+		return meService.getMentionstream();
 	}
 	
 	public List<Comment> getCommentstream() {
-		return null;
+		authRequired();
+		return meService.getCommentstream();
 	}
 	
 

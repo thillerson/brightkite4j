@@ -2,6 +2,7 @@
 <info primitiveTypes='element'>
 	<element name='comment'>
 		<element name="created_at" property="createdAtTimestamp" />
+		<element name="created_at_as_words" property="createdAtAsWords" />
 		<addDefaults />
 	</element>
 </info>
