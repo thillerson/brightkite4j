@@ -2,9 +2,13 @@ package test;
 
 import static org.junit.Assert.*;
 import static org.easymock.EasyMock.*;
+
+import java.util.List;
+
 import net.brightkite4j.brightkite.api.Brightkite;
 import net.brightkite4j.brightkite.api.HTTPService;
 import net.brightkite4j.brightkite.resources.Person;
+import net.brightkite4j.brightkite.resources.PlaceObject;
 
 import org.joda.time.DateTime;
 import org.joda.time.DateTimeZone;
@@ -43,6 +47,27 @@ public class TestServiceCalls {
 		assertEquals("/images/default_user_avatar_smaller.png", me.getSmallerAvatarUrl());
 		assertEquals("/images/default_user_avatar_tiny.png", me.getTinyAvatarUrl());
 		assertTrue(expectedLastCheckedInAt.isEqual(me.getLastCheckedIn()));
+		verify(service);
+	}
+
+	@Test
+	public void testGetFriendstream() throws Exception {
+		String xml = UtilsForTesting.readTestData("friendstream.xml");
+		String url = "http://brightkite.com/me/friendstream.xml";
+		
+		Brightkite bk = Brightkite.getInstance();
+		HTTPService service = getMockService();
+		service.setCredentials("foo", "bar");
+		service.hasCredentials();
+		expectLastCall().andReturn(true);
+		expect(service.get(eq(url))).andReturn(xml);
+		replay(service);
+		
+		bk.setHttpService(service);
+		bk.setCredentials("foo", "bar");
+		List<PlaceObject> streamList = bk.getFriendstream();
+		
+		assertEquals(3, streamList.size());
 		verify(service);
 	}
 

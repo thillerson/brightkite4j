@@ -298,7 +298,7 @@ public class TestDeserialization {
 		assertEquals("84", comment.getComment());
 		assertEquals("3 days", comment.getCreatedAtAsWords());
 		assertTrue(expectedCreatedAt.isEqual(comment.getCreatedAt()));
-		assertEquals("Adam Flater", comment.getUser().getFullname());
+		assertEquals("Jim Bob", comment.getUser().getFullname());
 	}
 
 }

@@ -1,5 +1,7 @@
 package net.brightkite4j.brightkite.api;
 
+import java.util.List;
+
 import net.brightkite4j.brightkite.exceptions.ServiceException;
 import net.brightkite4j.brightkite.resources.*;
 
@@ -13,7 +15,7 @@ public class Brightkite implements BrightkiteService {
 	// You could use this for testing if you want
 //	public static void main(String[] args) {
 //		Brightkite bk = new Brightkite();
-//		System.out.println(bk.getMe());
+//		System.out.println(bk.getFriendstream());
 //	}
 
 	public static Brightkite getInstance() {
@@ -45,27 +47,27 @@ public class Brightkite implements BrightkiteService {
 		return meService.getMe();
 	}
 	
-	public Person[] getMyFriends() {
+	public List<Person> getMyFriends() {
 		return null;
 	}
 	
-	public Person[] getMyPendingFriends() {
+	public List<Person> getMyPendingFriends() {
 		return null;
 	}
 	
-	public Placemark[] getMyPlacemarks() {
+	public List<Placemark> getMyPlacemarks() {
 		return null;
 	}
 	
-	public DirectMessage[] getMySentDirectMessages() {
+	public List<DirectMessage> getMySentDirectMessages() {
 		return null;
 	}
 	
-	public DirectMessage[] getMyRecievedDirectMessages() {
+	public List<DirectMessage> getMyRecievedDirectMessages() {
 		return null;
 	}
 	
-	public Block[] getMyBlocks() {
+	public List<Block> getMyBlocks() {
 		return null;
 	}
 	
@@ -73,19 +75,20 @@ public class Brightkite implements BrightkiteService {
 	}
 	
 
-	public PlaceObject[] getFriendstream() {
+	public List<PlaceObject> getFriendstream() {
+		authRequired();
+		return meService.getFriendstream();
+	}
+	
+	public List<PlaceObject> getNearbystream() {
 		return null;
 	}
 	
-	public PlaceObject[] getNearbystream() {
+	public List<PlaceObject> getMentions() {
 		return null;
 	}
 	
-	public PlaceObject[] getMentions() {
-		return null;
-	}
-	
-	public Comment[] getCommentstream() {
+	public List<Comment> getCommentstream() {
 		return null;
 	}
 	
@@ -148,7 +151,7 @@ public class Brightkite implements BrightkiteService {
 	public void deletePlaceObject(PlaceObject placeObject) {
 	}
 	
-	public PlaceObject[] searchObjects(String term) {
+	public List<PlaceObject> searchObjects(String term) {
 		return null;
 	}
 	
@@ -157,7 +160,7 @@ public class Brightkite implements BrightkiteService {
 		return null;
 	}
 	
-	public Comment[] getCommentsAboutPlaceObject(PlaceObject placeObject) {
+	public List<Comment> getCommentsAboutPlaceObject(PlaceObject placeObject) {
 		return null;
 	}
 	
@@ -181,27 +184,27 @@ public class Brightkite implements BrightkiteService {
 		return null;
 	}
 	
-	public Person[] searchPeople(String term) {
+	public List<Person> searchPeople(String term) {
 		return null;
 	}
 	
-	public Person[] getFriendsOfPerson(Person person) {
+	public List<Person> getFriendsOfPerson(Person person) {
 		return null;
 	}
 	
-	public Person[] getPendingFriendsOfPerson(Person person) {
+	public List<Person> getPendingFriendsOfPerson(Person person) {
 		return null;
 	}
 	
-	public Note[] getNotesByPerson(Person person) {
+	public List<Note> getNotesByPerson(Person person) {
 		return null;
 	}
 	
-	public Photo[] getPhotosByPerson(Person person) {
+	public List<Photo> getPhotosByPerson(Person person) {
 		return null;
 	}
 	
-	public PlaceObject[] getPlaceObjectsByPerson(Person person) {
+	public List<PlaceObject> getPlaceObjectsByPerson(Person person) {
 		return null;
 	}
 	
@@ -210,31 +213,31 @@ public class Brightkite implements BrightkiteService {
 		return null;
 	}
 	
-	public Place[] searchPlaces(String term) {
+	public List<Place> searchPlaces(String term) {
 		return null;
 	}
 	
-	public PlaceObject[] getPlaceObjectsAtPlace(Place place) {
+	public List<PlaceObject> getPlaceObjectsAtPlace(Place place) {
 		return null;
 	}
 	
-	public Person[] getPeopleAtPlace(Place place) {
+	public List<Person> getPeopleAtPlace(Place place) {
 		return null;
 	}
 	
-	public Person[] getPeopleAtPlace(Place place, Integer radius) {
+	public List<Person> getPeopleAtPlace(Place place, Integer radius) {
 		return null;
 	}
 	
-	public Person[] getPeopleAtPlace(Place place, Integer radius, Integer hoursAgo) {
+	public List<Person> getPeopleAtPlace(Place place, Integer radius, Integer hoursAgo) {
 		return null;
 	}
 	
-	public Placemark[] getPlacemarksAtPlace(Place place) {
+	public List<Placemark> getPlacemarksAtPlace(Place place) {
 		return null;
 	}
 	
-	public Checkin[] getCheckinsAtPlace(Place place) {
+	public List<Checkin> getCheckinsAtPlace(Place place) {
 		return null;
 	}
 

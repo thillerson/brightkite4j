@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<info primitiveTypes='element'>
+	<element name='objects'>
+		<element property="note" updater="addNote" />
+		<element property="photo" updater="addPhoto" />
+		<addDefaults />
+	</element>
+</info>

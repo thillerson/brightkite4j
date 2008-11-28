@@ -4,11 +4,11 @@
 	<created_at_ts>1227321361.055359</created_at_ts>
 	<user>
 		<last_active_at type="datetime">2008-11-25T17:25:20Z</last_active_at>
-		<small_avatar_url>http://s3.amazonaws.com/bk_store/images/user/avatar/5d449df49a5211dd9951003048c10834/avatar-small.png</small_avatar_url>
-		<fullname>Adam Flater</fullname>
-		<smaller_avatar_url>http://s3.amazonaws.com/bk_store/images/user/avatar/5d449df49a5211dd9951003048c10834/avatar-smaller.png</smaller_avatar_url>
-		<login>adamflater</login>
-		<tiny_avatar_url>http://s3.amazonaws.com/bk_store/images/user/avatar/5d449df49a5211dd9951003048c10834/avatar-tiny.png</tiny_avatar_url>
+		<small_avatar_url>/images/default_user_avatar_small.png</small_avatar_url>
+		<fullname>Jim Bob</fullname>
+		<smaller_avatar_url>/images/default_user_avatar_smaller.png</smaller_avatar_url>
+		<login>jimmybob</login>
+		<tiny_avatar_url>/images/default_user_avatar_tiny.png</tiny_avatar_url>
 	</user>
 	<comment>84</comment>
 </comment>
