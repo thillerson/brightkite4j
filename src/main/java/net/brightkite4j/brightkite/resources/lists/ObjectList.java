@@ -1,39 +1,36 @@
-package net.brightkite4j.brightkite.resources;
+package net.brightkite4j.brightkite.resources.lists;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import net.brightkite4j.brightkite.exceptions.DeserializationException;
+import net.brightkite4j.brightkite.resources.Note;
+import net.brightkite4j.brightkite.resources.Photo;
+import net.brightkite4j.brightkite.resources.PlaceObject;
 import net.brightkite4j.brightkite.utils.BrightkiteUtils;
 
-public class Stream {
+public class ObjectList {
 
 	private List<PlaceObject> placeObjects;
 	private List<Note> notes;
 	private List<Photo> photos;
-	private List<Comment> comments;
 	
-	public Stream() {
+	public ObjectList() {
 		placeObjects = new ArrayList<PlaceObject>();
 		notes = new ArrayList<Note>();
 		photos = new ArrayList<Photo>();
-		comments = new ArrayList<Comment>();
 	}
 	
-	public List<PlaceObject> getPlaceObjects() {
+	public List<PlaceObject> getPlaceObjectList() {
 		return placeObjects;
 	}
 
-	public List<Note> getNoteStream() {
+	public List<Note> getNoteList() {
 		return notes;
 	}
 	
-	public List<Photo> getPhotoStream() {
+	public List<Photo> getPhotoList() {
 		return photos;
-	}
-	
-	public List<Comment> getCommentStream() {
-		return comments;
 	}
 	
 	public void addNote(Note note) {
@@ -46,16 +43,12 @@ public class Stream {
 		photos.add(photo);
 	}
 	
-	public void addComment(Comment comment) {
-		comments.add(comment);
-	}
-	
-	public final static Stream fromXML(String xml) {
+	public final static ObjectList fromXML(String xml) {
 		try {
-			Stream person = (Stream)BrightkiteUtils.fromXML(xml, Stream.class);
+			ObjectList person = (ObjectList)BrightkiteUtils.fromXML(xml, ObjectList.class);
 			return person;
 		} catch (Exception e) {
-			throw new DeserializationException("Cannot deserialize Stream.", e);
+			throw new DeserializationException("Cannot deserialize ObjectList.", e);
 		}
 	}
 	

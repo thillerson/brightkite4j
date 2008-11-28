@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<messages type="array">
+  <direct_message>
+    <status>read</status>
+    <body>You're a beautiful man</body>
+    <created_at_ts>1210955514.043213</created_at_ts>
+    <created_at_as_words>6 months</created_at_as_words>
+    <created_at type="datetime">2008-05-16T16:31:54Z</created_at>
+    <sender>
+      <small_avatar_url>http://s3.amazonaws.com/bk_store/images/user/avatar/1d65f39a9a5211dd95951003048c10834/avatar-small.png</small_avatar_url>
+      <fullname>Dave</fullname>
+      <smaller_avatar_url>http://s3.amazonaws.com/bk_store/images/user/avatar/1d65f39a9a5211dd95951003048c10834/avatar-smaller.png</smaller_avatar_url>
+      <tiny_avatar_url>http://s3.amazonaws.com/bk_store/images/user/avatar/1d65f39a9a5211dd95951003048c10834/avatar-tiny.png</tiny_avatar_url>
+      <login>davesnothere</login>
+      <last_active_at type="datetime">2008-11-23T05:30:17Z</last_active_at>
+    </sender>
+    <recipient>
+      <small_avatar_url>http://s3.amazonaws.com/bk_store/images/user/avatar/53d0c3929a5211dd9951003048c10834/avatar-small.png</small_avatar_url>
+      <fullname>Tony Hillerson</fullname>
+      <smaller_avatar_url>http://s3.amazonaws.com/bk_store/images/user/avatar/53d0c3929a5211dd9951003048c10834/avatar-smaller.png</smaller_avatar_url>
+      <tiny_avatar_url>http://s3.amazonaws.com/bk_store/images/user/avatar/53d0c3929a5211dd9951003048c10834/avatar-tiny.png</tiny_avatar_url>
+      <login>thillerson</login>
+      <last_active_at type="datetime">2008-11-28T22:26:54Z</last_active_at>
+    </recipient>
+  </direct_message>
+</messages>

@@ -5,6 +5,7 @@
 		<element name="smaller_avatar_url" property="smallerAvatarUrl" />
 		<element name="tiny_avatar_url" property="tinyAvatarUrl" />
 		<element name="last_checked_in" property="lastCheckedInTimestamp" />
+		<element name="last_checked_in_as_words" property="lastCheckedInAsWords" />
 		<addDefaults />
 	</element>
 </info>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects type="array">
+  <comment>
+    <comment>84</comment>
+    <created_at_as_words>6 days</created_at_as_words>
+    <created_at_ts>1227321361.055359</created_at_ts>
+    <created_at type="datetime">2008-11-22T02:36:01Z</created_at>
+    <user>
+      <fullname>Jim Bob</fullname>
+      <last_active_at type="datetime">2008-11-28T05:35:12Z</last_active_at>
+  	  <small_avatar_url>/images/default_user_avatar_small.png</small_avatar_url>
+	  <smaller_avatar_url>/images/default_user_avatar_smaller.png</smaller_avatar_url>
+	  <tiny_avatar_url>/images/default_user_avatar_tiny.png</tiny_avatar_url>
+      <login>jimmybob</login>
+    </user>
+  </comment>
+</objects>

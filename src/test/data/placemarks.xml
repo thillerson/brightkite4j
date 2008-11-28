@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<placemarks type="array">
+  <placemark>
+    <created_at type="datetime">2008-05-11T17:15:04-06:00</created_at>
+    <placemark>Snooze</placemark>
+    <place>
+      <shortcode>x4kp2cz</shortcode>
+      <longitude type="float">-104.989108</longitude>
+      <display_location>2262 Larimer St, Denver, CO 80205, USA</display_location>
+      <latitude type="float">39.755661</latitude>
+      <scope>address</scope>
+      <name>2262 Larimer St, Denver, CO 80205, USA</name>
+      <id>e91f423fab6e935a3a80f0ff907c5e6dbadddddb</id>
+    </place>
+    <user>
+      <fullname>Tony Hillerson</fullname>
+      <last_active_at type="datetime">2008-11-28T16:40:22Z</last_active_at>
+      <small_avatar_url>http://s3.amazonaws.com/bk_store/images/user/avatar/53d0c3929a5211dd9951003048c10834/avatar-small.png</small_avatar_url>
+      <smaller_avatar_url>http://s3.amazonaws.com/bk_store/images/user/avatar/53d0c3929a5211dd9951003048c10834/avatar-smaller.png</smaller_avatar_url>
+      <tiny_avatar_url>http://s3.amazonaws.com/bk_store/images/user/avatar/53d0c3929a5211dd9951003048c10834/avatar-tiny.png</tiny_avatar_url>
+      <login>thillerson</login>
+    </user>
+    <id type="integer">12455</id>
+  </placemark>
+  <placemark>
+    <created_at type="datetime">2008-05-07T12:02:40-06:00</created_at>
+    <placemark>Taza de Cafe</placemark>
+    <place>
+      <shortcode>xfn44bd</shortcode>
+      <longitude type="float">-105.034581</longitude>
+      <display_location>Lowell Blvd &amp; W 44th Ave, Denver, CO 80211, USA</display_location>
+      <latitude type="float">39.776718</latitude>
+      <scope>street</scope>
+      <name>Lowell Blvd &amp; W 44th Ave, Denver, CO 80211, USA</name>
+      <id>e16b1e5ce9aa93cb3225a7c501a24c06ca023809</id>
+    </place>
+    <user>
+      <fullname>Tony Hillerson</fullname>
+      <last_active_at type="datetime">2008-11-28T16:40:22Z</last_active_at>
+      <small_avatar_url>http://s3.amazonaws.com/bk_store/images/user/avatar/53d0c3929a5211dd9951003048c10834/avatar-small.png</small_avatar_url>
+      <smaller_avatar_url>http://s3.amazonaws.com/bk_store/images/user/avatar/53d0c3929a5211dd9951003048c10834/avatar-smaller.png</smaller_avatar_url>
+      <tiny_avatar_url>http://s3.amazonaws.com/bk_store/images/user/avatar/53d0c3929a5211dd9951003048c10834/avatar-tiny.png</tiny_avatar_url>
+      <login>thillerson</login>
+    </user>
+    <id type="integer">8934</id>
+  </placemark>
+  <placemark>
+    <created_at type="datetime">2008-05-06T17:43:05-06:00</created_at>
+    <placemark>EffectiveUI</placemark>
+    <place>
+      <shortcode>x7z53rh</shortcode>
+      <longitude type="float">-104.990968</longitude>
+      <display_location>2162 Market St, Denver, CO 80205, USA</display_location>
+      <latitude type="float">39.755152</latitude>
+      <scope>address</scope>
+      <name>2162 Market St, Denver, CO 80205, USA</name>
+      <id>cd08dbb279ba2d087806a638b12bd58838a147a1</id>
+    </place>
+    <user>
+      <fullname>Tony Hillerson</fullname>
+      <last_active_at type="datetime">2008-11-28T16:40:22Z</last_active_at>
+      <small_avatar_url>http://s3.amazonaws.com/bk_store/images/user/avatar/53d0c3929a5211dd9951003048c10834/avatar-small.png</small_avatar_url>
+      <smaller_avatar_url>http://s3.amazonaws.com/bk_store/images/user/avatar/53d0c3929a5211dd9951003048c10834/avatar-smaller.png</smaller_avatar_url>
+      <tiny_avatar_url>http://s3.amazonaws.com/bk_store/images/user/avatar/53d0c3929a5211dd9951003048c10834/avatar-tiny.png</tiny_avatar_url>
+      <login>thillerson</login>
+    </user>
+    <id type="integer">8184</id>
+  </placemark>
+</placemarks>

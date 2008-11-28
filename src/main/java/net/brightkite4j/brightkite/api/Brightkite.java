@@ -14,10 +14,10 @@ public class Brightkite implements BrightkiteService {
 	private MeXMLService meService;
 	
 	// You could use this for testing if you want
-//	public static void main(String[] args) {
-//		Brightkite bk = new Brightkite();
-//		System.out.println(bk.getFriendstream());
-//	}
+	public static void main(String[] args) {
+		Brightkite bk = new Brightkite();
+		System.out.println(bk.getNearbystream());
+	}
 
 	public static Brightkite getInstance() {
 		if (instance == null) {
@@ -49,27 +49,33 @@ public class Brightkite implements BrightkiteService {
 	}
 	
 	public List<Person> getMyFriends() {
-		return null;
+		authRequired();
+		return meService.getMyFriends();
 	}
 	
 	public List<Person> getMyPendingFriends() {
-		return null;
+		authRequired();
+		return meService.getMyPendingFriends();
 	}
 	
 	public List<Placemark> getMyPlacemarks() {
-		return null;
+		authRequired();
+		return meService.getMyPlacemarks();
 	}
 	
 	public List<DirectMessage> getMySentDirectMessages() {
-		return null;
+		authRequired();
+		return meService.getMySentDirectMessages();
 	}
 	
-	public List<DirectMessage> getMyRecievedDirectMessages() {
-		return null;
+	public List<DirectMessage> getMyReceivedDirectMessages() {
+		authRequired();
+		return meService.getMyReceivedDirectMessages();
 	}
 	
 	public List<Person> getMyBlockedPeople() {
-		return null;
+		authRequired();
+		return meService.getMyBlockedPeople();
 	}
 	
 	public void changeMySettings(Person person) {

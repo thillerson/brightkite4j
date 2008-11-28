@@ -8,10 +8,12 @@ import java.util.List;
 import net.brightkite4j.brightkite.api.Brightkite;
 import net.brightkite4j.brightkite.api.HTTPService;
 import net.brightkite4j.brightkite.resources.Comment;
+import net.brightkite4j.brightkite.resources.DirectMessage;
 import net.brightkite4j.brightkite.resources.Note;
 import net.brightkite4j.brightkite.resources.Person;
 import net.brightkite4j.brightkite.resources.Photo;
 import net.brightkite4j.brightkite.resources.PlaceObject;
+import net.brightkite4j.brightkite.resources.Placemark;
 
 import org.joda.time.DateTime;
 import org.joda.time.DateTimeZone;
@@ -162,6 +164,152 @@ public class TestServiceCalls {
 		verify(service);
 	}
 
+	@Test
+	public void testGetMyFriends() throws Exception {
+		String xml = UtilsForTesting.readTestData("friends.xml");
+		String url = "http://brightkite.com/me/friends.xml";
+		
+		Brightkite bk = Brightkite.getInstance();
+		HTTPService service = getMockService();
+		bk.setHttpService(service);
+		service.setCredentials("foo", "bar");
+		service.hasCredentials();
+		expectLastCall().andReturn(true);
+		expect(service.get(eq(url))).andReturn(xml);
+		replay(service);
+		
+		bk.setCredentials("foo", "bar");
+		List<Person> friendList = bk.getMyFriends();
+		
+		assertEquals(3, friendList.size());
+		Person friend = friendList.get(0);
+		assertEquals("Peacy P", friend.getFullname());
+		assertEquals("29 minutes", friend.getLastCheckedInAsWords());
+		assertEquals("3850 Paseo del Prado St, Boulder, CO 80301, USA", friend.getPlace().getName());
+		friend = friendList.get(1);
+		assertEquals("x2jsf95", friend.getPlace().getShortcode());
+		verify(service);
+	}
+
+	@Test
+	public void testGetMyPendingFriends() throws Exception {
+		String xml = UtilsForTesting.readTestData("pending_friends.xml");
+		String url = "http://brightkite.com/me/pending_friends.xml";
+		
+		Brightkite bk = Brightkite.getInstance();
+		HTTPService service = getMockService();
+		bk.setHttpService(service);
+		service.setCredentials("foo", "bar");
+		service.hasCredentials();
+		expectLastCall().andReturn(true);
+		expect(service.get(eq(url))).andReturn(xml);
+		replay(service);
+		
+		bk.setCredentials("foo", "bar");
+		List<Person> pendingFriendList = bk.getMyPendingFriends();
+		
+		assertEquals(1, pendingFriendList.size());
+		Person friend = pendingFriendList.get(0);
+		assertEquals("Joe Schmoe", friend.getFullname());
+		verify(service);
+	}
+
+	@Test
+	public void testGetMyBlockedPeople() throws Exception {
+		String xml = UtilsForTesting.readTestData("blocked_people.xml");
+		String url = "http://brightkite.com/me/blocked_people.xml";
+		
+		Brightkite bk = Brightkite.getInstance();
+		HTTPService service = getMockService();
+		bk.setHttpService(service);
+		service.setCredentials("foo", "bar");
+		service.hasCredentials();
+		expectLastCall().andReturn(true);
+		expect(service.get(eq(url))).andReturn(xml);
+		replay(service);
+		
+		bk.setCredentials("foo", "bar");
+		List<Person> blockedPeopleList = bk.getMyBlockedPeople();
+		
+		assertEquals(1, blockedPeopleList.size());
+		Person friend = blockedPeopleList.get(0);
+		assertEquals("Joe Schmoe", friend.getFullname());
+		verify(service);
+	}
+
+	@Test
+	public void testGetPlacemarks() throws Exception {
+		String xml = UtilsForTesting.readTestData("placemarks.xml");
+		String url = "http://brightkite.com/me/placemarks.xml";
+		
+		Brightkite bk = Brightkite.getInstance();
+		HTTPService service = getMockService();
+		bk.setHttpService(service);
+		service.setCredentials("foo", "bar");
+		service.hasCredentials();
+		expectLastCall().andReturn(true);
+		expect(service.get(eq(url))).andReturn(xml);
+		replay(service);
+		
+		bk.setCredentials("foo", "bar");
+		List<Placemark> placemarksList = bk.getMyPlacemarks();
+		
+		assertEquals(3, placemarksList.size());
+		Placemark placemark = placemarksList.get(0);
+		assertEquals("Snooze", placemark.getPlacemark());
+		assertEquals("thillerson", placemark.getUser().getLogin());
+		placemark = placemarksList.get(1);
+		assertEquals("xfn44bd", placemark.getPlace().getShortcode());
+		verify(service);
+	}
+	
+	@Test
+	public void testGetSentDirectMessages() throws Exception {
+		String xml = UtilsForTesting.readTestData("sent_messages.xml");
+		String url = "http://brightkite.com/me/sent_messages.xml";
+		
+		Brightkite bk = Brightkite.getInstance();
+		HTTPService service = getMockService();
+		bk.setHttpService(service);
+		service.setCredentials("foo", "bar");
+		service.hasCredentials();
+		expectLastCall().andReturn(true);
+		expect(service.get(eq(url))).andReturn(xml);
+		replay(service);
+		
+		bk.setCredentials("foo", "bar");
+		List<DirectMessage> sentMessageList = bk.getMySentDirectMessages();
+		
+		assertEquals(0, sentMessageList.size());
+		verify(service);
+	}
+	
+	@Test
+	public void testGetReceivedDirectMessages() throws Exception {
+		String xml = UtilsForTesting.readTestData("received_messages.xml");
+		String url = "http://brightkite.com/me/received_messages.xml";
+		
+		Brightkite bk = Brightkite.getInstance();
+		HTTPService service = getMockService();
+		bk.setHttpService(service);
+		service.setCredentials("foo", "bar");
+		service.hasCredentials();
+		expectLastCall().andReturn(true);
+		expect(service.get(eq(url))).andReturn(xml);
+		replay(service);
+		
+		bk.setCredentials("foo", "bar");
+		List<DirectMessage> receivedMessageList = bk.getMyReceivedDirectMessages();
+		
+		assertEquals(1, receivedMessageList.size());
+		DirectMessage message = receivedMessageList.get(0);
+		assertEquals("read", message.getStatus());
+		assertEquals("Dave", message.getSender().getFullname());
+		assertEquals("Tony Hillerson", message.getRecipient().getFullname());
+		
+		verify(service);
+	}
+	
 	private HTTPService getMockService() {
 		return createMock(HTTPService.class);
 	}

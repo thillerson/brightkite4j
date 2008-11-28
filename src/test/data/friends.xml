@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<friends type="array">
+  <person>
+    <fullname>Peacy P</fullname>
+    <last_active_at type="datetime">2008-11-28T18:06:08Z</last_active_at>
+	<small_avatar_url>/images/default_user_avatar_small.png</small_avatar_url>
+	<smaller_avatar_url>/images/default_user_avatar_smaller.png</smaller_avatar_url>
+	<tiny_avatar_url>/images/default_user_avatar_tiny.png</tiny_avatar_url>
+    <last_checked_in type="datetime">2008-11-28T18:06:08Z</last_checked_in>
+    <place>
+		<longitude>-105.256712</longitude>
+		<scope>address</scope>
+		<latitude>40.044001</latitude>
+		<name>3850 Paseo del Prado St, Boulder, CO 80301, USA</name>
+		<display_location>3850 Paseo Del Prado St, Boulder, CO 80301, USA</display_location>
+		<id>356a192b7913b04c54574d18c28d46e6395428ab</id>
+    </place>
+    <last_checked_in_as_words>29 minutes</last_checked_in_as_words>
+    <login>pp</login>
+  </person>
+  <person>
+    <fullname>Jim Bob</fullname>
+    <last_active_at type="datetime">2008-11-28T18:05:52Z</last_active_at>
+	<small_avatar_url>/images/default_user_avatar_small.png</small_avatar_url>
+	<smaller_avatar_url>/images/default_user_avatar_smaller.png</smaller_avatar_url>
+	<tiny_avatar_url>/images/default_user_avatar_tiny.png</tiny_avatar_url>
+    <last_checked_in type="datetime">2008-11-28T18:05:52Z</last_checked_in>
+    <place>
+      <shortcode>x2jsf95</shortcode>
+      <longitude type="float">-86.876253</longitude>
+      <display_location>Cancun International, Mexico</display_location>
+      <latitude type="float">21.036693</latitude>
+      <scope>address</scope>
+      <name>Cancun International</name>
+      <id>298f33aabd7711dda8e0003048c10834</id>
+    </place>
+    <last_checked_in_as_words>29 minutes</last_checked_in_as_words>
+    <login>jimmybob</login>
+  </person>
+  <person>
+    <fullname>Brady</fullname>
+    <last_active_at type="datetime">2008-11-28T03:22:48Z</last_active_at>
+	<small_avatar_url>/images/default_user_avatar_small.png</small_avatar_url>
+	<smaller_avatar_url>/images/default_user_avatar_smaller.png</smaller_avatar_url>
+	<tiny_avatar_url>/images/default_user_avatar_tiny.png</tiny_avatar_url>
+    <last_checked_in type="datetime">2008-11-28T00:05:27Z</last_checked_in>
+	<place>
+		<name>Brightkite HQ</name>
+		<longitude>-104.982480</longitude>
+		<latitude>39.762146</latitude>
+		<scope>address</scope>
+		<id>356a192b7913b04c54574d18c28d46e6395428ab</id>
+		<display_location>2911 Walnut St, Denver, CO 80205, USA</display_location>
+	</place>
+    <last_checked_in_as_words>about 19 hours</last_checked_in_as_words>
+    <login>brady</login>
+  </person>
+</friends>

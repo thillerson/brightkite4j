@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects type="array">
+  <photo>
+    <body>Hooch</body>
+    <public type="boolean">true</public>
+    <about type="boolean">false</about>
+    <created_at_as_words>22 minutes</created_at_as_words>
+    <created_at_ts>1227847825.334692</created_at_ts>
+    <photo>/images/photo_object/photos/1/6/165999/photo.jpg</photo>
+    <created_at type="datetime">2008-11-28T04:50:25Z</created_at>
+    <comments_count type="integer">0</comments_count>
+    <place>
+      <longitude type="float">-91.251605</longitude>
+      <display_location>United States Highway 53 &amp; State Highway 16, La Crosse, WI 54601, United States</display_location>
+      <latitude type="float">43.808938</latitude>
+      <scope>address</scope>
+      <name>United States Highway 53 &amp; State Highway 16, La Crosse, WI 54601, United States</name>
+      <id>30c2c616bd0711ddbc43003048c10834</id>
+    </place>
+    <creator>
+      <fullname>Jim Bob</fullname>
+      <small_avatar_url>/images/default_user_avatar_small.png</small_avatar_url>
+      <smaller_avatar_url>/images/default_user_avatar_smaller.png</smaller_avatar_url>
+      <tiny_avatar_url>/images/default_user_avatar_tiny.png</tiny_avatar_url>
+      <login>jimmybob</login>
+    </creator>
+    <id>122d978ebd0811ddbdfc003048c08019</id>
+  </photo>
+  <note>
+    <body>Turkey good!</body>
+    <public type="boolean">false</public>
+    <about type="boolean">false</about>
+    <created_at_as_words>29 minutes</created_at_as_words>
+    <created_at_ts>1227847378.965467</created_at_ts>
+    <created_at type="datetime">2008-11-28T04:42:58Z</created_at>
+    <comments_count type="integer">0</comments_count>
+    <place>
+      <longitude type="float">-106.817539</longitude>
+      <display_location></display_location>
+      <latitude type="float">39.191098</latitude>
+      <scope>city</scope>
+      <name>Aspen</name>
+      <id>ee89abaea22411dd927bf394a1b5bc3f</id>
+    </place>
+    <creator>
+      <fullname>Jim Bob</fullname>
+      <small_avatar_url>/images/default_user_avatar_small.png</small_avatar_url>
+      <smaller_avatar_url>/images/default_user_avatar_smaller.png</smaller_avatar_url>
+      <tiny_avatar_url>/images/default_user_avatar_tiny.png</tiny_avatar_url>
+      <login>jimmybob</login>
+    </creator>
+    <id>81f0d0abd0711ddb5b2003048c08011</id>
+  </note>
+  <photo>
+    <body>Our new training facility in Denver</body>
+    <public type="boolean">false</public>
+    <about type="boolean">false</about>
+    <created_at_as_words>35 minutes</created_at_as_words>
+    <created_at_ts>1227847062.606029</created_at_ts>
+    <photo>/images/photo_object/photos/1/6/165999/photo.jpg</photo>
+    <created_at type="datetime">2008-11-28T04:37:42Z</created_at>
+    <comments_count type="integer">0</comments_count>
+    <place>
+      <longitude type="float">-106.817539</longitude>
+      <display_location></display_location>
+      <latitude type="float">39.191098</latitude>
+      <scope>city</scope>
+      <name>Aspen</name>
+      <id>ee89abaea22411dd927bf394a1b5bc3f</id>
+    </place>
+    <creator>
+      <fullname>Jim Bob</fullname>
+      <small_avatar_url>/images/default_user_avatar_small.png</small_avatar_url>
+      <smaller_avatar_url>/images/default_user_avatar_smaller.png</smaller_avatar_url>
+      <tiny_avatar_url>/images/default_user_avatar_tiny.png</tiny_avatar_url>
+      <login>jimmybob</login>
+    </creator>
+    <id>4b8e6ee2bd0611ddb39c003048c08012</id>
+  </photo>
+</objects>

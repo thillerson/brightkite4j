@@ -15,7 +15,7 @@ public interface BrightkiteService {
 	public List<Person> getMyPendingFriends();
 	public List<Placemark> getMyPlacemarks();
 	public List<DirectMessage> getMySentDirectMessages();
-	public List<DirectMessage> getMyRecievedDirectMessages();
+	public List<DirectMessage> getMyReceivedDirectMessages();
 	public List<Person> getMyBlockedPeople();
 	public void changeMySettings(Person person);
 
