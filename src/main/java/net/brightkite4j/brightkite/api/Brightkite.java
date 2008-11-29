@@ -149,16 +149,16 @@ public class Brightkite implements BrightkiteService {
 		return null;
 	}
 	
-	public List<Placemark> getPlacemarksAtPlace(Place place) {
-		//TODO: implement
-		return null;
-	}
-	
 	public List<Checkin> getCheckinsAtPlace(Place place) {
 		//TODO: implement
 		return null;
 	}
 
+	public List<Placemark> getPlacemarksAtPlace(Place place) {
+		//TODO: implement
+		return null;
+	}
+	
 	public Friendship makeFriendship(Friendship friendship) {
 		//TODO: implement
 		return null;
