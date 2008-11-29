@@ -14,38 +14,31 @@ public class TestUtils {
 		assertEquals("", filter.toString());
 		assertFalse(filter.filterSet());
 
-		filter = new PlaceObjectFilter();
-		filter.setFilter(PlaceObjectFilter.NOTES);
+		filter = PlaceObjectFilter.createFilter(PlaceObjectFilter.NOTES);
 		assertTrue(filter.filterSet());
 		assertEquals("?filter=notes", filter.toString());
 
-		filter = new PlaceObjectFilter();
-		filter.setFilter(PlaceObjectFilter.PHOTOS);
+		filter = PlaceObjectFilter.createFilter(PlaceObjectFilter.PHOTOS);
 		assertTrue(filter.filterSet());
 		assertEquals("?filter=photos", filter.toString());
 
-		filter = new PlaceObjectFilter();
-		filter.setFilter(PlaceObjectFilter.CHECKINS);
+		filter = PlaceObjectFilter.createFilter(PlaceObjectFilter.CHECKINS);
 		assertTrue(filter.filterSet());
 		assertEquals("?filter=checkins", filter.toString());
 
-		filter = new PlaceObjectFilter();
-		filter.setFilter(PlaceObjectFilter.CHECKINS | PlaceObjectFilter.NOTES);
+		filter = PlaceObjectFilter.createFilter(PlaceObjectFilter.CHECKINS | PlaceObjectFilter.NOTES);
 		assertTrue(filter.filterSet());
 		assertEquals("?filter=notes,checkins", filter.toString());
 
-		filter = new PlaceObjectFilter();
-		filter.setFilter(PlaceObjectFilter.CHECKINS | PlaceObjectFilter.PHOTOS);
+		filter = PlaceObjectFilter.createFilter(PlaceObjectFilter.CHECKINS | PlaceObjectFilter.PHOTOS);
 		assertTrue(filter.filterSet());
 		assertEquals("?filter=photos,checkins", filter.toString());
 
-		filter = new PlaceObjectFilter();
-		filter.setFilter(PlaceObjectFilter.NOTES | PlaceObjectFilter.PHOTOS);
+		filter = PlaceObjectFilter.createFilter(PlaceObjectFilter.NOTES | PlaceObjectFilter.PHOTOS);
 		assertTrue(filter.filterSet());
 		assertEquals("?filter=notes,photos", filter.toString());
 
-		filter = new PlaceObjectFilter();
-		filter.setFilter(PlaceObjectFilter.NOTES | PlaceObjectFilter.PHOTOS | PlaceObjectFilter.CHECKINS);
+		filter = PlaceObjectFilter.createFilter(PlaceObjectFilter.NOTES | PlaceObjectFilter.PHOTOS | PlaceObjectFilter.CHECKINS);
 		assertTrue(filter.filterSet());
 		assertEquals("?filter=notes,photos,checkins", filter.toString());
 	}

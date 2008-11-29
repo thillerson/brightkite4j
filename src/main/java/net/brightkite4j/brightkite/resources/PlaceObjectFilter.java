@@ -11,8 +11,14 @@ public class PlaceObjectFilter {
 	
 	private int mask = 0;
 	
-	public void setFilter(int i) {
+	public static PlaceObjectFilter createFilter(int i) {
+		PlaceObjectFilter filter = new PlaceObjectFilter();
+		return filter.setFilter(i);
+	}
+	
+	public PlaceObjectFilter setFilter(int i) {
 		mask |= i;
+		return this;
 	}
 	
 	public boolean filterSet() {

@@ -116,7 +116,6 @@ public class Brightkite implements BrightkiteService {
 	public void deleteCheckin(Checkin checkin) {
 		//TODO: implement
 	}
-	
 
 	public Place getPlace(String id) {
 		return placeService.getPlace(id);
@@ -130,10 +129,33 @@ public class Brightkite implements BrightkiteService {
 		return null;
 	}
 	
+	@SuppressWarnings("unchecked")
+	public List<Note> getNotesAtPlace(Place place) {
+		return placeService.getPlaceObjectsAtPlace(place, PlaceObjectFilter.createFilter(PlaceObjectFilter.NOTES));
+	}
+
+	@SuppressWarnings("unchecked")
+	public List<Photo> getPhotosAtPlace(Place place) {
+		return placeService.getPlaceObjectsAtPlace(place, PlaceObjectFilter.createFilter(PlaceObjectFilter.PHOTOS));
+	}
+
+	@SuppressWarnings("unchecked")
+	public List<Checkin> getCheckinsAtPlace(Place place) {
+		return placeService.getPlaceObjectsAtPlace(place, PlaceObjectFilter.createFilter(PlaceObjectFilter.CHECKINS));
+	}
+
 	public List<PlaceObject> getPlaceObjectsAtPlace(Place place) {
-		return placeService.getPlaceObjectsAtPlace(place);
+		return getPlaceObjectsAtPlace(place, null);
 	}
 	
+	@SuppressWarnings("unchecked")
+	public List<PlaceObject> getPlaceObjectsAtPlace(Place place, PlaceObjectFilter filter) {
+		if (null == filter) {
+			filter = new PlaceObjectFilter();
+		}
+		return placeService.getPlaceObjectsAtPlace(place, filter);
+	}
+
 	public List<Person> getPeopleAtPlace(Place place) {
 		//TODO: implement
 		return null;
@@ -149,11 +171,6 @@ public class Brightkite implements BrightkiteService {
 		return null;
 	}
 	
-	public List<Checkin> getCheckinsAtPlace(Place place) {
-		//TODO: implement
-		return null;
-	}
-
 	public List<Placemark> getPlacemarksAtPlace(Place place) {
 		//TODO: implement
 		return null;

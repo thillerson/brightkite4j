@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--  these came from the brightkite public place feed for USA (da4b9237bacccdf19c0760cab7aec4a8359010b0) -->
+<objects type="array">
+  <note>
+    <body>Get you VA Home Loans here:
+http://www.socalvaloans.com</body>
+    <public type="boolean">true</public>
+    <about type="boolean">false</about>
+    <created_at_as_words>4 minutes</created_at_as_words>
+    <created_at_ts>1227927095.781037</created_at_ts>
+    <comments_count type="integer">2</comments_count>
+    <created_at type="datetime">2008-11-29T02:51:35Z</created_at>
+    <place>
+      <longitude type="float">-117.163841</longitude>
+      <display_location>San Diego, CA, USA</display_location>
+      <latitude type="float">32.718834</latitude>
+      <scope>city</scope>
+      <name>San Diego, CA, US</name>
+      <id>4728a26498a7441a03a375eb0280b65c24a8cbd9</id>
+    </place>
+    <creator>
+      <fullname>Simanda Home Solutons</fullname>
+      <small_avatar_url>http://brightkite.com/images/default_user_avatar_small.png</small_avatar_url>
+      <smaller_avatar_url>http://brightkite.com/images/default_user_avatar_smaller.png</smaller_avatar_url>
+      <tiny_avatar_url>http://brightkite.com/images/default_user_avatar_tiny.png</tiny_avatar_url>
+      <login>simanda</login>
+    </creator>
+    <id>a30bc9d4bdc011dd959a003048c0801e</id>
+  </note>
+  <note>
+    <body>Here early. Eating dinner. The tree is lovely! Too bad its not lit up yet.</body>
+    <public type="boolean">true</public>
+    <about type="boolean">false</about>
+    <created_at_as_words>6 minutes</created_at_as_words>
+    <created_at_ts>1227926989.776127</created_at_ts>
+    <comments_count type="integer">0</comments_count>
+    <created_at type="datetime">2008-11-29T02:49:49Z</created_at>
+    <place>
+      <longitude type="float">-118.359863</longitude>
+      <display_location>Torrance, CA, USA</display_location>
+      <latitude type="float">33.826216</latitude>
+      <scope>city</scope>
+      <name>Torrance, CA, US</name>
+      <id>14e7c3fe18fe6c317b09c7f9cd32a59f0718d7a0</id>
+    </place>
+    <creator>
+      <fullname>Star</fullname>
+      <small_avatar_url>http://s3.amazonaws.com/bk_store/images/user/avatar/f45200489a5111dd9951003048c10834/avatar-small.png</small_avatar_url>
+      <smaller_avatar_url>http://s3.amazonaws.com/bk_store/images/user/avatar/f45200489a5111dd9951003048c10834/avatar-smaller.png</smaller_avatar_url>
+      <tiny_avatar_url>http://s3.amazonaws.com/bk_store/images/user/avatar/f45200489a5111dd9951003048c10834/avatar-tiny.png</tiny_avatar_url>
+      <login>star</login>
+    </creator>
+    <id>63dcb8eabdc011dda5ea003048c0801e</id>
+  </note>
+  <note>
+    <body>Can't believe people can be as heartless as to rush a Walmart employee and kill him for cheap TV's. Our hearts go out to the family.</body>
+    <public type="boolean">true</public>
+    <about type="boolean">false</about>
+    <created_at_as_words>19 minutes</created_at_as_words>
+    <created_at_ts>1227926190.666092</created_at_ts>
+    <comments_count type="integer">1</comments_count>
+    <created_at type="datetime">2008-11-29T02:36:30Z</created_at>
+    <place>
+      <longitude type="float">-73.941586</longitude>
+      <display_location>Valley Cottage, NY, USA</display_location>
+      <latitude type="float">41.118372</latitude>
+      <scope>city</scope>
+      <name>Valley Cottage, NY, USA</name>
+      <id>009490e44139d04a217ca6dfef65113f59b8eac2</id>
+    </place>
+    <creator>
+      <fullname>Vinny Green</fullname>
+      <small_avatar_url>http://s3.amazonaws.com/bk_store/images/user/avatar/c94143e9a5211dd9951003048c10834/avatar-small.png</small_avatar_url>
+      <smaller_avatar_url>http://s3.amazonaws.com/bk_store/images/user/avatar/c94143e9a5211dd9951003048c10834/avatar-smaller.png</smaller_avatar_url>
+      <tiny_avatar_url>http://s3.amazonaws.com/bk_store/images/user/avatar/c94143e9a5211dd9951003048c10834/avatar-tiny.png</tiny_avatar_url>
+      <login>digitalfather</login>
+    </creator>
+    <id>878e34d2bdbe11ddbbcf003048c10834</id>
+  </note>
+  <note>
+    <body>Okay, after a slight delay...The Drill Down 067 is Recording NOW! See me at http://ping.fm/NTww7</body>
+    <public type="boolean">true</public>
+    <about type="boolean">false</about>
+    <created_at_as_words>26 minutes</created_at_as_words>
+    <created_at_ts>1227925792.013327</created_at_ts>
+    <comments_count type="integer">0</comments_count>
+    <created_at type="datetime">2008-11-29T02:29:52Z</created_at>
+    <place>
+      <longitude type="float">-118.232006</longitude>
+      <display_location>Glendale, CA, USA</display_location>
+      <latitude type="float">34.164972</latitude>
+      <scope>city</scope>
+      <name>Glendale, CA, US</name>
+      <id>d094700e379f0fb3b543e25c77f8e4b3e068f057</id>
+    </place>
+    <creator>
+      <fullname>Andrew Sorcini</fullname>
+      <small_avatar_url>http://s3.amazonaws.com/bk_store/images/user/avatar/fcbc52109a5111dd9951003048c10834/avatar-small.png</small_avatar_url>
+      <smaller_avatar_url>http://s3.amazonaws.com/bk_store/images/user/avatar/fcbc52109a5111dd9951003048c10834/avatar-smaller.png</smaller_avatar_url>
+      <tiny_avatar_url>http://s3.amazonaws.com/bk_store/images/user/avatar/fcbc52109a5111dd9951003048c10834/avatar-tiny.png</tiny_avatar_url>
+      <login>MrBabyMan</login>
+    </creator>
+    <id>9a02ede8bdbd11dd9f38003048c0801e</id>
+  </note>
+  <note>
+    <body>is really enjoying free Netflix via Xbox live.</body>
+    <public type="boolean">true</public>
+    <about type="boolean">false</about>
+    <created_at_as_words>27 minutes</created_at_as_words>
+    <created_at_ts>1227925695.756541</created_at_ts>
+    <comments_count type="integer">0</comments_count>
+    <created_at type="datetime">2008-11-29T02:28:15Z</created_at>
+    <place>
+      <longitude type="float">-77.014648</longitude>
+      <display_location>DC, USA</display_location>
+      <latitude type="float">38.893312</latitude>
+      <scope>state</scope>
+      <name>DC, USA</name>
+      <id>214b42078b5891c09ee432a77af09d555b988b78</id>
+    </place>
+    <creator>
+      <fullname>Anthony M Conte</fullname>
+      <small_avatar_url>http://s3.amazonaws.com/bk_store/images/user/avatar/105464e89a5211dd9951003048c10834/avatar-small.png</small_avatar_url>
+      <smaller_avatar_url>http://s3.amazonaws.com/bk_store/images/user/avatar/105464e89a5211dd9951003048c10834/avatar-smaller.png</smaller_avatar_url>
+      <tiny_avatar_url>http://s3.amazonaws.com/bk_store/images/user/avatar/105464e89a5211dd9951003048c10834/avatar-tiny.png</tiny_avatar_url>
+      <login>xapologiesx</login>
+    </creator>
+    <id>609102b6bdbd11dd9169003048c10834</id>
+  </note>
+  <note>
+    <body>Scored a giant bag of pez at Reny's in Dexter... Going to be sick in 3....2.....1....</body>
+    <public type="boolean">true</public>
+    <about type="boolean">false</about>
+    <created_at_as_words>29 minutes</created_at_as_words>
+    <created_at_ts>1227925587.310013</created_at_ts>
+    <comments_count type="integer">0</comments_count>
+    <created_at type="datetime">2008-11-29T02:26:27Z</created_at>
+    <place>
+      <longitude type="float">-70.262434</longitude>
+      <display_location>Portland, ME, USA</display_location>
+      <latitude type="float">43.65467</latitude>
+      <scope>city</scope>
+      <name>Portland, ME, USA</name>
+      <id>26e66c041b5e33806332fc65a000bf04b67423c8</id>
+    </place>
+    <creator>
+      <fullname>Calvin Gilbert</fullname>
+      <small_avatar_url>http://s3.amazonaws.com/bk_store/images/user/avatar/89636b049a5211dd9951003048c10834/avatar-small.png</small_avatar_url>
+      <smaller_avatar_url>http://s3.amazonaws.com/bk_store/images/user/avatar/89636b049a5211dd9951003048c10834/avatar-smaller.png</smaller_avatar_url>
+      <tiny_avatar_url>http://s3.amazonaws.com/bk_store/images/user/avatar/89636b049a5211dd9951003048c10834/avatar-tiny.png</tiny_avatar_url>
+      <login>cgilbert</login>
+    </creator>
+    <id>1fed60d8bdbd11ddbced003048c0801e</id>
+  </note>
+  <note>
+    <body>Looking up internet service providers. Comcast has been ridiculously slow lately. Any recommendations? What do you all use?</body>
+    <public type="boolean">true</public>
+    <about type="boolean">false</about>
+    <created_at_as_words>29 minutes</created_at_as_words>
+    <created_at_ts>1227925574.850377</created_at_ts>
+    <comments_count type="integer">0</comments_count>
+    <created_at type="datetime">2008-11-29T02:26:14Z</created_at>
+    <place>
+      <longitude type="float">-118.243425</longitude>
+      <display_location>Los Angeles, CA, USA</display_location>
+      <latitude type="float">34.052187</latitude>
+      <scope>city</scope>
+      <name>Los Angeles, CA, US</name>
+      <id>ba30fd97b4127db56e9f4d3d9c030d71646fd2e7</id>
+    </place>
+    <creator>
+      <fullname>Maria</fullname>
+      <small_avatar_url>http://s3.amazonaws.com/bk_store/images/user/avatar/d71f8cc49a5211dd9951003048c10834/avatar-small.png</small_avatar_url>
+      <smaller_avatar_url>http://s3.amazonaws.com/bk_store/images/user/avatar/d71f8cc49a5211dd9951003048c10834/avatar-smaller.png</smaller_avatar_url>
+      <tiny_avatar_url>http://s3.amazonaws.com/bk_store/images/user/avatar/d71f8cc49a5211dd9951003048c10834/avatar-tiny.png</tiny_avatar_url>
+      <login>Maria</login>
+    </creator>
+    <id>18802fbabdbd11dd8356003048c10834</id>
+  </note>
+  <note>
+    <body>TMA = Tom Marion Arnold. </body>
+    <public type="boolean">true</public>
+    <about type="boolean">false</about>
+    <created_at_as_words>about 1 hour</created_at_as_words>
+    <created_at_ts>1227923695.089923</created_at_ts>
+    <comments_count type="integer">0</comments_count>
+    <created_at type="datetime">2008-11-29T01:54:55Z</created_at>
+    <place>
+      <longitude type="float">-75.520084</longitude>
+      <display_location>PA, USA</display_location>
+      <latitude type="float">41.556037</latitude>
+      <scope>state</scope>
+      <name>Childs, PA, USA</name>
+      <id>cac652f7f6161cb1bac1081da298c3b4883b834d</id>
+    </place>
+    <creator>
+      <fullname>Colin Devroe</fullname>
+      <small_avatar_url>http://s3.amazonaws.com/bk_store/images/user/avatar/88558ae49a5211dd9951003048c10834/avatar-small.png</small_avatar_url>
+      <smaller_avatar_url>http://s3.amazonaws.com/bk_store/images/user/avatar/88558ae49a5211dd9951003048c10834/avatar-smaller.png</smaller_avatar_url>
+      <tiny_avatar_url>http://s3.amazonaws.com/bk_store/images/user/avatar/88558ae49a5211dd9951003048c10834/avatar-tiny.png</tiny_avatar_url>
+      <login>cdevroe</login>
+    </creator>
+    <id>b88efe1ebdb811dda97e003048c0801e</id>
+  </note>
+</objects>

@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--  these came from the brightkite public place feed for USA (da4b9237bacccdf19c0760cab7aec4a8359010b0) -->
+<objects type="array">
+  <photo>
+    <body>$2.74 for reg in Hilo.</body>
+    <public type="boolean">true</public>
+    <about type="boolean">false</about>
+    <created_at_as_words>4 minutes</created_at_as_words>
+    <created_at_ts>1227927071.249714</created_at_ts>
+    <photo>http://s3.amazonaws.com/bk_store/images/photo_object/photos/1/6/1670334/photo2074.jpg</photo>
+    <comments_count type="integer">1</comments_count>
+    <created_at type="datetime">2008-11-29T02:51:11Z</created_at>
+    <place>
+      <longitude type="float">-155.090423</longitude>
+      <display_location>Hilo, HI, USA</display_location>
+      <latitude type="float">19.693225</latitude>
+      <scope>city</scope>
+      <name>Hilo, HI, USA</name>
+      <id>2db50a64b86064b2983c2dbc355a0b3a9fc74f0e</id>
+    </place>
+    <creator>
+      <fullname>Darrin Carlson</fullname>
+      <small_avatar_url>http://s3.amazonaws.com/bk_store/images/user/avatar/6b27f60a9a5211dd9951003048c10834/avatar-small.png</small_avatar_url>
+      <smaller_avatar_url>http://s3.amazonaws.com/bk_store/images/user/avatar/6b27f60a9a5211dd9951003048c10834/avatar-smaller.png</smaller_avatar_url>
+      <tiny_avatar_url>http://s3.amazonaws.com/bk_store/images/user/avatar/6b27f60a9a5211dd9951003048c10834/avatar-tiny.png</tiny_avatar_url>
+      <login>DC_B97</login>
+    </creator>
+    <id>946c9b06bdc011ddae2f003048c10834</id>
+  </photo>
+  <photo>
+    <body>Freakin Suite!</body>
+    <public type="boolean">true</public>
+    <about type="boolean">false</about>
+    <created_at_as_words>19 minutes</created_at_as_words>
+    <created_at_ts>1227926189.057328</created_at_ts>
+    <photo>http://s3.amazonaws.com/bk_store/images/photo_object/photos/1/6/1670210/image.gif</photo>
+    <comments_count type="integer">0</comments_count>
+    <created_at type="datetime">2008-11-29T02:36:29Z</created_at>
+    <place>
+      <longitude type="float">-97.082575</longitude>
+      <display_location>Euless, TX, USA</display_location>
+      <latitude type="float">32.851866</latitude>
+      <scope>city</scope>
+      <name>Euless, TX, USA</name>
+      <id>3c797bcd0c6056c78d1caed8bfe710d3b8e09306</id>
+    </place>
+    <creator>
+      <fullname>Jason C</fullname>
+      <small_avatar_url>http://s3.amazonaws.com/bk_store/images/user/avatar/138a37a09a5211dd9951003048c10834/avatar-small.png</small_avatar_url>
+      <smaller_avatar_url>http://s3.amazonaws.com/bk_store/images/user/avatar/138a37a09a5211dd9951003048c10834/avatar-smaller.png</smaller_avatar_url>
+      <tiny_avatar_url>http://s3.amazonaws.com/bk_store/images/user/avatar/138a37a09a5211dd9951003048c10834/avatar-tiny.png</tiny_avatar_url>
+      <login>jcprovideo</login>
+    </creator>
+    <id>8698bafcbdbe11dd9169003048c10834</id>
+  </photo>
+  <photo>
+    <body>Pumpkin spice beer, made with real pumpkin.</body>
+    <public type="boolean">true</public>
+    <about type="boolean">false</about>
+    <created_at_as_words>23 minutes</created_at_as_words>
+    <created_at_ts>1227925927.244088</created_at_ts>
+    <photo>http://s3.amazonaws.com/bk_store/images/photo_object/photos/1/6/1670156/photo.jpg</photo>
+    <comments_count type="integer">0</comments_count>
+    <created_at type="datetime">2008-11-29T02:32:07Z</created_at>
+    <place>
+      <longitude type="float">-105.025009</longitude>
+      <display_location>Westminster, CO, USA</display_location>
+      <latitude type="float">39.863542</latitude>
+      <scope>city</scope>
+      <name>Westminster, CO, US</name>
+      <id>8ee51caaa2c2f4ee2e5b4b7ef5a89db7df1068d7</id>
+    </place>
+    <creator>
+      <fullname>Jeff Gamet</fullname>
+      <small_avatar_url>http://s3.amazonaws.com/bk_store/images/user/avatar/f3ad0b6a9a5111dd9951003048c10834/avatar-small.png</small_avatar_url>
+      <smaller_avatar_url>http://s3.amazonaws.com/bk_store/images/user/avatar/f3ad0b6a9a5111dd9951003048c10834/avatar-smaller.png</smaller_avatar_url>
+      <tiny_avatar_url>http://s3.amazonaws.com/bk_store/images/user/avatar/f3ad0b6a9a5111dd9951003048c10834/avatar-tiny.png</tiny_avatar_url>
+      <login>jgamet</login>
+    </creator>
+    <id>ea8b33a6bdbd11dda6fd003048c0801e</id>
+  </photo>
+  <photo>
+    <body>Skittle likes yaw yaw's head</body>
+    <public type="boolean">true</public>
+    <about type="boolean">false</about>
+    <created_at_as_words>about 1 hour</created_at_as_words>
+    <created_at_ts>1227924543.156112</created_at_ts>
+    <photo>http://s3.amazonaws.com/bk_store/images/photo_object/photos/1/6/1669917/photo.jpg</photo>
+    <comments_count type="integer">0</comments_count>
+    <created_at type="datetime">2008-11-29T02:09:03Z</created_at>
+    <place>
+      <longitude type="float">-94.686111</longitude>
+      <display_location>Overland Park, KS, USA</display_location>
+      <latitude type="float">38.927554</latitude>
+      <scope>city</scope>
+      <name>Overland Park, KS, US</name>
+      <id>16da813bd551ff6880e9c1bf6ceb03103ef69db4</id>
+    </place>
+    <creator>
+      <fullname>little guy</fullname>
+      <small_avatar_url>http://s3.amazonaws.com/bk_store/images/user/avatar/210c64a29a5211dd9951003048c10834/avatar-small.png</small_avatar_url>
+      <smaller_avatar_url>http://s3.amazonaws.com/bk_store/images/user/avatar/210c64a29a5211dd9951003048c10834/avatar-smaller.png</smaller_avatar_url>
+      <tiny_avatar_url>http://s3.amazonaws.com/bk_store/images/user/avatar/210c64a29a5211dd9951003048c10834/avatar-tiny.png</tiny_avatar_url>
+      <login>belpers</login>
+    </creator>
+    <id>b19021ccbdba11ddbeb2003048c0801e</id>
+  </photo>
+  <photo>
+    <body>Awwww young lovers.</body>
+    <public type="boolean">true</public>
+    <about type="boolean">false</about>
+    <created_at_as_words>about 1 hour</created_at_as_words>
+    <created_at_ts>1227924181.305749</created_at_ts>
+    <photo>http://s3.amazonaws.com/bk_store/images/photo_object/photos/1/6/1669864/photo.jpg</photo>
+    <comments_count type="integer">0</comments_count>
+    <created_at type="datetime">2008-11-29T02:03:01Z</created_at>
+    <place>
+      <longitude type="float">-94.686111</longitude>
+      <display_location>Overland Park, KS, USA</display_location>
+      <latitude type="float">38.927554</latitude>
+      <scope>city</scope>
+      <name>Overland Park, KS, US</name>
+      <id>16da813bd551ff6880e9c1bf6ceb03103ef69db4</id>
+    </place>
+    <creator>
+      <fullname>little guy</fullname>
+      <small_avatar_url>http://s3.amazonaws.com/bk_store/images/user/avatar/210c64a29a5211dd9951003048c10834/avatar-small.png</small_avatar_url>
+      <smaller_avatar_url>http://s3.amazonaws.com/bk_store/images/user/avatar/210c64a29a5211dd9951003048c10834/avatar-smaller.png</smaller_avatar_url>
+      <tiny_avatar_url>http://s3.amazonaws.com/bk_store/images/user/avatar/210c64a29a5211dd9951003048c10834/avatar-tiny.png</tiny_avatar_url>
+      <login>belpers</login>
+    </creator>
+    <id>d9e227debdb911dd8850003048c0801e</id>
+  </photo>
+  <photo>
+    <body>Cookie n skittle do ying yang</body>
+    <public type="boolean">true</public>
+    <about type="boolean">false</about>
+    <created_at_as_words>about 1 hour</created_at_as_words>
+    <created_at_ts>1227924082.038784</created_at_ts>
+    <photo>http://s3.amazonaws.com/bk_store/images/photo_object/photos/1/6/1669851/photo.jpg</photo>
+    <comments_count type="integer">2</comments_count>
+    <created_at type="datetime">2008-11-29T02:01:22Z</created_at>
+    <place>
+      <longitude type="float">-94.686111</longitude>
+      <display_location>Overland Park, KS, USA</display_location>
+      <latitude type="float">38.927554</latitude>
+      <scope>city</scope>
+      <name>Overland Park, KS, US</name>
+      <id>16da813bd551ff6880e9c1bf6ceb03103ef69db4</id>
+    </place>
+    <creator>
+      <fullname>little guy</fullname>
+      <small_avatar_url>http://s3.amazonaws.com/bk_store/images/user/avatar/210c64a29a5211dd9951003048c10834/avatar-small.png</small_avatar_url>
+      <smaller_avatar_url>http://s3.amazonaws.com/bk_store/images/user/avatar/210c64a29a5211dd9951003048c10834/avatar-smaller.png</smaller_avatar_url>
+      <tiny_avatar_url>http://s3.amazonaws.com/bk_store/images/user/avatar/210c64a29a5211dd9951003048c10834/avatar-tiny.png</tiny_avatar_url>
+      <login>belpers</login>
+    </creator>
+    <id>9eec7a12bdb911ddbeb2003048c0801e</id>
+  </photo>
+  <photo>
+    <body>Where's skittle!?!</body>
+    <public type="boolean">true</public>
+    <about type="boolean">false</about>
+    <created_at_as_words>about 1 hour</created_at_as_words>
+    <created_at_ts>1227923852.309806</created_at_ts>
+    <photo>http://s3.amazonaws.com/bk_store/images/photo_object/photos/1/6/1669819/photo.jpg</photo>
+    <comments_count type="integer">1</comments_count>
+    <created_at type="datetime">2008-11-29T01:57:32Z</created_at>
+    <place>
+      <longitude type="float">-94.686111</longitude>
+      <display_location>Overland Park, KS, USA</display_location>
+      <latitude type="float">38.927554</latitude>
+      <scope>city</scope>
+      <name>Overland Park, KS, US</name>
+      <id>16da813bd551ff6880e9c1bf6ceb03103ef69db4</id>
+    </place>
+    <creator>
+      <fullname>little guy</fullname>
+      <small_avatar_url>http://s3.amazonaws.com/bk_store/images/user/avatar/210c64a29a5211dd9951003048c10834/avatar-small.png</small_avatar_url>
+      <smaller_avatar_url>http://s3.amazonaws.com/bk_store/images/user/avatar/210c64a29a5211dd9951003048c10834/avatar-smaller.png</smaller_avatar_url>
+      <tiny_avatar_url>http://s3.amazonaws.com/bk_store/images/user/avatar/210c64a29a5211dd9951003048c10834/avatar-tiny.png</tiny_avatar_url>
+      <login>belpers</login>
+    </creator>
+    <id>15c959f8bdb911dd8850003048c0801e</id>
+  </photo>
+  <photo>
+    <body>Exploring the kids</body>
+    <public type="boolean">true</public>
+    <about type="boolean">false</about>
+    <created_at_as_words>about 1 hour</created_at_as_words>
+    <created_at_ts>1227923755.152714</created_at_ts>
+    <photo>http://s3.amazonaws.com/bk_store/images/photo_object/photos/1/6/1669802/photo.jpg</photo>
+    <comments_count type="integer">1</comments_count>
+    <created_at type="datetime">2008-11-29T01:55:55Z</created_at>
+    <place>
+      <longitude type="float">-94.686111</longitude>
+      <display_location>Overland Park, KS, USA</display_location>
+      <latitude type="float">38.927554</latitude>
+      <scope>city</scope>
+      <name>Overland Park, KS, US</name>
+      <id>16da813bd551ff6880e9c1bf6ceb03103ef69db4</id>
+    </place>
+    <creator>
+      <fullname>little guy</fullname>
+      <small_avatar_url>http://s3.amazonaws.com/bk_store/images/user/avatar/210c64a29a5211dd9951003048c10834/avatar-small.png</small_avatar_url>
+      <smaller_avatar_url>http://s3.amazonaws.com/bk_store/images/user/avatar/210c64a29a5211dd9951003048c10834/avatar-smaller.png</smaller_avatar_url>
+      <tiny_avatar_url>http://s3.amazonaws.com/bk_store/images/user/avatar/210c64a29a5211dd9951003048c10834/avatar-tiny.png</tiny_avatar_url>
+      <login>belpers</login>
+    </creator>
+    <id>dbe05b1abdb811dd98a7003048c10834</id>
+  </photo>
+  <photo>
+    <body>Cookie is exploring me</body>
+    <public type="boolean">true</public>
+    <about type="boolean">false</about>
+    <created_at_as_words>about 1 hour</created_at_as_words>
+    <created_at_ts>1227923639.065321</created_at_ts>
+    <photo>http://s3.amazonaws.com/bk_store/images/photo_object/photos/1/6/1669785/photo.jpg</photo>
+    <comments_count type="integer">1</comments_count>
+    <created_at type="datetime">2008-11-29T01:53:59Z</created_at>
+    <place>
+      <longitude type="float">-94.686111</longitude>
+      <display_location>Overland Park, KS, USA</display_location>
+      <latitude type="float">38.927554</latitude>
+      <scope>city</scope>
+      <name>Overland Park, KS, US</name>
+      <id>16da813bd551ff6880e9c1bf6ceb03103ef69db4</id>
+    </place>
+    <creator>
+      <fullname>little guy</fullname>
+      <small_avatar_url>http://s3.amazonaws.com/bk_store/images/user/avatar/210c64a29a5211dd9951003048c10834/avatar-small.png</small_avatar_url>
+      <smaller_avatar_url>http://s3.amazonaws.com/bk_store/images/user/avatar/210c64a29a5211dd9951003048c10834/avatar-smaller.png</smaller_avatar_url>
+      <tiny_avatar_url>http://s3.amazonaws.com/bk_store/images/user/avatar/210c64a29a5211dd9951003048c10834/avatar-tiny.png</tiny_avatar_url>
+      <login>belpers</login>
+    </creator>
+    <id>970888c8bdb811dd98a7003048c10834</id>
+  </photo>
+  <photo>
+    <body>Cookie out for some play time</body>
+    <public type="boolean">true</public>
+    <about type="boolean">false</about>
+    <created_at_as_words>about 1 hour</created_at_as_words>
+    <created_at_ts>1227923509.035686</created_at_ts>
+    <photo>http://s3.amazonaws.com/bk_store/images/photo_object/photos/1/6/1669767/photo.jpg</photo>
+    <comments_count type="integer">1</comments_count>
+    <created_at type="datetime">2008-11-29T01:51:49Z</created_at>
+    <place>
+      <longitude type="float">-94.686111</longitude>
+      <display_location>Overland Park, KS, USA</display_location>
+      <latitude type="float">38.927554</latitude>
+      <scope>city</scope>
+      <name>Overland Park, KS, US</name>
+      <id>16da813bd551ff6880e9c1bf6ceb03103ef69db4</id>
+    </place>
+    <creator>
+      <fullname>little guy</fullname>
+      <small_avatar_url>http://s3.amazonaws.com/bk_store/images/user/avatar/210c64a29a5211dd9951003048c10834/avatar-small.png</small_avatar_url>
+      <smaller_avatar_url>http://s3.amazonaws.com/bk_store/images/user/avatar/210c64a29a5211dd9951003048c10834/avatar-smaller.png</smaller_avatar_url>
+      <tiny_avatar_url>http://s3.amazonaws.com/bk_store/images/user/avatar/210c64a29a5211dd9951003048c10834/avatar-tiny.png</tiny_avatar_url>
+      <login>belpers</login>
+    </creator>
+    <id>495ee356bdb811ddae2f003048c10834</id>
+  </photo>
+</objects>

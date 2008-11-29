@@ -62,12 +62,15 @@ public interface BrightkiteService {
 
 	public Place getPlace(String id);
 	public List<Place> searchPlaces(String term);
+	public List<Note> getNotesAtPlace(Place place);
+	public List<Photo> getPhotosAtPlace(Place place);
+	public List<Checkin> getCheckinsAtPlace(Place place);
 	public List<PlaceObject> getPlaceObjectsAtPlace(Place place);
+	public List<PlaceObject> getPlaceObjectsAtPlace(Place place, PlaceObjectFilter filter);
 	public List<Person> getPeopleAtPlace(Place place);
 	public List<Person> getPeopleAtPlace(Place place, Integer radius);
 	public List<Person> getPeopleAtPlace(Place place, Integer radius, Integer hoursAgo);
 	public List<Placemark> getPlacemarksAtPlace(Place place);
-	public List<Checkin> getCheckinsAtPlace(Place place);
 	
 	public void setHttpService(HTTPService service);
 	public HTTPService getHttpService();

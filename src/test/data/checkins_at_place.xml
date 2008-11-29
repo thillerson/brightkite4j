@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--  these came from the brightkite public place feed for USA (da4b9237bacccdf19c0760cab7aec4a8359010b0) -->
+<objects type="array">
+  <checkin>
+    <public type="boolean">true</public>
+    <created_at_as_words>2 minutes</created_at_as_words>
+    <created_at_ts>1227927200.003886</created_at_ts>
+    <comments_count type="integer">0</comments_count>
+    <created_at type="datetime">2008-11-29T02:53:20Z</created_at>
+    <place>
+      <longitude type="float">-75.518466</longitude>
+      <display_location>Phoenixville, PA, USA</display_location>
+      <latitude type="float">40.133705</latitude>
+      <scope>city</scope>
+      <name>Phoenixville, PA, USA</name>
+      <id>f1cb575fc0caff9b3a22dab75a86da7cf6b7916b</id>
+    </place>
+    <creator>
+      <fullname>Nathan Rein</fullname>
+      <small_avatar_url>http://s3.amazonaws.com/bk_store/images/user/avatar/91bed43c9a5211dd9951003048c10834/avatar-small.png</small_avatar_url>
+      <smaller_avatar_url>http://s3.amazonaws.com/bk_store/images/user/avatar/91bed43c9a5211dd9951003048c10834/avatar-smaller.png</smaller_avatar_url>
+      <tiny_avatar_url>http://s3.amazonaws.com/bk_store/images/user/avatar/91bed43c9a5211dd9951003048c10834/avatar-tiny.png</tiny_avatar_url>
+      <login>nathan</login>
+    </creator>
+    <id>e12aee0cbdc011ddbeb2003048c0801e</id>
+  </checkin>
+  <checkin>
+    <public type="boolean">true</public>
+    <created_at_as_words>33 minutes</created_at_as_words>
+    <created_at_ts>1227925373.564912</created_at_ts>
+    <comments_count type="integer">0</comments_count>
+    <created_at type="datetime">2008-11-29T02:22:53Z</created_at>
+    <place>
+      <longitude type="float">-120.67038</longitude>
+      <display_location>San Luis Obispo, CA, USA</display_location>
+      <latitude type="float">35.269561</latitude>
+      <scope>city</scope>
+      <name>San Luis Obispo, CA, US</name>
+      <id>88a9d5a83b2b7e4bc74200cc205858df88a90f44</id>
+    </place>
+    <creator>
+      <fullname>discotrash</fullname>
+      <small_avatar_url>http://s3.amazonaws.com/bk_store/images/user/avatar/9d1bbb69a5211dd9951003048c10834/avatar-small.png</small_avatar_url>
+      <smaller_avatar_url>http://s3.amazonaws.com/bk_store/images/user/avatar/9d1bbb69a5211dd9951003048c10834/avatar-smaller.png</smaller_avatar_url>
+      <tiny_avatar_url>http://s3.amazonaws.com/bk_store/images/user/avatar/9d1bbb69a5211dd9951003048c10834/avatar-tiny.png</tiny_avatar_url>
+      <login>discotrash</login>
+    </creator>
+    <id>a086792ebdbc11dd85aa003048c0801e</id>
+  </checkin>
+</objects>
