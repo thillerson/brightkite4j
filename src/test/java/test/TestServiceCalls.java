@@ -12,6 +12,7 @@ import net.brightkite4j.brightkite.resources.DirectMessage;
 import net.brightkite4j.brightkite.resources.Note;
 import net.brightkite4j.brightkite.resources.Person;
 import net.brightkite4j.brightkite.resources.Photo;
+import net.brightkite4j.brightkite.resources.Place;
 import net.brightkite4j.brightkite.resources.PlaceObject;
 import net.brightkite4j.brightkite.resources.Placemark;
 
@@ -306,6 +307,25 @@ public class TestServiceCalls {
 		assertEquals("read", message.getStatus());
 		assertEquals("Dave", message.getSender().getFullname());
 		assertEquals("Tony Hillerson", message.getRecipient().getFullname());
+		
+		verify(service);
+	}
+	
+	@Test
+	public void testGetPlace() throws Exception {
+		String xml = UtilsForTesting.readTestData("place.xml");
+		String url = "http://brightkite.com/places/da4b9237bacccdf19c0760cab7aec4a8359010b0.xml";
+		
+		Brightkite bk = Brightkite.getInstance();
+		HTTPService service = getMockService();
+		bk.setHttpService(service);
+		expect(service.get(eq(url))).andReturn(xml);
+		replay(service);
+		
+		Place usa = bk.getPlace("da4b9237bacccdf19c0760cab7aec4a8359010b0");
+		
+		assertEquals("US", usa.getCountry());
+		assertEquals("USA", usa.getDisplayLocation());
 		
 		verify(service);
 	}

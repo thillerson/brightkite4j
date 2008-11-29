@@ -2,6 +2,8 @@ package net.brightkite4j.brightkite.api;
 
 import java.util.List;
 
+import net.brightkite4j.brightkite.api.xmlservices.MeXMLService;
+import net.brightkite4j.brightkite.api.xmlservices.PlaceXMLService;
 import net.brightkite4j.brightkite.exceptions.ServiceException;
 import net.brightkite4j.brightkite.resources.*;
 
@@ -12,6 +14,7 @@ public class Brightkite implements BrightkiteService {
 	
 	private HTTPService httpService;
 	private MeXMLService meService;
+	private PlaceXMLService placeService;
 	
 	// You could use this for testing if you want
 	public static void main(String[] args) {
@@ -29,6 +32,7 @@ public class Brightkite implements BrightkiteService {
 	private Brightkite() {
 		httpService = new SimpleHTTPService();
 		meService = new MeXMLService(httpService);
+		placeService = new PlaceXMLService(httpService);
 	}
 	
 	public void setCredentials(String username, String password) {
@@ -40,7 +44,7 @@ public class Brightkite implements BrightkiteService {
 	}
 	
 	public void getInvite(String email) {
-		
+		//TODO: implement?
 	}
 
 	public Person getMe() {
@@ -79,6 +83,7 @@ public class Brightkite implements BrightkiteService {
 	}
 	
 	public void changeMySettings(Person person) {
+		//TODO: implement
 	}
 	
 
@@ -104,156 +109,191 @@ public class Brightkite implements BrightkiteService {
 	
 
 	public Checkin checkin(Place place) {
+		//TODO: implement
 		return null;
 	}
 	
 	public void deleteCheckin(Checkin checkin) {
+		//TODO: implement
 	}
 	
 
+	public Place getPlace(String id) {
+		return placeService.getPlace(id);
+	}
+	
+	public List<Place> searchPlaces(String term) {
+		//TODO: implement
+		return null;
+	}
+	
+	public List<PlaceObject> getPlaceObjectsAtPlace(Place place) {
+		//TODO: implement
+		return null;
+	}
+	
+	public List<Person> getPeopleAtPlace(Place place) {
+		//TODO: implement
+		return null;
+	}
+	
+	public List<Person> getPeopleAtPlace(Place place, Integer radius) {
+		//TODO: implement
+		return null;
+	}
+	
+	public List<Person> getPeopleAtPlace(Place place, Integer radius, Integer hoursAgo) {
+		//TODO: implement
+		return null;
+	}
+	
+	public List<Placemark> getPlacemarksAtPlace(Place place) {
+		//TODO: implement
+		return null;
+	}
+	
+	public List<Checkin> getCheckinsAtPlace(Place place) {
+		//TODO: implement
+		return null;
+	}
+
 	public Friendship makeFriendship(Friendship friendship) {
+		//TODO: implement
 		return null;
 	}
 	
 	public void breakFriendship(Friendship friendship) {
+		//TODO: implement
 	}
 	
 
 	public DirectMessage dm(Person person) {
-		return null;
+		return directMessage(person);
 	}
 	
 	public DirectMessage directMessage(Person person) {
+		//TODO: implement
 		return null;
 	}
 	
 	public void deleteDirectMessage(DirectMessage dm) {
+		//TODO: implement
 	}
 	
 	public Block blockPerson(Person person) {
+		//TODO: implement
 		return null;
 	}
 	
 	public void deleteBlock(Block block) {
+		//TODO: implement
 	}
 	
 
 	public PlaceObject getPlaceObject(String id) {
+		//TODO: implement
 		return null;
 	}
 	
 	public Note getNote(String id) {
+		//TODO: implement
 		return null;
 	}
 	
 	public Photo getPhoto(String id) {
+		//TODO: implement
 		return null;
 	}
 	
 	public Note leaveNote(Place place) {
+		//TODO: implement
 		return null;
 	}
 	
 	public Photo leavePhoto(Place place) {
+		//TODO: implement
 		return null;
 	}
 	
 	public void deletePlaceObject(PlaceObject placeObject) {
+		//TODO: implement
 	}
 	
 	public List<PlaceObject> searchObjects(String term) {
+		//TODO: implement
 		return null;
 	}
 	
 
 	public Comment getComment(String id) {
+		//TODO: implement
 		return null;
 	}
 	
 	public List<Comment> getCommentsAboutPlaceObject(PlaceObject placeObject) {
+		//TODO: implement
 		return null;
 	}
 	
 	public Comment leaveComment(PlaceObject placeObject) {
+		//TODO: implement
 		return null;
 	}
 	
 	public Comment leaveComment(PlaceObject placeObject, boolean watch) {
+		//TODO: implement
 		return null;
 	}
 	
 	public void deleteComment(Comment comment) {
+		//TODO: implement
 	}
 	
 
 	public Person getPerson(String login) {
+		//TODO: implement
 		return null;
 	}
 	
 	public Friendship getFriendshipForPerson(Person person) {
+		//TODO: implement
 		return null;
 	}
 	
 	public List<Person> searchPeople(String term) {
+		//TODO: implement
 		return null;
 	}
 	
 	public List<Person> getFriendsOfPerson(Person person) {
+		//TODO: implement
 		return null;
 	}
 	
 	public List<Person> getPendingFriendsOfPerson(Person person) {
+		//TODO: implement
 		return null;
 	}
 	
 	public List<Note> getNotesByPerson(Person person) {
+		//TODO: implement
 		return null;
 	}
 	
 	public List<Photo> getPhotosByPerson(Person person) {
+		//TODO: implement
 		return null;
 	}
 	
 	public List<PlaceObject> getPlaceObjectsByPerson(Person person) {
+		//TODO: implement
 		return null;
 	}
 	
-
-	public Place getPlace(String id) {
-		return null;
-	}
-	
-	public List<Place> searchPlaces(String term) {
-		return null;
-	}
-	
-	public List<PlaceObject> getPlaceObjectsAtPlace(Place place) {
-		return null;
-	}
-	
-	public List<Person> getPeopleAtPlace(Place place) {
-		return null;
-	}
-	
-	public List<Person> getPeopleAtPlace(Place place, Integer radius) {
-		return null;
-	}
-	
-	public List<Person> getPeopleAtPlace(Place place, Integer radius, Integer hoursAgo) {
-		return null;
-	}
-	
-	public List<Placemark> getPlacemarksAtPlace(Place place) {
-		return null;
-	}
-	
-	public List<Checkin> getCheckinsAtPlace(Place place) {
-		return null;
-	}
-
 	public void setHttpService(HTTPService httpService) {
 		this.httpService = httpService;
 		meService.setHttpService(httpService);
+		placeService.setHttpService(httpService);
 	}
 
 	public HTTPService getHttpService() {
@@ -266,6 +306,14 @@ public class Brightkite implements BrightkiteService {
 
 	public void setMeService(MeXMLService meService) {
 		this.meService = meService;
+	}
+
+	public PlaceXMLService getPlaceService() {
+		return placeService;
+	}
+
+	public void setPlaceService(PlaceXMLService placeService) {
+		this.placeService = placeService;
 	}
 
 	private void authRequired() {

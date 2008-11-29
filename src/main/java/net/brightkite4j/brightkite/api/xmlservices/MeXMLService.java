@@ -1,7 +1,9 @@
-package net.brightkite4j.brightkite.api;
+package net.brightkite4j.brightkite.api.xmlservices;
 
 import java.util.List;
 
+import net.brightkite4j.brightkite.api.Brightkite;
+import net.brightkite4j.brightkite.api.HTTPService;
 import net.brightkite4j.brightkite.resources.Comment;
 import net.brightkite4j.brightkite.resources.DirectMessage;
 import net.brightkite4j.brightkite.resources.Person;
@@ -24,75 +26,75 @@ public class MeXMLService {
 		this.httpService = httpService;
 	}
 
-	protected Person getMe() {
+	public Person getMe() {
 		String response = httpService.get(meURL + ".xml");
 		Person person = Person.fromXML(response);
 		return person;
 	}
 
-	protected HTTPService getHttpService() {
+	public HTTPService getHttpService() {
 		return httpService;
 	}
 
-	protected void setHttpService(HTTPService httpService) {
+	public void setHttpService(HTTPService httpService) {
 		this.httpService = httpService;
 	}
 
-	protected List<PlaceObject> getFriendstream() {
+	public List<PlaceObject> getFriendstream() {
 		String response = httpService.get(meURL + "/friendstream.xml");
 		ObjectList stream = ObjectList.fromXML(response);
 		return stream.getPlaceObjectList();
 	}
 
-	protected List<PlaceObject> getNearbystream() {
+	public List<PlaceObject> getNearbystream() {
 		String response = httpService.get(meURL + "/nearbystream.xml");
 		ObjectList stream = ObjectList.fromXML(response);
 		return stream.getPlaceObjectList();
 	}
 
-	protected List<PlaceObject> getMentionstream() {
+	public List<PlaceObject> getMentionstream() {
 		String response = httpService.get(meURL + "/mentionsstream.xml");
 		ObjectList stream = ObjectList.fromXML(response);
 		return stream.getPlaceObjectList();
 	}
 
-	protected List<Comment> getCommentstream() {
+	public List<Comment> getCommentstream() {
 		String response = httpService.get(meURL + "/commentsstream.xml");
 		CommentList stream = CommentList.fromXML(response);
 		return stream.getCommentList();
 	}
 
-	protected List<Person> getMyFriends() {
+	public List<Person> getMyFriends() {
 		String response = httpService.get(meURL + "/friends.xml");
 		FriendList stream = FriendList.fromXML(response);
 		return stream.getFriendList();
 	}
 
-	protected List<Person> getMyPendingFriends() {
+	public List<Person> getMyPendingFriends() {
 		String response = httpService.get(meURL + "/pending_friends.xml");
 		PendingFriendList stream = PendingFriendList.fromXML(response);
 		return stream.getPendingFriendList();
 	}
 
-	protected List<Person> getMyBlockedPeople() {
+	public List<Person> getMyBlockedPeople() {
 		String response = httpService.get(meURL + "/blocked_people.xml");
 		PeopleList stream = PeopleList.fromXML(response);
 		return stream.getPeopleList();
 	}
 
-	protected List<Placemark> getMyPlacemarks() {
+	public List<Placemark> getMyPlacemarks() {
 		String response = httpService.get(meURL + "/placemarks.xml");
 		PlacemarksList stream = PlacemarksList.fromXML(response);
 		return stream.getPlacemarkList();
 	}
 
-	protected List<DirectMessage> getMySentDirectMessages() {
+	public List<DirectMessage> getMySentDirectMessages() {
 		String response = httpService.get(meURL + "/sent_messages.xml");
 		DirectMessageList stream = DirectMessageList.fromXML(response);
 		return stream.getDirectMessageList();
 	}
 
-	protected List<DirectMessage> getMyReceivedDirectMessages() {
+	public List<DirectMessage> getMyReceivedDirectMessages() {
 		String response = httpService.get(meURL + "/received_messages.xml");
 		DirectMessageList stream = DirectMessageList.fromXML(response);
 		return stream.getDirectMessageList();
