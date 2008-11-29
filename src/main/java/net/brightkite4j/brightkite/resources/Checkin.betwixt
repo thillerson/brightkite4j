@@ -3,6 +3,7 @@
 	<element name='checkin'>
 		<element name="created_at" property="createdAtTimestamp" />
 		<element name="created_at_as_words" property="createdAtAsWords" />
+		<element name="comments_count" property="commentsCount" />
 		<addDefaults />
 	</element>
 </info>

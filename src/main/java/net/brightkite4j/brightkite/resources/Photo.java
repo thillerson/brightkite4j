@@ -3,14 +3,17 @@ package net.brightkite4j.brightkite.resources;
 import net.brightkite4j.brightkite.exceptions.DeserializationException;
 import net.brightkite4j.brightkite.utils.BrightkiteUtils;
 
+//FIXME: extract a common api for a placeobject
 public class Photo extends BrightkiteObject implements PlaceObject {
 	
 	private String body;
 	private Person creator;
 	private Place place;
+
 	private boolean _public;
 	private boolean about;
 	private String photo;
+	private int commentsCount;
 	
 	public String getBody() {
 		return body;
@@ -58,6 +61,14 @@ public class Photo extends BrightkiteObject implements PlaceObject {
 
 	public void setPhoto(String photo) {
 		this.photo = photo;
+	}
+	
+	public int getCommentsCount() {
+		return commentsCount;
+	}
+
+	public void setCommentsCount(int commentsCount) {
+		this.commentsCount = commentsCount;
 	}
 
 	public boolean isANote() {

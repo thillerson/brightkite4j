@@ -21,6 +21,7 @@ public class ObjectList {
 		placeObjects = new ArrayList<PlaceObject>();
 		notes = new ArrayList<Note>();
 		photos = new ArrayList<Photo>();
+		checkins = new ArrayList<Checkin>();
 	}
 	
 	public List<PlaceObject> getPlaceObjectList() {

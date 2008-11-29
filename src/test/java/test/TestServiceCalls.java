@@ -7,6 +7,7 @@ import java.util.List;
 
 import net.brightkite4j.brightkite.api.Brightkite;
 import net.brightkite4j.brightkite.api.HTTPService;
+import net.brightkite4j.brightkite.resources.Checkin;
 import net.brightkite4j.brightkite.resources.Comment;
 import net.brightkite4j.brightkite.resources.DirectMessage;
 import net.brightkite4j.brightkite.resources.Note;
@@ -327,6 +328,50 @@ public class TestServiceCalls {
 		assertEquals("US", usa.getCountry());
 		assertEquals("USA", usa.getDisplayLocation());
 		
+		verify(service);
+	}
+	
+	@Test
+	public void testGetPlaceObjectsAtPlace() throws Exception {
+		Note note;
+		Photo photo;
+		Checkin checkin;
+		PlaceObject placeObject;
+		String placeXML = UtilsForTesting.readTestData("place.xml"); //USA
+		Place usa = Place.fromXML(placeXML);
+		String xml = UtilsForTesting.readTestData("place_objects_at_place.xml");
+		String url = "http://brightkite.com/places/da4b9237bacccdf19c0760cab7aec4a8359010b0/objects.xml";
+		
+		Brightkite bk = Brightkite.getInstance();
+		HTTPService service = getMockService();
+		bk.setHttpService(service);
+		expect(service.get(eq(url))).andReturn(xml);
+		replay(service);
+		
+		List<PlaceObject> usaPlaceObjects = bk.getPlaceObjectsAtPlace(usa);
+		
+		assertEquals(20, usaPlaceObjects.size());
+
+		placeObject = usaPlaceObjects.get(0);
+		assertTrue(placeObject.isACheckin());
+		checkin = (Checkin)placeObject;
+		assertEquals("e12aee0cbdc011ddbeb2003048c0801e", checkin.getId());
+		assertEquals(0, checkin.getCommentsCount());
+		assertEquals("Nathan Rein", checkin.getCreator().getFullname());
+		
+		placeObject = usaPlaceObjects.get(1);
+		assertTrue(placeObject.isANote());
+		note = (Note)placeObject;
+		assertEquals("a30bc9d4bdc011dd959a003048c0801e", note.getId());
+		assertEquals(2, note.getCommentsCount());
+		assertEquals("San Diego, CA, US", note.getPlace().getName());
+
+		placeObject = usaPlaceObjects.get(2);
+		assertTrue(placeObject.isAPhoto());
+		photo = (Photo)placeObject;
+		assertEquals("$2.74 for reg in Hilo.", photo.getBody());
+		assertEquals("Hilo, HI, USA", photo.getPlace().getDisplayLocation());
+
 		verify(service);
 	}
 	

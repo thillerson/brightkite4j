@@ -3,11 +3,13 @@ package net.brightkite4j.brightkite.resources;
 import net.brightkite4j.brightkite.exceptions.DeserializationException;
 import net.brightkite4j.brightkite.utils.BrightkiteUtils;
 
+//FIXME: extract a common api for a placeobject
 public class Checkin extends BrightkiteObject implements PlaceObject {
 	
 	private Place place;
 	private Person creator;
 	private boolean _public;
+	private int commentsCount;
 	
 	public Place getPlace() {
 		return place;
@@ -33,6 +35,14 @@ public class Checkin extends BrightkiteObject implements PlaceObject {
 		this._public = _public;
 	}
 	
+	public int getCommentsCount() {
+		return commentsCount;
+	}
+
+	public void setCommentsCount(int commentsCount) {
+		this.commentsCount = commentsCount;
+	}
+
 	public boolean isACheckin() {
 		return true;
 	}

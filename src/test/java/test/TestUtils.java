@@ -4,6 +4,7 @@ import static junit.framework.Assert.*;
 
 import org.junit.Test;
 
+import net.brightkite4j.brightkite.resources.PlaceObjectFilter;
 import net.brightkite4j.brightkite.utils.SnakeCaseNameMapper;
 
 public class TestUtils {
@@ -19,6 +20,13 @@ public class TestUtils {
 		assertEquals("foo_bar_baz", mapper.mapTypeToElementName(element));
 		element = "justAJavaProperty";
 		assertEquals("just_a_java_property", mapper.mapTypeToElementName(element));
+	}
+	
+	@Test
+	public void testPlaceObjectFilter() {
+//		PlaceObjectFilter filter = new PlaceObjectFilter();
+//		filter.setFilter(PlaceObjectFilter.NOTES | PlaceObjectFilter.PHOTOS);
+//		assertEquals("?filters=notes,photos", filter.toString());
 	}
 	
 }

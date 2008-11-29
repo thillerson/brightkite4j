@@ -124,12 +124,14 @@ public class Brightkite implements BrightkiteService {
 	
 	public List<Place> searchPlaces(String term) {
 		//TODO: implement
+		//FIXME: Somehow need to be able to deserialize the results
+		// which can be either wrapped in <places> or a single <place>
+		// which will break betwixt's little brain
 		return null;
 	}
 	
 	public List<PlaceObject> getPlaceObjectsAtPlace(Place place) {
-		//TODO: implement
-		return null;
+		return placeService.getPlaceObjectsAtPlace(place);
 	}
 	
 	public List<Person> getPeopleAtPlace(Place place) {
