@@ -3,7 +3,7 @@
 	<element name='objects'>
 		<element name="note" property="note" updater="addNote" />
 		<element name="photo" property="photo" updater="addPhoto" />
-		<element name="comment" property="comment" updater="addComment" />
+		<element name="checkin" property="checkin" updater="addCheckins" />
 		<addDefaults />
 	</element>
 </info>

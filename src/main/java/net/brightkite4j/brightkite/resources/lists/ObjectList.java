@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import net.brightkite4j.brightkite.exceptions.DeserializationException;
+import net.brightkite4j.brightkite.resources.Checkin;
 import net.brightkite4j.brightkite.resources.Note;
 import net.brightkite4j.brightkite.resources.Photo;
 import net.brightkite4j.brightkite.resources.PlaceObject;
@@ -14,6 +15,7 @@ public class ObjectList {
 	private List<PlaceObject> placeObjects;
 	private List<Note> notes;
 	private List<Photo> photos;
+	private List<Checkin> checkins;
 	
 	public ObjectList() {
 		placeObjects = new ArrayList<PlaceObject>();
@@ -33,6 +35,10 @@ public class ObjectList {
 		return photos;
 	}
 	
+	public List<Checkin> getCheckinList() {
+		return checkins;
+	}
+	
 	public void addNote(Note note) {
 		placeObjects.add(note);
 		notes.add(note);
@@ -41,6 +47,11 @@ public class ObjectList {
 	public void addPhoto(Photo photo) {
 		placeObjects.add(photo);
 		photos.add(photo);
+	}
+	
+	public void addCheckin(Checkin checkin) {
+		placeObjects.add(checkin);
+		checkins.add(checkin);
 	}
 	
 	public final static ObjectList fromXML(String xml) {

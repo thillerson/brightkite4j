@@ -3,7 +3,7 @@ package net.brightkite4j.brightkite.resources;
 import net.brightkite4j.brightkite.exceptions.DeserializationException;
 import net.brightkite4j.brightkite.utils.BrightkiteUtils;
 
-public class Checkin extends BrightkiteObject {
+public class Checkin extends BrightkiteObject implements PlaceObject {
 	
 	private Place place;
 	private Person creator;
@@ -33,6 +33,18 @@ public class Checkin extends BrightkiteObject {
 		this._public = _public;
 	}
 	
+	public boolean isACheckin() {
+		return true;
+	}
+
+	public boolean isANote() {
+		return false;
+	}
+
+	public boolean isAPhoto() {
+		return false;
+	}
+
 	public final static Checkin fromXML(String xml) {
 		try {
 			Checkin checkin = (Checkin)BrightkiteUtils.fromXML(xml, Checkin.class);
