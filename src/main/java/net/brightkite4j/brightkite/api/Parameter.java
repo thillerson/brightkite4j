@@ -10,7 +10,7 @@ public class Parameter {
 	private String name = null;
 	private Object value = null;
 
-	protected Parameter(String name, Object value) {
+	public Parameter(String name, Object value) {
 		this.name = name;
 		this.value = value;
 	}

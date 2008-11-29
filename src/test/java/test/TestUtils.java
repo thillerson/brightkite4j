@@ -16,31 +16,31 @@ public class TestUtils {
 
 		filter = PlaceObjectFilter.createFilter(PlaceObjectFilter.NOTES);
 		assertTrue(filter.filterSet());
-		assertEquals("?filter=notes", filter.toString());
+		assertEquals("notes", filter.toString());
 
 		filter = PlaceObjectFilter.createFilter(PlaceObjectFilter.PHOTOS);
 		assertTrue(filter.filterSet());
-		assertEquals("?filter=photos", filter.toString());
+		assertEquals("photos", filter.toString());
 
 		filter = PlaceObjectFilter.createFilter(PlaceObjectFilter.CHECKINS);
 		assertTrue(filter.filterSet());
-		assertEquals("?filter=checkins", filter.toString());
+		assertEquals("checkins", filter.toString());
 
 		filter = PlaceObjectFilter.createFilter(PlaceObjectFilter.CHECKINS | PlaceObjectFilter.NOTES);
 		assertTrue(filter.filterSet());
-		assertEquals("?filter=notes,checkins", filter.toString());
+		assertEquals("notes,checkins", filter.toString());
 
 		filter = PlaceObjectFilter.createFilter(PlaceObjectFilter.CHECKINS | PlaceObjectFilter.PHOTOS);
 		assertTrue(filter.filterSet());
-		assertEquals("?filter=photos,checkins", filter.toString());
+		assertEquals("photos,checkins", filter.toString());
 
 		filter = PlaceObjectFilter.createFilter(PlaceObjectFilter.NOTES | PlaceObjectFilter.PHOTOS);
 		assertTrue(filter.filterSet());
-		assertEquals("?filter=notes,photos", filter.toString());
+		assertEquals("notes,photos", filter.toString());
 
 		filter = PlaceObjectFilter.createFilter(PlaceObjectFilter.NOTES | PlaceObjectFilter.PHOTOS | PlaceObjectFilter.CHECKINS);
 		assertTrue(filter.filterSet());
-		assertEquals("?filter=notes,photos,checkins", filter.toString());
+		assertEquals("notes,photos,checkins", filter.toString());
 	}
 
 }

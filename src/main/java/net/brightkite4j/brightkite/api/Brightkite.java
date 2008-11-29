@@ -19,7 +19,8 @@ public class Brightkite implements BrightkiteService {
 	// You could use this for testing if you want
 	public static void main(String[] args) {
 		Brightkite bk = new Brightkite();
-		System.out.println(bk.getNearbystream());
+		Place usa = bk.getPlace("da4b9237bacccdf19c0760cab7aec4a8359010b0");
+		System.out.println(bk.getPlaceObjectsAtPlace(usa, PlaceObjectFilter.createFilter(PlaceObjectFilter.CHECKINS)));
 	}
 
 	public static Brightkite getInstance() {
@@ -150,9 +151,6 @@ public class Brightkite implements BrightkiteService {
 	
 	@SuppressWarnings("unchecked")
 	public List<PlaceObject> getPlaceObjectsAtPlace(Place place, PlaceObjectFilter filter) {
-		if (null == filter) {
-			filter = new PlaceObjectFilter();
-		}
 		return placeService.getPlaceObjectsAtPlace(place, filter);
 	}
 

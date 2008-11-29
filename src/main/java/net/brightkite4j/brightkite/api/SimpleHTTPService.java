@@ -21,7 +21,7 @@ import org.apache.commons.httpclient.methods.GetMethod;
 import org.apache.commons.httpclient.methods.PostMethod;
 
 public class SimpleHTTPService implements HTTPService {
-
+	
 	private final AuthScope AUTH_SCOPE = new AuthScope("brightkite.com", 80, AuthScope.ANY_REALM);
 	private Credentials credentials = null;
 	private HttpConnectionManager manager = null;
@@ -48,6 +48,7 @@ public class SimpleHTTPService implements HTTPService {
 	 * @see net.brightkite4j.brightkite.api.HTTPService#get(java.lang.String, net.brightkite4j.brightkite.api.Parameter[])
 	 */
 	public String get(String url, Parameter[] parameters) throws ServiceException {
+//		System.out.println("GET: '" + url + "', params: " + parameters);
 		return execute(new GetMethod(url), parameters);
 	}
 
@@ -62,6 +63,7 @@ public class SimpleHTTPService implements HTTPService {
 	 * @see net.brightkite4j.brightkite.api.HTTPService#post(java.lang.String, net.brightkite4j.brightkite.api.Parameter[])
 	 */
 	public String post(String url, Parameter[] parameters) throws ServiceException {
+//		System.out.println("POST: '" + url + "', params: " + parameters);
 		return execute(new PostMethod(url), parameters);
 	}
 

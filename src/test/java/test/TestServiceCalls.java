@@ -7,6 +7,7 @@ import java.util.List;
 
 import net.brightkite4j.brightkite.api.Brightkite;
 import net.brightkite4j.brightkite.api.HTTPService;
+import net.brightkite4j.brightkite.api.Parameter;
 import net.brightkite4j.brightkite.resources.Checkin;
 import net.brightkite4j.brightkite.resources.Comment;
 import net.brightkite4j.brightkite.resources.DirectMessage;
@@ -343,7 +344,8 @@ public class TestServiceCalls {
 		Brightkite bk = Brightkite.getInstance();
 		HTTPService service = getMockService();
 		bk.setHttpService(service);
-		expect(service.get(eq(url))).andReturn(xml);
+		service.get(url, null);
+		expectLastCall().andReturn(xml);
 		replay(service);
 
 		List<PlaceObject> usaPlaceObjects = bk.getPlaceObjectsAtPlace(usa);
@@ -385,10 +387,13 @@ public class TestServiceCalls {
 		String baseURL = "http://brightkite.com/places/da4b9237bacccdf19c0760cab7aec4a8359010b0/objects.xml";
 		Brightkite bk = Brightkite.getInstance();
 		HTTPService service = getMockService();
+		Parameter[] params;
 
 		service = getMockService();
 		bk.setHttpService(service);
-		expect(service.get(eq(baseURL + "?filter=notes"))).andReturn(notesXML);
+		params = new Parameter[]{new Parameter("filters", "notes")};
+		service.get(eq(baseURL), aryEq(params));
+		expectLastCall().andReturn(notesXML);
 		replay(service);
 		List<Note> usaNotes = bk.getNotesAtPlace(usa);
 		assertEquals(8, usaNotes.size());
@@ -396,7 +401,9 @@ public class TestServiceCalls {
 
 		service = getMockService();
 		bk.setHttpService(service);
-		expect(service.get(eq(baseURL + "?filter=photos"))).andReturn(photosXML);
+		params = new Parameter[]{new Parameter("filters", "photos")};
+		service.get(eq(baseURL), aryEq(params));
+		expectLastCall().andReturn(photosXML);
 		replay(service);
 		List<Photo> usaPhotos = bk.getPhotosAtPlace(usa);
 		assertEquals(10, usaPhotos.size());
@@ -404,7 +411,9 @@ public class TestServiceCalls {
 
 		service = getMockService();
 		bk.setHttpService(service);
-		expect(service.get(eq(baseURL + "?filter=checkins"))).andReturn(checkinsXML);
+		params = new Parameter[]{new Parameter("filters", "checkins")};
+		service.get(eq(baseURL), aryEq(params));
+		expectLastCall().andReturn(checkinsXML);
 		replay(service);
 		List<Checkin> usaCheckins = bk.getCheckinsAtPlace(usa);
 		assertEquals(2, usaCheckins.size());
@@ -412,28 +421,36 @@ public class TestServiceCalls {
 
 		service = getMockService();
 		bk.setHttpService(service);
-		expect(service.get(eq(baseURL + "?filter=notes,checkins"))).andReturn(placeObjectsXML); // wrong xml, but i'm just testing the url
+		params = new Parameter[]{new Parameter("filters", "notes,checkins")};
+		service.get(eq(baseURL), aryEq(params));
+		expectLastCall().andReturn(placeObjectsXML); // wrong xml, but i'm just testing the url
 		replay(service);
 		usaPlaceObjects = bk.getPlaceObjectsAtPlace(usa, PlaceObjectFilter.createFilter(PlaceObjectFilter.NOTES | PlaceObjectFilter.CHECKINS));
 		verify(service);
 
 		service = getMockService();
 		bk.setHttpService(service);
-		expect(service.get(eq(baseURL + "?filter=photos,checkins"))).andReturn(placeObjectsXML);// wrong xml, but i'm just testing the url
+		params = new Parameter[]{new Parameter("filters", "photos,checkins")};
+		service.get(eq(baseURL), aryEq(params));
+		expectLastCall().andReturn(placeObjectsXML); // wrong xml, but i'm just testing the url
 		replay(service);
 		usaPlaceObjects = bk.getPlaceObjectsAtPlace(usa, PlaceObjectFilter.createFilter(PlaceObjectFilter.PHOTOS | PlaceObjectFilter.CHECKINS));
 		verify(service);
 
 		service = getMockService();
 		bk.setHttpService(service);
-		expect(service.get(eq(baseURL + "?filter=notes,photos"))).andReturn(placeObjectsXML);// wrong xml, but i'm just testing the url
+		params = new Parameter[]{new Parameter("filters", "notes,photos")};
+		service.get(eq(baseURL), aryEq(params));
+		expectLastCall().andReturn(placeObjectsXML); // wrong xml, but i'm just testing the url
 		replay(service);
 		usaPlaceObjects = bk.getPlaceObjectsAtPlace(usa, PlaceObjectFilter.createFilter(PlaceObjectFilter.NOTES | PlaceObjectFilter.PHOTOS));
 		verify(service);
 
 		service = getMockService();
 		bk.setHttpService(service);
-		expect(service.get(eq(baseURL + "?filter=notes,photos,checkins"))).andReturn(placeObjectsXML);// wrong xml, but i'm just testing the url
+		params = new Parameter[]{new Parameter("filters", "notes,photos,checkins")};
+		service.get(eq(baseURL), aryEq(params));
+		expectLastCall().andReturn(placeObjectsXML); // wrong xml, but i'm just testing the url
 		replay(service);
 		usaPlaceObjects = bk.getPlaceObjectsAtPlace(usa, PlaceObjectFilter.createFilter(PlaceObjectFilter.NOTES | PlaceObjectFilter.PHOTOS | PlaceObjectFilter.CHECKINS));
 		verify(service);

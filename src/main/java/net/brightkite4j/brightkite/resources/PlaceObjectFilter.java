@@ -43,9 +43,6 @@ public class PlaceObjectFilter {
 				sb.append(",");
 			}
 		}
-		if (sb.length() > 0) {
-			sb.insert(0, "?filter=");
-		}
 		return sb.toString();
 	}
 	
