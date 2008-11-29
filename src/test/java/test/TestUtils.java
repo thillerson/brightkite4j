@@ -5,28 +5,49 @@ import static junit.framework.Assert.*;
 import org.junit.Test;
 
 import net.brightkite4j.brightkite.resources.PlaceObjectFilter;
-import net.brightkite4j.brightkite.utils.SnakeCaseNameMapper;
 
 public class TestUtils {
-	
-	@Test
-	public void testSnakeCaseNameMapper() {
-		SnakeCaseNameMapper mapper = new SnakeCaseNameMapper();
-		String element = "Foo";
-		assertEquals("foo", mapper.mapTypeToElementName(element));
-		element = "FooBar";
-		assertEquals("foo_bar", mapper.mapTypeToElementName(element));
-		element = "FooBarBaz";
-		assertEquals("foo_bar_baz", mapper.mapTypeToElementName(element));
-		element = "justAJavaProperty";
-		assertEquals("just_a_java_property", mapper.mapTypeToElementName(element));
-	}
-	
+
 	@Test
 	public void testPlaceObjectFilter() {
-//		PlaceObjectFilter filter = new PlaceObjectFilter();
-//		filter.setFilter(PlaceObjectFilter.NOTES | PlaceObjectFilter.PHOTOS);
-//		assertEquals("?filters=notes,photos", filter.toString());
+		PlaceObjectFilter filter = new PlaceObjectFilter();
+		assertEquals("", filter.toString());
+		assertFalse(filter.filterSet());
+
+		filter = new PlaceObjectFilter();
+		filter.setFilter(PlaceObjectFilter.NOTES);
+		assertTrue(filter.filterSet());
+		assertEquals("?filter=notes", filter.toString());
+
+		filter = new PlaceObjectFilter();
+		filter.setFilter(PlaceObjectFilter.PHOTOS);
+		assertTrue(filter.filterSet());
+		assertEquals("?filter=photos", filter.toString());
+
+		filter = new PlaceObjectFilter();
+		filter.setFilter(PlaceObjectFilter.CHECKINS);
+		assertTrue(filter.filterSet());
+		assertEquals("?filter=checkins", filter.toString());
+
+		filter = new PlaceObjectFilter();
+		filter.setFilter(PlaceObjectFilter.CHECKINS | PlaceObjectFilter.NOTES);
+		assertTrue(filter.filterSet());
+		assertEquals("?filter=notes,checkins", filter.toString());
+
+		filter = new PlaceObjectFilter();
+		filter.setFilter(PlaceObjectFilter.CHECKINS | PlaceObjectFilter.PHOTOS);
+		assertTrue(filter.filterSet());
+		assertEquals("?filter=photos,checkins", filter.toString());
+
+		filter = new PlaceObjectFilter();
+		filter.setFilter(PlaceObjectFilter.NOTES | PlaceObjectFilter.PHOTOS);
+		assertTrue(filter.filterSet());
+		assertEquals("?filter=notes,photos", filter.toString());
+
+		filter = new PlaceObjectFilter();
+		filter.setFilter(PlaceObjectFilter.NOTES | PlaceObjectFilter.PHOTOS | PlaceObjectFilter.CHECKINS);
+		assertTrue(filter.filterSet());
+		assertEquals("?filter=notes,photos,checkins", filter.toString());
 	}
-	
+
 }
