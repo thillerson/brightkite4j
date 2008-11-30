@@ -519,6 +519,51 @@ public class TestServiceCalls {
 		verify(service);
 	}
 
+	@Test
+	public void testGetPlacemarksAtPlace() throws Exception {
+		// Placemarks in xml don't correlate to place, just testing url and the fact that I get some placemarks back
+		String xml = UtilsForTesting.readTestData("placemarks.xml");
+		Place place = Place.fromXML(UtilsForTesting.readTestData("place.xml"));
+		String url = "http://brightkite.com/places/" + place.getId() + "/placemarks.xml";
+		Brightkite bk = Brightkite.getInstance();
+		HTTPService service = getMockService();
+		bk.setHttpService(service);
+		service.setCredentials("foo", "bar");
+		service.hasCredentials();
+		expectLastCall().andReturn(true);
+		expect(service.get(url)).andReturn(xml);
+		replay(service);
+		
+		bk.setCredentials("foo", "bar");
+		List<Placemark> placemarks = bk.getPlacemarksAtPlace(place);
+		assertEquals(3, placemarks.size());
+		Placemark p = placemarks.get(0);
+		assertEquals("Snooze", p.getPlacemark());
+		verify(service);
+	}
+
+	@Test
+	public void testGetPlaceObjects() throws Exception {
+		String url;
+		HTTPService service;
+		String noteXML = UtilsForTesting.readTestData("note.xml");
+		Note note = Note.fromXML(noteXML);
+		Brightkite bk = Brightkite.getInstance();
+		
+		service = getMockService();
+		url = "http://brightkite.com/objects/" + note.getId() + ".xml";
+		bk.setHttpService(service);
+		service.setCredentials("foo", "bar");
+		service.hasCredentials();
+		expectLastCall().andReturn(true);
+		expect(service.get(url)).andReturn(noteXML);
+		replay(service);
+		bk.setCredentials("foo", "bar");
+		Note returnedNote = bk.getNote(note.getId());
+		assertEquals("No para hasta conquistar! Vamos Espa–a!", returnedNote.getBody());
+		verify(service);
+	}
+
 	private HTTPService getMockService() {
 		return createMock(HTTPService.class);
 	}

@@ -21,9 +21,9 @@ public class Brightkite implements BrightkiteService {
 	// You could use this for testing if you want
 	public static void main(String[] args) {
 		Brightkite bk = new Brightkite();
-		Place p =new Place();
+		Place p = new Place();
 		p.setId("da4b9237bacccdf19c0760cab7aec4a8359010b0");
-		System.out.println(bk.getPeopleAtPlace(p));
+		System.out.println(bk.getPlace(p.getId()));
 	}
 
 	public static Brightkite getInstance() {
@@ -172,8 +172,8 @@ public class Brightkite implements BrightkiteService {
 	}
 	
 	public List<Placemark> getPlacemarksAtPlace(Place place) {
-		//TODO: implement
-		return null;
+		authRequired();
+		return placeService.getPlacemarksAtPlace(place);
 	}
 	
 	public Friendship makeFriendship(Friendship friendship) {
@@ -209,32 +209,38 @@ public class Brightkite implements BrightkiteService {
 	}
 	
 
-	public PlaceObject getPlaceObject(String id) {
-		//TODO: implement
-		return null;
+	public Checkin getCheckin(String id) {
+		authRequired();
+		return placeObjectService.getCheckin(id);
 	}
 	
 	public Note getNote(String id) {
-		//TODO: implement
-		return null;
+		authRequired();
+		return placeObjectService.getNote(id);
 	}
 	
 	public Photo getPhoto(String id) {
+		authRequired();
+		return placeObjectService.getPhoto(id);
+	}
+	
+	public Note leaveNote(Place place, Note newNote) {
 		//TODO: implement
 		return null;
 	}
 	
-	public Note leaveNote(Place place) {
+	public Photo leavePhoto(Place place, Photo newPhoto) {
 		//TODO: implement
 		return null;
 	}
 	
-	public Photo leavePhoto(Place place) {
+	public void deleteNote(Note note) {
+		authRequired();
 		//TODO: implement
-		return null;
 	}
 	
-	public void deletePlaceObject(PlaceObject placeObject) {
+	public void deletePhoto(Photo photo) {
+		authRequired();
 		//TODO: implement
 	}
 	
@@ -254,12 +260,12 @@ public class Brightkite implements BrightkiteService {
 		return null;
 	}
 	
-	public Comment leaveComment(PlaceObject placeObject) {
+	public Comment leaveComment(PlaceObject placeObject, Comment newComment) {
 		//TODO: implement
 		return null;
 	}
 	
-	public Comment leaveComment(PlaceObject placeObject, boolean watch) {
+	public Comment leaveComment(PlaceObject placeObject, Comment newComment, boolean watch) {
 		//TODO: implement
 		return null;
 	}

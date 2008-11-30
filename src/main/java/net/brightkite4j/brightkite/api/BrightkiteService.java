@@ -37,18 +37,19 @@ public interface BrightkiteService {
 	public Block blockPerson(Person person);
 	public void deleteBlock(Block block);
 
-	public PlaceObject getPlaceObject(String id);
 	public Note getNote(String id);
 	public Photo getPhoto(String id);
-	public Note leaveNote(Place place);
-	public Photo leavePhoto(Place place);
-	public void deletePlaceObject(PlaceObject placeObject);
+	public Checkin getCheckin(String id);
+	public Note leaveNote(Place place, Note newNote);
+	public Photo leavePhoto(Place place, Photo newPhoto);
+	public void deleteNote(Note note);
+	public void deletePhoto(Photo photo);
 	public List<PlaceObject> searchObjects(String term);
 
 	public Comment getComment(String id);
 	public List<Comment> getCommentsAboutPlaceObject(PlaceObject placeObject);
-	public Comment leaveComment(PlaceObject placeObject);
-	public Comment leaveComment(PlaceObject placeObject, boolean watch);
+	public Comment leaveComment(PlaceObject placeObject, Comment newComment);
+	public Comment leaveComment(PlaceObject placeObject, Comment newComment, boolean watch);
 	public void deleteComment(Comment comment);
 
 	public Person getPerson(String login);

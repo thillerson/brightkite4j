@@ -9,8 +9,10 @@ import net.brightkite4j.brightkite.resources.Checkin;
 import net.brightkite4j.brightkite.resources.Person;
 import net.brightkite4j.brightkite.resources.Place;
 import net.brightkite4j.brightkite.resources.PlaceObjectFilter;
+import net.brightkite4j.brightkite.resources.Placemark;
 import net.brightkite4j.brightkite.resources.lists.ObjectList;
 import net.brightkite4j.brightkite.resources.lists.PeopleList;
+import net.brightkite4j.brightkite.resources.lists.PlacemarksList;
 
 public class PlaceXMLService {
 
@@ -56,6 +58,13 @@ public class PlaceXMLService {
 		String result = httpService.get(url);
 		PeopleList peopleList = PeopleList.fromXML(result);
 		return peopleList.getPeopleList();
+	}
+
+	public List<Placemark> getPlacemarksAtPlace(Place place) {
+		String url = placesBaseUrl + "/" + place.getId() + "/placemarks.xml";
+		String result = httpService.get(url);
+		PlacemarksList placemarkList = PlacemarksList.fromXML(result);
+		return placemarkList.getPlacemarkList();
 	}
 
 }
