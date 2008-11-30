@@ -19,9 +19,12 @@ public class Brightkite implements BrightkiteService {
 	private PlaceObjectXMLService placeObjectService;
 	
 	// You could use this for testing if you want
-//	public static void main(String[] args) {
-//		Brightkite bk = new Brightkite();
-//	}
+	public static void main(String[] args) {
+		Brightkite bk = new Brightkite();
+		Place p =new Place();
+		p.setId("da4b9237bacccdf19c0760cab7aec4a8359010b0");
+		System.out.println(bk.getPeopleAtPlace(p));
+	}
 
 	public static Brightkite getInstance() {
 		if (instance == null) {
@@ -109,10 +112,12 @@ public class Brightkite implements BrightkiteService {
 	}
 
 	public Checkin checkin(Place place) {
+		authRequired();
 		return placeService.checkin(place);
 	}
 	
 	public void deleteCheckin(Checkin checkin) {
+		authRequired();
 		placeObjectService.deleteCheckin(checkin);
 	}
 
@@ -153,8 +158,7 @@ public class Brightkite implements BrightkiteService {
 	}
 
 	public List<Person> getPeopleAtPlace(Place place) {
-		//TODO: implement
-		return null;
+		return placeService.getPeopleAtPlace(place);
 	}
 	
 	public List<Person> getPeopleAtPlace(Place place, Integer radius) {

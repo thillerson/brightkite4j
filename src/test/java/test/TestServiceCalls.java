@@ -468,9 +468,13 @@ public class TestServiceCalls {
 		Brightkite bk = Brightkite.getInstance();
 		HTTPService service = getMockService();
 		bk.setHttpService(service);
+		service.setCredentials("foo", "bar");
+		service.hasCredentials();
+		expectLastCall().andReturn(true);
 		expect(service.post(url)).andReturn(checkinXML);
 		replay(service);
 		
+		bk.setCredentials("foo", "bar");
 		checkin = bk.checkin(place);
 		assertEquals("356a192b7913b04c54574d18c28d46e6395428ab", checkin.getPlace().getId());
 		verify(service);
@@ -485,10 +489,32 @@ public class TestServiceCalls {
 		Brightkite bk = Brightkite.getInstance();
 		HTTPService service = getMockService();
 		bk.setHttpService(service);
+		service.setCredentials("foo", "bar");
+		service.hasCredentials();
+		expectLastCall().andReturn(true);
 		service.delete(url);
 		replay(service);
 		
+		bk.setCredentials("foo", "bar");
 		bk.deleteCheckin(checkin);
+		verify(service);
+	}
+
+	@Test
+	public void testGetPeopleAtPlace() throws Exception {
+		String xml = UtilsForTesting.readTestData("people.xml");
+		Place place = Place.fromXML(UtilsForTesting.readTestData("place.xml"));
+		String url = "http://brightkite.com/places/" + place.getId() + "/people.xml";
+		Brightkite bk = Brightkite.getInstance();
+		HTTPService service = getMockService();
+		bk.setHttpService(service);
+		expect(service.get(url)).andReturn(xml);
+		replay(service);
+		
+		List<Person> people = bk.getPeopleAtPlace(place);
+		assertEquals(2, people.size());
+		Person p = people.get(0);
+		assertEquals("Joe Schmoe", p.getFullname());
 		verify(service);
 	}
 
