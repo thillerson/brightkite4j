@@ -377,6 +377,7 @@ public class TestServiceCalls {
 
 	@Test
 	public void testGetPlaceObjectsAtPlaceWithFilters() throws Exception {
+		@SuppressWarnings("unused")
 		List<PlaceObject> usaPlaceObjects;
 		String placeXML = UtilsForTesting.readTestData("place.xml"); // USA
 		Place usa = Place.fromXML(placeXML);
