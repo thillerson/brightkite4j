@@ -9,4 +9,13 @@
     <last_checked_in type="datetime">2008-11-28T18:06:08Z</last_checked_in>
     <login>olejoe</login>
   </person>
+  <person>
+    <fullname>Jimmy Bob</fullname>
+    <last_active_at type="datetime">2008-11-28T18:06:08Z</last_active_at>
+	<small_avatar_url>/images/default_user_avatar_small.png</small_avatar_url>
+	<smaller_avatar_url>/images/default_user_avatar_smaller.png</smaller_avatar_url>
+	<tiny_avatar_url>/images/default_user_avatar_tiny.png</tiny_avatar_url>
+    <last_checked_in type="datetime">2008-11-28T18:06:08Z</last_checked_in>
+    <login>jimbob</login>
+  </person>
 </people>

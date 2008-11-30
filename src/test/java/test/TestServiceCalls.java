@@ -217,7 +217,7 @@ public class TestServiceCalls {
 
 	@Test
 	public void testGetMyBlockedPeople() throws Exception {
-		String xml = UtilsForTesting.readTestData("blocked_people.xml");
+		String xml = UtilsForTesting.readTestData("people.xml");
 		String url = "http://brightkite.com/me/blocked_people.xml";
 
 		Brightkite bk = Brightkite.getInstance();
@@ -232,7 +232,7 @@ public class TestServiceCalls {
 		bk.setCredentials("foo", "bar");
 		List<Person> blockedPeopleList = bk.getMyBlockedPeople();
 
-		assertEquals(1, blockedPeopleList.size());
+		assertEquals(2, blockedPeopleList.size());
 		Person friend = blockedPeopleList.get(0);
 		assertEquals("Joe Schmoe", friend.getFullname());
 		verify(service);
