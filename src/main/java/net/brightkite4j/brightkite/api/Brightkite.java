@@ -3,6 +3,7 @@ package net.brightkite4j.brightkite.api;
 import java.util.List;
 
 import net.brightkite4j.brightkite.api.xmlservices.MeXMLService;
+import net.brightkite4j.brightkite.api.xmlservices.PlaceObjectXMLService;
 import net.brightkite4j.brightkite.api.xmlservices.PlaceXMLService;
 import net.brightkite4j.brightkite.exceptions.ServiceException;
 import net.brightkite4j.brightkite.resources.*;
@@ -15,13 +16,12 @@ public class Brightkite implements BrightkiteService {
 	private HTTPService httpService;
 	private MeXMLService meService;
 	private PlaceXMLService placeService;
+	private PlaceObjectXMLService placeObjectService;
 	
 	// You could use this for testing if you want
-	public static void main(String[] args) {
-		Brightkite bk = new Brightkite();
-		Place usa = bk.getPlace("da4b9237bacccdf19c0760cab7aec4a8359010b0");
-		System.out.println(bk.getPlaceObjectsAtPlace(usa, PlaceObjectFilter.createFilter(PlaceObjectFilter.CHECKINS)));
-	}
+//	public static void main(String[] args) {
+//		Brightkite bk = new Brightkite();
+//	}
 
 	public static Brightkite getInstance() {
 		if (instance == null) {
@@ -34,6 +34,7 @@ public class Brightkite implements BrightkiteService {
 		httpService = new SimpleHTTPService();
 		meService = new MeXMLService(httpService);
 		placeService = new PlaceXMLService(httpService);
+		placeObjectService = new PlaceObjectXMLService(httpService);
 	}
 	
 	public void setCredentials(String username, String password) {
@@ -86,7 +87,6 @@ public class Brightkite implements BrightkiteService {
 	public void changeMySettings(Person person) {
 		//TODO: implement
 	}
-	
 
 	public List<PlaceObject> getFriendstream() {
 		authRequired();
@@ -107,15 +107,13 @@ public class Brightkite implements BrightkiteService {
 		authRequired();
 		return meService.getCommentstream();
 	}
-	
 
 	public Checkin checkin(Place place) {
-		//TODO: implement
-		return null;
+		return placeService.checkin(place);
 	}
 	
 	public void deleteCheckin(Checkin checkin) {
-		//TODO: implement
+		placeObjectService.deleteCheckin(checkin);
 	}
 
 	public Place getPlace(String id) {
@@ -311,6 +309,7 @@ public class Brightkite implements BrightkiteService {
 		this.httpService = httpService;
 		meService.setHttpService(httpService);
 		placeService.setHttpService(httpService);
+		placeObjectService.setHttpService(httpService);
 	}
 
 	public HTTPService getHttpService() {
@@ -331,6 +330,14 @@ public class Brightkite implements BrightkiteService {
 
 	public void setPlaceService(PlaceXMLService placeService) {
 		this.placeService = placeService;
+	}
+
+	public PlaceObjectXMLService getPlaceObjectService() {
+		return placeObjectService;
+	}
+
+	public void setPlaceObjectService(PlaceObjectXMLService placeObjectService) {
+		this.placeObjectService = placeObjectService;
 	}
 
 	private void authRequired() {

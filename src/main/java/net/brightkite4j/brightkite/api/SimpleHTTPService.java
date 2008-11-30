@@ -17,6 +17,7 @@ import org.apache.commons.httpclient.NameValuePair;
 import org.apache.commons.httpclient.UsernamePasswordCredentials;
 import org.apache.commons.httpclient.auth.AuthScope;
 import org.apache.commons.httpclient.cookie.CookiePolicy;
+import org.apache.commons.httpclient.methods.DeleteMethod;
 import org.apache.commons.httpclient.methods.GetMethod;
 import org.apache.commons.httpclient.methods.PostMethod;
 
@@ -48,7 +49,6 @@ public class SimpleHTTPService implements HTTPService {
 	 * @see net.brightkite4j.brightkite.api.HTTPService#get(java.lang.String, net.brightkite4j.brightkite.api.Parameter[])
 	 */
 	public String get(String url, Parameter[] parameters) throws ServiceException {
-//		System.out.println("GET: '" + url + "', params: " + parameters);
 		return execute(new GetMethod(url), parameters);
 	}
 
@@ -63,8 +63,11 @@ public class SimpleHTTPService implements HTTPService {
 	 * @see net.brightkite4j.brightkite.api.HTTPService#post(java.lang.String, net.brightkite4j.brightkite.api.Parameter[])
 	 */
 	public String post(String url, Parameter[] parameters) throws ServiceException {
-//		System.out.println("POST: '" + url + "', params: " + parameters);
 		return execute(new PostMethod(url), parameters);
+	}
+
+	public void delete(String url) throws ServiceException {
+		execute(new DeleteMethod(url), null);
 	}
 
 	/* (non-Javadoc)
@@ -123,8 +126,8 @@ public class SimpleHTTPService implements HTTPService {
 		}
 		try {
 			int statusCode = httpClient.executeMethod(method);
-			if (statusCode != HttpStatus.SC_OK) {
-				String error = String.format("Expected 200 OK. Received %d %s", statusCode, HttpStatus.getStatusText(statusCode));
+			if (statusCode != HttpStatus.SC_OK && statusCode != HttpStatus.SC_CREATED) {
+				String error = String.format("Expected a 200 OK or 201 Created. Received %d %s", statusCode, HttpStatus.getStatusText(statusCode));
 				throw new ServiceException(error);
 			}
 			String responseBody = method.getResponseBodyAsString();

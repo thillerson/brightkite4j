@@ -455,6 +455,42 @@ public class TestServiceCalls {
 		usaPlaceObjects = bk.getPlaceObjectsAtPlace(usa, PlaceObjectFilter.createFilter(PlaceObjectFilter.NOTES | PlaceObjectFilter.PHOTOS | PlaceObjectFilter.CHECKINS));
 		verify(service);
 	}
+	
+	@Test
+	public void testCheckingIn() throws Exception {
+		Checkin checkin;
+		Place place = new Place();
+		place.setId("da4b9237bacccdf19c0760cab7aec4a8359010b0");
+		// this place and checkin don't match, but it's just for testing that the url gets called
+		// and a checkin comes back out
+		String checkinXML = UtilsForTesting.readTestData("checkin.xml"); 
+		String url = "http://brightkite.com/places/da4b9237bacccdf19c0760cab7aec4a8359010b0/checkins.xml";
+		Brightkite bk = Brightkite.getInstance();
+		HTTPService service = getMockService();
+		bk.setHttpService(service);
+		expect(service.post(url)).andReturn(checkinXML);
+		replay(service);
+		
+		checkin = bk.checkin(place);
+		assertEquals("356a192b7913b04c54574d18c28d46e6395428ab", checkin.getPlace().getId());
+		verify(service);
+	}
+
+	@Test
+	public void testDeleteCheckin() throws Exception {
+		Checkin checkin = Checkin.fromXML(UtilsForTesting.readTestData("checkin.xml"));
+		Place place = new Place();
+		place.setId(checkin.getPlace().getId());
+		String url = "http://brightkite.com/objects/" + checkin.getId() + ".xml";
+		Brightkite bk = Brightkite.getInstance();
+		HTTPService service = getMockService();
+		bk.setHttpService(service);
+		service.delete(url);
+		replay(service);
+		
+		bk.deleteCheckin(checkin);
+		verify(service);
+	}
 
 	private HTTPService getMockService() {
 		return createMock(HTTPService.class);
