@@ -60,7 +60,7 @@ public class MeXMLService {
 
 	public List<Comment> getCommentstream() {
 		String response = httpService.get(meURL + "/commentsstream.xml");
-		CommentList stream = CommentList.fromXML(response);
+		CommentList stream = CommentList.fromXML(response, "objects");
 		return stream.getCommentList();
 	}
 

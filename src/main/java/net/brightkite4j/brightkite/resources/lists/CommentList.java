@@ -1,7 +1,11 @@
 package net.brightkite4j.brightkite.resources.lists;
 
+import java.io.StringReader;
 import java.util.ArrayList;
 import java.util.List;
+
+import org.apache.commons.betwixt.io.BeanReader;
+import org.xml.sax.InputSource;
 
 import net.brightkite4j.brightkite.exceptions.DeserializationException;
 import net.brightkite4j.brightkite.resources.Comment;
@@ -22,9 +26,18 @@ public class CommentList {
 		comments.add(comment);
 	}
 	
-	public final static CommentList fromXML(String xml) {
+	public final static CommentList fromXML(String xml, String rootElement) {
 		try {
-			CommentList list = (CommentList)BrightkiteUtils.fromXML(xml, CommentList.class);
+			String config = "<?xml version='1.0' encoding='UTF-8' ?>" +
+								"<info primitiveTypes='element'>" +
+								"<element name='" + rootElement + "'>" +
+									"<element name='comment' property='comment' updater='addComment' />" +
+									"<addDefaults />" +
+								"</element>" +
+							"</info>";
+			BeanReader reader = new BeanReader();
+			reader.registerBeanClass(new InputSource(new StringReader(config)), CommentList.class);
+			CommentList list = (CommentList)BrightkiteUtils.fromXML(xml, reader);
 			return list;
 		} catch (Exception e) {
 			throw new DeserializationException("Cannot deserialize CommentList.", e);

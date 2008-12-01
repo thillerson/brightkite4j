@@ -19,12 +19,9 @@ public class Brightkite implements BrightkiteService {
 	private PlaceObjectXMLService placeObjectService;
 	
 	// You could use this for testing if you want
-	public static void main(String[] args) {
-		Brightkite bk = new Brightkite();
-		Place p = new Place();
-		p.setId("da4b9237bacccdf19c0760cab7aec4a8359010b0");
-		System.out.println(bk.getPlace(p.getId()));
-	}
+//	public static void main(String[] args) {
+//		Brightkite bk = new Brightkite();
+//	}
 
 	public static Brightkite getInstance() {
 		if (instance == null) {
@@ -250,31 +247,20 @@ public class Brightkite implements BrightkiteService {
 	}
 	
 
-	public Comment getComment(String id) {
-		//TODO: implement
-		return null;
-	}
-	
 	public List<Comment> getCommentsAboutPlaceObject(PlaceObject placeObject) {
-		//TODO: implement
-		return null;
+		authRequired();
+		return placeObjectService.getCommentsAboutPlaceObject(placeObject);
 	}
 	
-	public Comment leaveComment(PlaceObject placeObject, Comment newComment) {
-		//TODO: implement
-		return null;
+	public Comment leaveComment(PlaceObject placeObject, String comment) {
+		return leaveComment(placeObject, comment, false);
 	}
 	
-	public Comment leaveComment(PlaceObject placeObject, Comment newComment, boolean watch) {
-		//TODO: implement
-		return null;
+	public Comment leaveComment(PlaceObject placeObject, String comment, boolean watch) {
+		authRequired();
+		return placeObjectService.leaveComment(placeObject, comment, watch);
 	}
 	
-	public void deleteComment(Comment comment) {
-		//TODO: implement
-	}
-	
-
 	public Person getPerson(String login) {
 		//TODO: implement
 		return null;

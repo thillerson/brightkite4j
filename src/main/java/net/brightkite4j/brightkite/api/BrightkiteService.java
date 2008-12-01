@@ -46,11 +46,9 @@ public interface BrightkiteService {
 	public void deletePhoto(Photo photo);
 	public List<PlaceObject> searchObjects(String term);
 
-	public Comment getComment(String id);
 	public List<Comment> getCommentsAboutPlaceObject(PlaceObject placeObject);
-	public Comment leaveComment(PlaceObject placeObject, Comment newComment);
-	public Comment leaveComment(PlaceObject placeObject, Comment newComment, boolean watch);
-	public void deleteComment(Comment comment);
+	public Comment leaveComment(PlaceObject placeObject, String comment);
+	public Comment leaveComment(PlaceObject placeObject, String comment, boolean watch);
 
 	public Person getPerson(String login);
 	public Friendship getFriendshipForPerson(Person person);

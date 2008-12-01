@@ -564,6 +564,58 @@ public class TestServiceCalls {
 		verify(service);
 	}
 
+	@Test
+	public void testGetComment() throws Exception {
+		String url;
+		HTTPService service;
+		// note doesn't necessarily match comments, just testing.
+		String noteXML = UtilsForTesting.readTestData("note.xml");
+		Note note = Note.fromXML(noteXML);
+		String xml = UtilsForTesting.readTestData("comments.xml");
+		Brightkite bk = Brightkite.getInstance();
+		
+		service = getMockService();
+		url = "http://brightkite.com/objects/" + note.getId() + "/comments.xml";
+		bk.setHttpService(service);
+		service.setCredentials("foo", "bar");
+		service.hasCredentials();
+		expectLastCall().andReturn(true);
+		expect(service.get(url)).andReturn(xml);
+		replay(service);
+		bk.setCredentials("foo", "bar");
+		List<Comment> comments = bk.getCommentsAboutPlaceObject(note);
+		assertEquals(1, comments.size());
+		assertEquals("And vice versa? ie \"The Leftovers of the Day\"", comments.get(0).getComment());
+		verify(service);
+	}
+
+	@Test
+	public void testLeaveComment() throws Exception {
+		String url;
+		HTTPService service;
+		// note doesn't necessarily match comments, just testing.
+		String noteXML = UtilsForTesting.readTestData("note.xml");
+		Note note = Note.fromXML(noteXML);
+		String xml = UtilsForTesting.readTestData("comment.xml");
+		Brightkite bk = Brightkite.getInstance();
+		
+		service = getMockService();
+		url = "http://brightkite.com/objects/" + note.getId() + "/comments.xml";
+		bk.setHttpService(service);
+		service.setCredentials("foo", "bar");
+		service.hasCredentials();
+		expectLastCall().andReturn(true);
+		Parameter commentParam = new Parameter("comment[comment]", "84");
+		Parameter watchParam = new Parameter("watch_item", false);
+		Parameter[] params = new Parameter[]{ commentParam, watchParam };
+		expect(service.post(eq(url), aryEq(params))).andReturn(xml);
+		replay(service);
+		bk.setCredentials("foo", "bar");
+		Comment returnedComment = bk.leaveComment(note, "84");
+		assertEquals("84", returnedComment.getComment());
+		verify(service);
+	}
+
 	private HTTPService getMockService() {
 		return createMock(HTTPService.class);
 	}

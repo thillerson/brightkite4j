@@ -1,7 +1,0 @@
-<?xml version='1.0' encoding='UTF-8' ?>
-<info primitiveTypes='element'>
-	<element name='objects'>
-		<element name="comment" property="comment" updater="addComment" />
-		<addDefaults />
-	</element>
-</info>

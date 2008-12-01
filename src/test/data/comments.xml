@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<comments type="array">
+  <comment>
+    <created_at_as_words>2 days</created_at_as_words>
+    <created_at type="datetime">2008-11-28T17:50:43Z</created_at>
+    <created_at_ts>1227894643.783225</created_at_ts>
+    <user>
+      <fullname>Jim Bob</fullname>
+      <last_active_at type="datetime">2008-11-30T21:24:38Z</last_active_at>
+      <small_avatar_url>http://s3.amazonaws.com/bk_store/images/user/avatar/5d449df49a5211dd995d1003048c10834/avatar-small.png</small_avatar_url>
+      <smaller_avatar_url>http://s3.amazonaws.com/bk_store/images/user/avatar/5d449df49a5211dd995d1003048c10834/avatar-smaller.png</smaller_avatar_url>
+      <login>jimmybob</login>
+      <tiny_avatar_url>http://s3.amazonaws.com/bk_store/images/user/avatar/5d449df49a5211dd995d1003048c10834/avatar-tiny.png</tiny_avatar_url>
+    </user>
+    <comment>And vice versa? ie "The Leftovers of the Day"</comment>
+  </comment>
+</comments>
