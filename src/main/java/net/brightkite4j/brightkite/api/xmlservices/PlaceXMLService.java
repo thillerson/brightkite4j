@@ -6,6 +6,7 @@ import net.brightkite4j.brightkite.api.Brightkite;
 import net.brightkite4j.brightkite.api.HTTPService;
 import net.brightkite4j.brightkite.api.Parameter;
 import net.brightkite4j.brightkite.resources.Checkin;
+import net.brightkite4j.brightkite.resources.Note;
 import net.brightkite4j.brightkite.resources.Person;
 import net.brightkite4j.brightkite.resources.Place;
 import net.brightkite4j.brightkite.resources.PlaceObjectFilter;
@@ -65,6 +66,15 @@ public class PlaceXMLService {
 		String result = httpService.get(url);
 		PlacemarksList placemarkList = PlacemarksList.fromXML(result);
 		return placemarkList.getPlacemarkList();
+	}
+
+	public Note leaveNote(Place place, String body) {
+		String url = placesBaseUrl + "/" + place.getId() + "/notes.xml";
+		Parameter noteParam = new Parameter("note[body]", body);
+		Parameter[] params = new Parameter[]{ noteParam };
+		String result = httpService.post(url, params);
+		Note returnedNote = Note.fromXML(result);
+		return returnedNote;
 	}
 
 }

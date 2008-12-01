@@ -40,7 +40,7 @@ public interface BrightkiteService {
 	public Note getNote(String id);
 	public Photo getPhoto(String id);
 	public Checkin getCheckin(String id);
-	public Note leaveNote(Place place, Note newNote);
+	public Note leaveNote(Place place, String body);
 	public Photo leavePhoto(Place place, Photo newPhoto);
 	public void deleteNote(Note note);
 	public void deletePhoto(Photo photo);

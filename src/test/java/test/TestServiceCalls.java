@@ -616,6 +616,32 @@ public class TestServiceCalls {
 		verify(service);
 	}
 
+	@Test
+	public void testLeaveNote() throws Exception {
+		String url;
+		HTTPService service;
+		// note doesn't necessarily match place, just testing.
+		String placeXML = UtilsForTesting.readTestData("place.xml");
+		Place usa = Place.fromXML(placeXML);
+		String xml = UtilsForTesting.readTestData("note.xml");
+		Brightkite bk = Brightkite.getInstance();
+		
+		service = getMockService();
+		url = "http://brightkite.com/places/" + usa.getId() + "/notes.xml";
+		bk.setHttpService(service);
+		service.setCredentials("foo", "bar");
+		service.hasCredentials();
+		expectLastCall().andReturn(true);
+		Parameter noteParam = new Parameter("note[body]", "No para hasta conquistar! Vamos Espa–a!");
+		Parameter[] params = new Parameter[]{ noteParam };
+		expect(service.post(eq(url), aryEq(params))).andReturn(xml);
+		replay(service);
+		bk.setCredentials("foo", "bar");
+		Note returnedNote = bk.leaveNote(usa, "No para hasta conquistar! Vamos Espa–a!");
+		assertEquals("No para hasta conquistar! Vamos Espa–a!", returnedNote.getBody());
+		verify(service);
+	}
+
 	private HTTPService getMockService() {
 		return createMock(HTTPService.class);
 	}
