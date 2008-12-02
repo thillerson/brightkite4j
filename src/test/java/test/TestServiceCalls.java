@@ -642,6 +642,49 @@ public class TestServiceCalls {
 		verify(service);
 	}
 
+	@Test
+	public void testDMUser() throws Exception {
+		String url;
+		HTTPService service;
+		// note doesn't necessarily match place, just testing.
+		String personXML = UtilsForTesting.readTestData("person.xml");
+		Person person = Person.fromXML(personXML);
+		Brightkite bk = Brightkite.getInstance();
+		
+		service = getMockService();
+		url = "http://brightkite.com/people/" + person.getLogin() + "/received_messages.xml";
+		bk.setHttpService(service);
+		service.setCredentials("foo", "bar");
+		service.hasCredentials();
+		expectLastCall().andReturn(true);
+		// I know, this is the nudge message text.
+		Parameter dmParam = new Parameter("message[body]", "Nudge Nudge! This would be a good time to check in and post something, I'm wondering what you're up to.");
+		Parameter[] params = new Parameter[]{ dmParam };
+		expect(service.post(eq(url), aryEq(params))).andReturn("");
+		replay(service);
+		bk.setCredentials("foo", "bar");
+		bk.directMessage(person, "Nudge Nudge! This would be a good time to check in and post something, I'm wondering what you're up to.");
+		verify(service);
+	}
+
+	@Test
+	public void testGetUser() throws Exception {
+		String url;
+		HTTPService service;
+		// note doesn't necessarily match place, just testing.
+		String xml = UtilsForTesting.readTestData("person.xml");
+		Brightkite bk = Brightkite.getInstance();
+		
+		service = getMockService();
+		url = "http://brightkite.com/people/FrankZappa.xml";
+		bk.setHttpService(service);
+		expect(service.get(eq(url))).andReturn(xml);
+		replay(service);
+		Person person = bk.getPerson("FrankZappa");
+		assertEquals("FrankZappa", person.getLogin());
+		verify(service);
+	}
+
 	private HTTPService getMockService() {
 		return createMock(HTTPService.class);
 	}

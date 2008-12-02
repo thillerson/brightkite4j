@@ -2,8 +2,13 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>net.brightkite4j</groupId>
   <artifactId>brightkite</artifactId>
+  <name>brightkite4j</name>
   <version>0.0.1-SNAPSHOT</version>
-  <description>A Java wrapper around the Brightkite (http://www.brightkite.com) API. (http://groups.google.com/group/brightkite-api)</description>
+  <description>A Java wrapper around the Brightkite (http://www.brightkite.com) API: (http://groups.google.com/group/brightkite-api)</description>
+  <scm>
+  	<developerConnection>git@github.com:thillerson/brightkite4j</developerConnection>
+  	<url>http://github.com/thillerson/brightkite4j</url>
+  </scm>
   <build>
     <plugins>
       <plugin>

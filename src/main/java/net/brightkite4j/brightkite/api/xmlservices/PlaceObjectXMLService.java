@@ -43,16 +43,9 @@ public class PlaceObjectXMLService {
 		return checkin;
 	}
 
-	public void deleteNote(Note note) {
-		deletePlaceObject(note.getId());
-	}
-	
-	public void deletePhoto(Photo photo) {
-		deletePlaceObject(photo.getId());
-	}
-	
-	public void deleteCheckin(Checkin checkin) {
-		deletePlaceObject(checkin.getId());
+	public void deletePlaceObject(PlaceObject placeObject) {
+		String url = placeObjectsBaseUrl + "/" + placeObject.getId() + ".xml";
+		httpService.delete(url);
 	}
 	
 	public List<Comment> getCommentsAboutPlaceObject(PlaceObject placeObject) {
@@ -73,9 +66,4 @@ public class PlaceObjectXMLService {
 		return httpService.get(url);
 	}
 	
-	private void deletePlaceObject(String id) {
-		String url = placeObjectsBaseUrl + "/" + id + ".xml";
-		httpService.delete(url);
-	}
-
 }

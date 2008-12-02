@@ -3,6 +3,7 @@ package net.brightkite4j.brightkite.api;
 import java.util.List;
 
 import net.brightkite4j.brightkite.api.xmlservices.MeXMLService;
+import net.brightkite4j.brightkite.api.xmlservices.PersonXMLService;
 import net.brightkite4j.brightkite.api.xmlservices.PlaceObjectXMLService;
 import net.brightkite4j.brightkite.api.xmlservices.PlaceXMLService;
 import net.brightkite4j.brightkite.exceptions.ServiceException;
@@ -17,13 +18,12 @@ public class Brightkite implements BrightkiteService {
 	private MeXMLService meService;
 	private PlaceXMLService placeService;
 	private PlaceObjectXMLService placeObjectService;
+	private PersonXMLService personService;
 	
 	// You could use this for testing if you want
-	public static void main(String[] args) {
-		Brightkite bk = new Brightkite();
-		Place usa = bk.getPlace("da4b9237bacccdf19c0760cab7aec4a8359010b0");
-		System.out.println(usa);
-	}
+//	public static void main(String[] args) {
+//		Brightkite bk = new Brightkite();
+//	}
 
 	public static Brightkite getInstance() {
 		if (instance == null) {
@@ -37,6 +37,7 @@ public class Brightkite implements BrightkiteService {
 		meService = new MeXMLService(httpService);
 		placeService = new PlaceXMLService(httpService);
 		placeObjectService = new PlaceObjectXMLService(httpService);
+		personService = new PersonXMLService(httpService);
 	}
 	
 	public void setCredentials(String username, String password) {
@@ -117,7 +118,7 @@ public class Brightkite implements BrightkiteService {
 	
 	public void deleteCheckin(Checkin checkin) {
 		authRequired();
-		placeObjectService.deleteCheckin(checkin);
+		placeObjectService.deletePlaceObject(checkin);
 	}
 
 	public Place getPlace(String id) {
@@ -184,18 +185,14 @@ public class Brightkite implements BrightkiteService {
 		//TODO: implement
 	}
 	
-
-	public DirectMessage dm(Person person) {
-		return directMessage(person);
-	}
-	
-	public DirectMessage directMessage(Person person) {
-		//TODO: implement
+	public DirectMessage nudge(Person person) {
+		//TODO: implement??
 		return null;
 	}
 	
-	public void deleteDirectMessage(DirectMessage dm) {
-		//TODO: implement
+	public void directMessage(Person person, String message) {
+		authRequired();
+		personService.directMessage(person, message);
 	}
 	
 	public Block blockPerson(Person person) {
@@ -206,7 +203,6 @@ public class Brightkite implements BrightkiteService {
 	public void deleteBlock(Block block) {
 		//TODO: implement
 	}
-	
 
 	public Checkin getCheckin(String id) {
 		authRequired();
@@ -235,12 +231,12 @@ public class Brightkite implements BrightkiteService {
 	
 	public void deleteNote(Note note) {
 		authRequired();
-		//TODO: implement
+		placeObjectService.deletePlaceObject(note);
 	}
 	
 	public void deletePhoto(Photo photo) {
 		authRequired();
-		//TODO: implement
+		placeObjectService.deletePlaceObject(photo);
 	}
 	
 	public List<PlaceObject> searchObjects(String term) {
@@ -264,8 +260,7 @@ public class Brightkite implements BrightkiteService {
 	}
 	
 	public Person getPerson(String login) {
-		//TODO: implement
-		return null;
+		return personService.getPerson(login);
 	}
 	
 	public Friendship getFriendshipForPerson(Person person) {
@@ -308,6 +303,7 @@ public class Brightkite implements BrightkiteService {
 		meService.setHttpService(httpService);
 		placeService.setHttpService(httpService);
 		placeObjectService.setHttpService(httpService);
+		personService.setHttpService(httpService);
 	}
 
 	public HTTPService getHttpService() {
@@ -336,6 +332,14 @@ public class Brightkite implements BrightkiteService {
 
 	public void setPlaceObjectService(PlaceObjectXMLService placeObjectService) {
 		this.placeObjectService = placeObjectService;
+	}
+
+	public PersonXMLService getPersonService() {
+		return personService;
+	}
+
+	public void setPersonService(PersonXMLService personService) {
+		this.personService = personService;
 	}
 
 	private void authRequired() {

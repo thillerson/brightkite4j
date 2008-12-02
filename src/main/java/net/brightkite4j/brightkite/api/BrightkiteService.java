@@ -30,9 +30,8 @@ public interface BrightkiteService {
 	public Friendship makeFriendship(Friendship friendship);
 	public void breakFriendship(Friendship friendship);
 
-	public DirectMessage dm(Person person);
-	public DirectMessage directMessage(Person person);
-	public void deleteDirectMessage(DirectMessage dm);
+	public DirectMessage nudge(Person person);
+	public void directMessage(Person person, String message);
 
 	public Block blockPerson(Person person);
 	public void deleteBlock(Block block);
