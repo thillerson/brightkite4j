@@ -264,8 +264,8 @@ public class Brightkite implements BrightkiteService {
 	}
 	
 	public Friendship getFriendshipForPerson(Person person) {
-		//TODO: implement
-		return null;
+		authRequired();
+		return personService.getMyFriendshipForPerson(person);
 	}
 	
 	public List<Person> searchPeople(String term) {
@@ -274,28 +274,35 @@ public class Brightkite implements BrightkiteService {
 	}
 	
 	public List<Person> getFriendsOfPerson(Person person) {
-		//TODO: implement
-		return null;
+		return personService.getFriendsOfPerson(person);
 	}
 	
 	public List<Person> getPendingFriendsOfPerson(Person person) {
-		//TODO: implement
-		return null;
+		return personService.getPendingFriendsOfPerson(person);
 	}
 	
+	@SuppressWarnings("unchecked")
 	public List<Note> getNotesByPerson(Person person) {
-		//TODO: implement
-		return null;
+		return personService.getPlaceObjectsByPerson(person, PlaceObjectFilter.createFilter(PlaceObjectFilter.NOTES));
 	}
 	
+	@SuppressWarnings("unchecked")
 	public List<Photo> getPhotosByPerson(Person person) {
-		//TODO: implement
-		return null;
+		return personService.getPlaceObjectsByPerson(person, PlaceObjectFilter.createFilter(PlaceObjectFilter.PHOTOS));
+	}
+	
+	@SuppressWarnings("unchecked")
+	public List<Checkin> getCheckinsByPerson(Person person) {
+		return personService.getPlaceObjectsByPerson(person, PlaceObjectFilter.createFilter(PlaceObjectFilter.CHECKINS));
 	}
 	
 	public List<PlaceObject> getPlaceObjectsByPerson(Person person) {
-		//TODO: implement
-		return null;
+		return getPlaceObjectsByPerson(person, null);
+	}
+	
+	@SuppressWarnings("unchecked")
+	public List<PlaceObject> getPlaceObjectsByPerson(Person person, PlaceObjectFilter filter) {
+		return personService.getPlaceObjectsByPerson(person, filter);
 	}
 	
 	public void setHttpService(HTTPService httpService) {

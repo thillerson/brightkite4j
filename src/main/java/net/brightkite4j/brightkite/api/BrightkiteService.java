@@ -56,7 +56,9 @@ public interface BrightkiteService {
 	public List<Person> getPendingFriendsOfPerson(Person person);
 	public List<Note> getNotesByPerson(Person person);
 	public List<Photo> getPhotosByPerson(Person person);
+	public List<Checkin> getCheckinsByPerson(Person person);
 	public List<PlaceObject> getPlaceObjectsByPerson(Person person);
+	public List<PlaceObject> getPlaceObjectsByPerson(Person person, PlaceObjectFilter filter);
 
 	public Place getPlace(String id);
 	public List<Place> searchPlaces(String term);

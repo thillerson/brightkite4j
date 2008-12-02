@@ -11,6 +11,7 @@ import net.brightkite4j.brightkite.api.Parameter;
 import net.brightkite4j.brightkite.resources.Checkin;
 import net.brightkite4j.brightkite.resources.Comment;
 import net.brightkite4j.brightkite.resources.DirectMessage;
+import net.brightkite4j.brightkite.resources.Friendship;
 import net.brightkite4j.brightkite.resources.Note;
 import net.brightkite4j.brightkite.resources.Person;
 import net.brightkite4j.brightkite.resources.Photo;
@@ -682,6 +683,76 @@ public class TestServiceCalls {
 		replay(service);
 		Person person = bk.getPerson("FrankZappa");
 		assertEquals("FrankZappa", person.getLogin());
+		verify(service);
+	}
+
+	@Test
+	public void testGetFriendshipForPerson() throws Exception {
+		String xml = UtilsForTesting.readTestData("friendship.xml");
+		Person person = Person.fromXML(UtilsForTesting.readTestData("person.xml"));
+		String url = "http://brightkite.com/people/" + person.getLogin() + "/friendship.xml";
+		Brightkite bk = Brightkite.getInstance();
+		HTTPService service = getMockService();
+		bk.setHttpService(service);
+		service.setCredentials("foo", "bar");
+		service.hasCredentials();
+		expectLastCall().andReturn(true);
+		expect(service.get(url)).andReturn(xml);
+		replay(service);
+		
+		bk.setCredentials("foo", "bar");
+		Friendship friendship = bk.getFriendshipForPerson(person);
+		assertEquals("firetoad", friendship.getFriendable().getLogin());
+		verify(service);
+	}
+
+	@Test
+	public void testGetFriendsForPerson() throws Exception {
+		String xml = UtilsForTesting.readTestData("friends.xml");
+		Person person = Person.fromXML(UtilsForTesting.readTestData("person.xml"));
+		String url = "http://brightkite.com/people/" + person.getLogin() + "/friends.xml";
+		Brightkite bk = Brightkite.getInstance();
+		HTTPService service = getMockService();
+		bk.setHttpService(service);
+		expect(service.get(url)).andReturn(xml);
+		replay(service);
+		
+		List<Person> friends = bk.getFriendsOfPerson(person);
+		assertEquals("Peacy P", friends.get(0).getFullname());
+		verify(service);
+	}
+
+	@Test
+	public void testGetPendingFriendsForPerson() throws Exception {
+		String xml = UtilsForTesting.readTestData("pending_friends.xml");
+		Person person = Person.fromXML(UtilsForTesting.readTestData("person.xml"));
+		String url = "http://brightkite.com/people/" + person.getLogin() + "/pending_friends.xml";
+		Brightkite bk = Brightkite.getInstance();
+		HTTPService service = getMockService();
+		bk.setHttpService(service);
+		expect(service.get(url)).andReturn(xml);
+		replay(service);
+		
+		List<Person> friends = bk.getPendingFriendsOfPerson(person);
+		assertEquals("Joe Schmoe", friends.get(0).getFullname());
+		verify(service);
+	}
+
+	@Test
+	public void testGetPlaceObjectsByPerson() throws Exception {
+		// notes dont correlate to person, just testing url and the fact that I get some notes back
+		String xml = UtilsForTesting.readTestData("notes_at_place.xml");
+		Person person = Person.fromXML(UtilsForTesting.readTestData("person.xml"));
+		String url = "http://brightkite.com/people/" + person.getLogin() + "/objects.xml";
+		Brightkite bk = Brightkite.getInstance();
+		HTTPService service = getMockService();
+		bk.setHttpService(service);
+		expect(service.get(url, null)).andReturn(xml);
+		replay(service);
+		
+		List<PlaceObject> objects = bk.getPlaceObjectsByPerson(person);
+		Note note = (Note)objects.get(0);
+		assertEquals("Simanda Home Solutons", note.getCreator().getFullname());
 		verify(service);
 	}
 
