@@ -9,6 +9,7 @@ public interface BrightkiteService {
 	public void setCredentials(String username, String password);
 	public void logout();
 	public void getInvite(String email);
+	
 
 	public Person getMe();
 	public List<Person> getMyFriends();
@@ -19,6 +20,7 @@ public interface BrightkiteService {
 	public List<Person> getMyBlockedPeople();
 	public void changeMySettings(Person person);
 
+	public List<PlaceObject> getUniverseFeed();
 	public List<PlaceObject> getFriendstream();
 	public List<PlaceObject> getNearbystream();
 	public List<PlaceObject> getMentions();
@@ -30,7 +32,7 @@ public interface BrightkiteService {
 	public Friendship makeFriendship(Friendship friendship);
 	public void breakFriendship(Friendship friendship);
 
-	public DirectMessage nudge(Person person);
+	public void nudge(Person person);
 	public void directMessage(Person person, String message);
 
 	public Block blockPerson(Person person);

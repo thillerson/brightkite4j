@@ -95,6 +95,12 @@ public class Brightkite implements BrightkiteService {
 		//TODO: implement
 	}
 
+	public List<PlaceObject> getUniverseFeed() {
+		//TODO: implement
+		authRequired();
+		return null;
+	}
+	
 	public List<PlaceObject> getFriendstream() {
 		authRequired();
 		return meService.getFriendstream();
@@ -187,9 +193,8 @@ public class Brightkite implements BrightkiteService {
 		//TODO: implement
 	}
 	
-	public DirectMessage nudge(Person person) {
+	public void nudge(Person person) {
 		//TODO: implement??
-		return null;
 	}
 	
 	public void directMessage(Person person, String message) {

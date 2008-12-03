@@ -3,7 +3,6 @@ package net.brightkite4j.brightkite.resources;
 import net.brightkite4j.brightkite.exceptions.DeserializationException;
 import net.brightkite4j.brightkite.utils.BrightkiteUtils;
 
-//FIXME: extract a common api for a placeobject
 public class Checkin extends BrightkiteObject implements PlaceObject {
 	
 	private Place place;
