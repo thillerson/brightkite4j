@@ -510,10 +510,72 @@ public class TestServiceCalls {
 		Brightkite bk = Brightkite.getInstance();
 		HTTPService service = getMockService();
 		bk.setHttpService(service);
-		expect(service.get(url)).andReturn(xml);
+		Parameter[] params = new Parameter[2];
+		expect(service.get(eq(url), aryEq(params))).andReturn(xml);
 		replay(service);
 		
 		List<Person> people = bk.getPeopleAtPlace(place);
+		assertEquals(2, people.size());
+		Person p = people.get(0);
+		assertEquals("Joe Schmoe", p.getFullname());
+		verify(service);
+	}
+
+	@Test
+	public void testGetPeopleAtPlaceWithRadius() throws Exception {
+		String xml = UtilsForTesting.readTestData("people.xml");
+		Place place = Place.fromXML(UtilsForTesting.readTestData("place.xml"));
+		String url = "http://brightkite.com/places/" + place.getId() + "/people.xml";
+		Brightkite bk = Brightkite.getInstance();
+		HTTPService service = getMockService();
+		bk.setHttpService(service);
+		Parameter radiusParam = new Parameter("radius", 2000);
+		Parameter[] params = new Parameter[]{radiusParam, null};
+		expect(service.get(eq(url), aryEq(params))).andReturn(xml);
+		replay(service);
+		
+		List<Person> people = bk.getPeopleAtPlace(place, 2000);
+		assertEquals(2, people.size());
+		Person p = people.get(0);
+		assertEquals("Joe Schmoe", p.getFullname());
+		verify(service);
+	}
+
+	@Test
+	public void testGetPeopleAtPlaceWithHoursAgo() throws Exception {
+		String xml = UtilsForTesting.readTestData("people.xml");
+		Place place = Place.fromXML(UtilsForTesting.readTestData("place.xml"));
+		String url = "http://brightkite.com/places/" + place.getId() + "/people.xml";
+		Brightkite bk = Brightkite.getInstance();
+		HTTPService service = getMockService();
+		bk.setHttpService(service);
+		Parameter hoursAgoParam = new Parameter("hours_ago", 2);
+		Parameter[] params = new Parameter[]{null, hoursAgoParam};
+		expect(service.get(eq(url), aryEq(params))).andReturn(xml);
+		replay(service);
+		
+		List<Person> people = bk.getPeopleAtPlace(place, null, 2);
+		assertEquals(2, people.size());
+		Person p = people.get(0);
+		assertEquals("Joe Schmoe", p.getFullname());
+		verify(service);
+	}
+
+	@Test
+	public void testGetPeopleAtPlaceWithRadiusAndHoursAgo() throws Exception {
+		String xml = UtilsForTesting.readTestData("people.xml");
+		Place place = Place.fromXML(UtilsForTesting.readTestData("place.xml"));
+		String url = "http://brightkite.com/places/" + place.getId() + "/people.xml";
+		Brightkite bk = Brightkite.getInstance();
+		HTTPService service = getMockService();
+		bk.setHttpService(service);
+		Parameter radiusParam = new Parameter("radius", 2000);
+		Parameter hoursParam = new Parameter("hours_ago", 2);
+		Parameter[] params = new Parameter[]{radiusParam, hoursParam};
+		expect(service.get(eq(url), aryEq(params))).andReturn(xml);
+		replay(service);
+		
+		List<Person> people = bk.getPeopleAtPlace(place, 2000, 2);
 		assertEquals(2, people.size());
 		Person p = people.get(0);
 		assertEquals("Joe Schmoe", p.getFullname());

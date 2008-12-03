@@ -21,9 +21,13 @@ public class Brightkite implements BrightkiteService {
 	private PersonXMLService personService;
 	
 	// You could use this for testing if you want
-//	public static void main(String[] args) {
-//		Brightkite bk = new Brightkite();
-//	}
+	public static void main(String[] args) {
+		Brightkite bk = new Brightkite();
+		Place usa = bk.getPlace("da4b9237bacccdf19c0760cab7aec4a8359010b0");
+		System.out.println(usa);
+		List<Person> persons = bk.getPeopleAtPlace(usa, 2000, 2);
+		System.out.println(persons);
+	}
 
 	public static Brightkite getInstance() {
 		if (instance == null) {
@@ -158,17 +162,15 @@ public class Brightkite implements BrightkiteService {
 	}
 
 	public List<Person> getPeopleAtPlace(Place place) {
-		return placeService.getPeopleAtPlace(place);
+		return getPeopleAtPlace(place, null, null);
 	}
 	
 	public List<Person> getPeopleAtPlace(Place place, Integer radius) {
-		//TODO: implement
-		return null;
+		return getPeopleAtPlace(place, radius, null);
 	}
 	
 	public List<Person> getPeopleAtPlace(Place place, Integer radius, Integer hoursAgo) {
-		//TODO: implement
-		return null;
+		return placeService.getPeopleAtPlace(place, radius, hoursAgo);
 	}
 	
 	public List<Placemark> getPlacemarksAtPlace(Place place) {

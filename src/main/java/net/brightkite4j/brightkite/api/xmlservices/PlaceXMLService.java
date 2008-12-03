@@ -54,9 +54,21 @@ public class PlaceXMLService {
 		return checkin;
 	}
 
-	public List<Person> getPeopleAtPlace(Place place) {
+	public List<Person> getPeopleAtPlace(Place place, Integer radius, Integer hoursAgo) {
+		Parameter param;
+		Parameter[] params = new Parameter[2];
 		String url = placesBaseUrl + "/" + place.getId() + "/people.xml";
-		String result = httpService.get(url);
+		if (null != radius || null != hoursAgo) {
+			if (null != radius) {
+				param = new Parameter("radius", radius);
+				params[0] = param;
+			}
+			if (null != hoursAgo) {
+				param = new Parameter("hours_ago", hoursAgo);
+				params[1] = param;
+			}
+		}
+		String result = httpService.get(url, params);
 		PeopleList peopleList = PeopleList.fromXML(result);
 		return peopleList.getPeopleList();
 	}

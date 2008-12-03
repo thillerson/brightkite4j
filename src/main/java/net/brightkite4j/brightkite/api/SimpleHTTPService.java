@@ -107,7 +107,7 @@ public class SimpleHTTPService implements HTTPService {
 		}
 		List<NameValuePair> out = new ArrayList<NameValuePair>();
 		for (Parameter parameter : in) {
-			if (parameter.hasName() && parameter.hasValue()) {
+			if (null != parameter && parameter.hasName() && parameter.hasValue()) {
 				out.add(new NameValuePair(parameter.getName(), parameter.getValue().toString()));
 			}
 		}
