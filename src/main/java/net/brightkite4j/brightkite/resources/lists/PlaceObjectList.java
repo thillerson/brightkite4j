@@ -10,14 +10,14 @@ import net.brightkite4j.brightkite.resources.Photo;
 import net.brightkite4j.brightkite.resources.PlaceObject;
 import net.brightkite4j.brightkite.utils.BrightkiteUtils;
 
-public class ObjectList {
+public class PlaceObjectList {
 
 	private List<PlaceObject> placeObjects;
 	private List<Note> notes;
 	private List<Photo> photos;
 	private List<Checkin> checkins;
 	
-	public ObjectList() {
+	public PlaceObjectList() {
 		placeObjects = new ArrayList<PlaceObject>();
 		notes = new ArrayList<Note>();
 		photos = new ArrayList<Photo>();
@@ -55,9 +55,9 @@ public class ObjectList {
 		checkins.add(checkin);
 	}
 	
-	public final static ObjectList fromXML(String xml) {
+	public final static PlaceObjectList fromXML(String xml) {
 		try {
-			ObjectList person = (ObjectList)BrightkiteUtils.fromXML(xml, ObjectList.class);
+			PlaceObjectList person = (PlaceObjectList)BrightkiteUtils.fromXML(xml, PlaceObjectList.class);
 			return person;
 		} catch (Exception e) {
 			throw new DeserializationException("Cannot deserialize ObjectList.", e);

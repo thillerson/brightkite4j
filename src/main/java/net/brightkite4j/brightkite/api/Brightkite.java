@@ -96,9 +96,7 @@ public class Brightkite implements BrightkiteService {
 	}
 
 	public List<PlaceObject> getUniverseFeed() {
-		//TODO: implement
-		authRequired();
-		return null;
+		return placeObjectService.getPlaceObjects(null);
 	}
 	
 	public List<PlaceObject> getFriendstream() {

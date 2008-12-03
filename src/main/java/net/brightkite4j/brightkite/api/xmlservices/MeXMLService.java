@@ -12,7 +12,7 @@ import net.brightkite4j.brightkite.resources.Placemark;
 import net.brightkite4j.brightkite.resources.lists.CommentList;
 import net.brightkite4j.brightkite.resources.lists.DirectMessageList;
 import net.brightkite4j.brightkite.resources.lists.FriendList;
-import net.brightkite4j.brightkite.resources.lists.ObjectList;
+import net.brightkite4j.brightkite.resources.lists.PlaceObjectList;
 import net.brightkite4j.brightkite.resources.lists.PendingFriendList;
 import net.brightkite4j.brightkite.resources.lists.PeopleList;
 import net.brightkite4j.brightkite.resources.lists.PlacemarksList;
@@ -42,19 +42,19 @@ public class MeXMLService {
 
 	public List<PlaceObject> getFriendstream() {
 		String response = httpService.get(meURL + "/friendstream.xml");
-		ObjectList stream = ObjectList.fromXML(response);
+		PlaceObjectList stream = PlaceObjectList.fromXML(response);
 		return stream.getPlaceObjectList();
 	}
 
 	public List<PlaceObject> getNearbystream() {
 		String response = httpService.get(meURL + "/nearbystream.xml");
-		ObjectList stream = ObjectList.fromXML(response);
+		PlaceObjectList stream = PlaceObjectList.fromXML(response);
 		return stream.getPlaceObjectList();
 	}
 
 	public List<PlaceObject> getMentionstream() {
 		String response = httpService.get(meURL + "/mentionsstream.xml");
-		ObjectList stream = ObjectList.fromXML(response);
+		PlaceObjectList stream = PlaceObjectList.fromXML(response);
 		return stream.getPlaceObjectList();
 	}
 

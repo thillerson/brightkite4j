@@ -11,7 +11,7 @@ import net.brightkite4j.brightkite.resources.Person;
 import net.brightkite4j.brightkite.resources.Place;
 import net.brightkite4j.brightkite.resources.PlaceObjectFilter;
 import net.brightkite4j.brightkite.resources.Placemark;
-import net.brightkite4j.brightkite.resources.lists.ObjectList;
+import net.brightkite4j.brightkite.resources.lists.PlaceObjectList;
 import net.brightkite4j.brightkite.resources.lists.PeopleList;
 import net.brightkite4j.brightkite.resources.lists.PlacemarksList;
 
@@ -43,7 +43,7 @@ public class PlaceXMLService {
 			filters = new Parameter[]{filterParam};
 		}
 		String result = httpService.get(url, filters);
-		ObjectList ol = ObjectList.fromXML(result);
+		PlaceObjectList ol = PlaceObjectList.fromXML(result);
 		return ol.getPlaceObjectList();
 	}
 

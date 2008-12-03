@@ -10,7 +10,9 @@ import net.brightkite4j.brightkite.resources.Comment;
 import net.brightkite4j.brightkite.resources.Note;
 import net.brightkite4j.brightkite.resources.Photo;
 import net.brightkite4j.brightkite.resources.PlaceObject;
+import net.brightkite4j.brightkite.resources.PlaceObjectFilter;
 import net.brightkite4j.brightkite.resources.lists.CommentList;
+import net.brightkite4j.brightkite.resources.lists.PlaceObjectList;
 
 public class PlaceObjectXMLService {
 
@@ -25,6 +27,18 @@ public class PlaceObjectXMLService {
 		this.httpService = httpService;
 	}
 
+	public List<PlaceObject> getPlaceObjects(PlaceObjectFilter filter) {
+		String url = placeObjectsBaseUrl + ".xml";
+		Parameter[] filters = null;
+		if (null != filter) {
+			Parameter filterParam = new Parameter("filters", filter.toString());
+			filters = new Parameter[]{filterParam};
+		}
+		String result = httpService.get(url, filters);
+		PlaceObjectList list = PlaceObjectList.fromXML(result);
+		return list.getPlaceObjectList();
+	}
+	
 	public Note getNote(String id) {
 		String result = getPlaceObjectXML(id);
 		Note note = Note.fromXML(result);
@@ -65,5 +79,5 @@ public class PlaceObjectXMLService {
 		String url = placeObjectsBaseUrl + "/" + id + ".xml";
 		return httpService.get(url);
 	}
-	
+
 }

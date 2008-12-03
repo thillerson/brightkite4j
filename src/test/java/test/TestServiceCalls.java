@@ -142,6 +142,23 @@ public class TestServiceCalls {
 	}
 
 	@Test
+	public void testGetUniverseFeed() throws Exception {
+		String xml = UtilsForTesting.readTestData("mentionsstream.xml");
+		String url = "http://brightkite.com/objects.xml";
+
+		Brightkite bk = Brightkite.getInstance();
+		HTTPService service = getMockService();
+		bk.setHttpService(service);
+		expect(service.get(eq(url), (Parameter[])isNull())).andReturn(xml);
+		replay(service);
+
+		List<PlaceObject> streamList = bk.getUniverseFeed();
+
+		assertEquals(0, streamList.size());
+		verify(service);
+	}
+
+	@Test
 	public void testGetCommentsstream() throws Exception {
 		String xml = UtilsForTesting.readTestData("commentsstream.xml");
 		String url = "http://brightkite.com/me/commentsstream.xml";

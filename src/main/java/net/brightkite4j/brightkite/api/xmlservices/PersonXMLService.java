@@ -9,7 +9,7 @@ import net.brightkite4j.brightkite.resources.Friendship;
 import net.brightkite4j.brightkite.resources.Person;
 import net.brightkite4j.brightkite.resources.PlaceObjectFilter;
 import net.brightkite4j.brightkite.resources.lists.FriendList;
-import net.brightkite4j.brightkite.resources.lists.ObjectList;
+import net.brightkite4j.brightkite.resources.lists.PlaceObjectList;
 import net.brightkite4j.brightkite.resources.lists.PendingFriendList;
 
 public class PersonXMLService {
@@ -65,7 +65,7 @@ public class PersonXMLService {
 			filters = new Parameter[]{filterParam};
 		}
 		String result = httpService.get(url, filters);
-		ObjectList ol = ObjectList.fromXML(result);
+		PlaceObjectList ol = PlaceObjectList.fromXML(result);
 		return ol.getPlaceObjectList();
 	}
 
