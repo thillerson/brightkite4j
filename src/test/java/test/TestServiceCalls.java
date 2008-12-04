@@ -8,7 +8,6 @@ import java.util.List;
 import net.brightkite4j.brightkite.api.Brightkite;
 import net.brightkite4j.brightkite.api.HTTPService;
 import net.brightkite4j.brightkite.api.Parameter;
-import net.brightkite4j.brightkite.resources.Block;
 import net.brightkite4j.brightkite.resources.Checkin;
 import net.brightkite4j.brightkite.resources.Comment;
 import net.brightkite4j.brightkite.resources.DirectMessage;
@@ -840,23 +839,39 @@ public class TestServiceCalls {
 	public void testBlockPerson() throws Exception {
 		// block.xml is backwards from person - zappa is the blocker, but this just tests the API
 		// please ignore
-		String xml = UtilsForTesting.readTestData("block.xml");
 		Person person = Person.fromXML(UtilsForTesting.readTestData("person.xml"));
-		String url = "http://brightkite.com/me/blocked_people.xml";
+		String url = "http://brightkite.com/people/FrankZappa/block";
 		Brightkite bk = Brightkite.getInstance();
 		HTTPService service = getMockService();
 		bk.setHttpService(service);
 		service.setCredentials("foo", "bar");
 		service.hasCredentials();
 		expectLastCall().andReturn(true);
-		Parameter blockParam = new Parameter("block[blockee]", "FrankZappa");
-		Parameter[] params = new Parameter[]{blockParam};
-		expect(service.post(eq(url), aryEq(params))).andReturn(xml);
+		expect(service.post(url)).andReturn("");
 		replay(service);
 		
 		bk.setCredentials("foo", "bar");
-		Block block = bk.blockPerson(person);
-		assertEquals("FrankZappa", block.getBlocker());
+		bk.blockPerson(person);
+		verify(service);
+	}
+
+	@Test
+	public void testUnblockPerson() throws Exception {
+		// block.xml is backwards from person - zappa is the blocker, but this just tests the API
+		// please ignore
+		Person person = Person.fromXML(UtilsForTesting.readTestData("person.xml"));
+		String url = "http://brightkite.com/people/FrankZappa/block.xml";
+		Brightkite bk = Brightkite.getInstance();
+		HTTPService service = getMockService();
+		bk.setHttpService(service);
+		service.setCredentials("foo", "bar");
+		service.hasCredentials();
+		expectLastCall().andReturn(true);
+		service.delete(url);
+		replay(service);
+		
+		bk.setCredentials("foo", "bar");
+		bk.unblockPerson(person);
 		verify(service);
 	}
 

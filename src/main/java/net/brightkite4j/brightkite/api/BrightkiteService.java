@@ -36,8 +36,8 @@ public interface BrightkiteService {
 	public void nudge(Person person);
 	public void directMessage(Person person, String message);
 
-	public Block blockPerson(Person person);
-	public void deleteBlock(Block block);
+	public void blockPerson(Person person);
+	public void unblockPerson(Person person);
 
 	public Note getNote(String id);
 	public Photo getPhoto(String id);

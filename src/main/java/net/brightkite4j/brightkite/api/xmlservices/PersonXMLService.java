@@ -5,6 +5,7 @@ import java.util.List;
 import net.brightkite4j.brightkite.api.Brightkite;
 import net.brightkite4j.brightkite.api.HTTPService;
 import net.brightkite4j.brightkite.api.Parameter;
+import net.brightkite4j.brightkite.exceptions.ServiceException;
 import net.brightkite4j.brightkite.resources.Friendship;
 import net.brightkite4j.brightkite.resources.Person;
 import net.brightkite4j.brightkite.resources.PlaceObjectFilter;
@@ -69,4 +70,17 @@ public class PersonXMLService {
 		return ol.getPlaceObjectList();
 	}
 
+	public void blockPerson(Person person) {
+		try {
+			httpService.post(peopleURL + "/" + person.getLogin() + "/block");
+		} catch(ServiceException e) {
+			//TODO: HAX!!! have to find out how to create a block with the xml service. This catches the 
+			// redirect from the html service version.
+		}
+	}
+	
+	public void unblockPerson(Person person) {
+		httpService.delete(peopleURL + "/" + person.getLogin() + "/block.xml");
+	}
+	
 }

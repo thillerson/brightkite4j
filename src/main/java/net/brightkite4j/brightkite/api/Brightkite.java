@@ -21,10 +21,9 @@ public class Brightkite implements BrightkiteService {
 	private PersonXMLService personService;
 	
 	// You could use this for testing if you want
-	public static void main(String[] args) {
-		Brightkite bk = new Brightkite();
-		System.out.println(bk.getMyBlockedPeople());
-	}
+//	public static void main(String[] args) {
+//		Brightkite bk = new Brightkite();
+//	}
 
 	public static Brightkite getInstance() {
 		if (instance == null) {
@@ -202,13 +201,14 @@ public class Brightkite implements BrightkiteService {
 		personService.directMessage(person, message);
 	}
 	
-	public Block blockPerson(Person person) {
+	public void blockPerson(Person person) {
 		authRequired();
-		return meService.blockPerson(person);
+		personService.blockPerson(person);
 	}
 	
-	public void deleteBlock(Block block) {
-		//TODO: implement
+	public void unblockPerson(Person person) {
+		authRequired();
+		personService.unblockPerson(person);
 	}
 
 	public Checkin getCheckin(String id) {
