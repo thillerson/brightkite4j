@@ -30,6 +30,7 @@ public interface BrightkiteService {
 	public void deleteCheckin(Checkin checkin);
 
 	public Friendship makeFriendship(Friendship friendship);
+	public Friendship updateFriendship(Friendship friendship);
 	public void breakFriendship(Friendship friendship);
 
 	public void nudge(Person person);

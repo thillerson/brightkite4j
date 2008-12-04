@@ -4,6 +4,8 @@ import java.util.List;
 
 import net.brightkite4j.brightkite.api.Brightkite;
 import net.brightkite4j.brightkite.api.HTTPService;
+import net.brightkite4j.brightkite.api.Parameter;
+import net.brightkite4j.brightkite.resources.Block;
 import net.brightkite4j.brightkite.resources.Comment;
 import net.brightkite4j.brightkite.resources.DirectMessage;
 import net.brightkite4j.brightkite.resources.Person;
@@ -98,6 +100,14 @@ public class MeXMLService {
 		String response = httpService.get(meURL + "/received_messages.xml");
 		DirectMessageList stream = DirectMessageList.fromXML(response);
 		return stream.getDirectMessageList();
+	}
+
+	public Block blockPerson(Person person) {
+//		Parameter blockParam = new Parameter("block[blockee]", person.getLogin());
+//		Parameter[] params = new Parameter[]{blockParam};
+		String response = httpService.post(meURL + "/blocked_people/" + person.getLogin() + ".xml");
+		Block block = Block.fromXML(response);
+		return block;
 	}
 
 }

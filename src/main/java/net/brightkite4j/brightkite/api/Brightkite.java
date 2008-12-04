@@ -23,10 +23,7 @@ public class Brightkite implements BrightkiteService {
 	// You could use this for testing if you want
 	public static void main(String[] args) {
 		Brightkite bk = new Brightkite();
-		Place usa = bk.getPlace("da4b9237bacccdf19c0760cab7aec4a8359010b0");
-		System.out.println(usa);
-		List<Person> persons = bk.getPeopleAtPlace(usa, 2000, 2);
-		System.out.println(persons);
+		System.out.println(bk.getMyBlockedPeople());
 	}
 
 	public static Brightkite getInstance() {
@@ -183,7 +180,12 @@ public class Brightkite implements BrightkiteService {
 	}
 	
 	public Friendship makeFriendship(Friendship friendship) {
-		//TODO: implement
+		//TODO: implement 
+		return null;
+	}
+	
+	public Friendship updateFriendship(Friendship friendship) {
+		//TODO: implement 
 		return null;
 	}
 	
@@ -201,8 +203,8 @@ public class Brightkite implements BrightkiteService {
 	}
 	
 	public Block blockPerson(Person person) {
-		//TODO: implement
-		return null;
+		authRequired();
+		return meService.blockPerson(person);
 	}
 	
 	public void deleteBlock(Block block) {
