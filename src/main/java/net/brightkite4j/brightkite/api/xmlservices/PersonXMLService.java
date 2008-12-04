@@ -82,5 +82,12 @@ public class PersonXMLService {
 	public void unblockPerson(Person person) {
 		httpService.delete(peopleURL + "/" + person.getLogin() + "/block.xml");
 	}
+
+	public void nudge(Person person) {
+		String url = peopleURL + "/" + person.getLogin() + "/nudges.xml";
+		Parameter nudgeParam = new Parameter("nudge[sender_id]", null);
+		Parameter[] params = new Parameter[]{nudgeParam};
+		httpService.post(url, params);
+	}
 	
 }

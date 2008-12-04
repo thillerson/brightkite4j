@@ -21,9 +21,9 @@ public class Brightkite implements BrightkiteService {
 	private PersonXMLService personService;
 	
 	// You could use this for testing if you want
-//	public static void main(String[] args) {
-//		Brightkite bk = new Brightkite();
-//	}
+	public static void main(String[] args) {
+		Brightkite bk = new Brightkite();
+	}
 
 	public static Brightkite getInstance() {
 		if (instance == null) {
@@ -193,7 +193,8 @@ public class Brightkite implements BrightkiteService {
 	}
 	
 	public void nudge(Person person) {
-		//TODO: implement??
+		authRequired();
+		personService.nudge(person);
 	}
 	
 	public void directMessage(Person person, String message) {
