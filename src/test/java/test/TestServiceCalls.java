@@ -875,6 +875,48 @@ public class TestServiceCalls {
 		verify(service);
 	}
 
+	@Test
+	public void testMakeFriend() throws Exception {
+		String xml = UtilsForTesting.readTestData("friendship.xml");
+		Person person = Person.fromXML(UtilsForTesting.readTestData("person.xml"));
+		String url = "http://brightkite.com/me/friendship.xml";
+		Brightkite bk = Brightkite.getInstance();
+		HTTPService service = getMockService();
+		bk.setHttpService(service);
+		service.setCredentials("foo", "bar");
+		service.hasCredentials();
+		expectLastCall().andReturn(true);
+		Friendship dummyFriendship = new Friendship();
+		dummyFriendship.setFriendable(person);
+		expect(service.post(eq(url), aryEq(dummyFriendship.toParams()))).andReturn(xml);
+		replay(service);
+		
+		bk.setCredentials("foo", "bar");
+		Friendship f = bk.friend(dummyFriendship);
+		assertEquals("firetoad", f.getFriendable().getLogin());
+		verify(service);
+	}
+
+	@Test
+	public void testUnfriend() throws Exception {
+		Person person = Person.fromXML(UtilsForTesting.readTestData("person.xml"));
+		String url = "http://brightkite.com/me/friendship.xml";
+		Brightkite bk = Brightkite.getInstance();
+		HTTPService service = getMockService();
+		bk.setHttpService(service);
+		service.setCredentials("foo", "bar");
+		service.hasCredentials();
+		expectLastCall().andReturn(true);
+		Friendship dummyFriendship = new Friendship();
+		dummyFriendship.setFriendable(person);
+		service.delete(eq(url), aryEq(dummyFriendship.toParams()));
+		replay(service);
+		
+		bk.setCredentials("foo", "bar");
+		bk.unfriend(person);
+		verify(service);
+	}
+
 	private HTTPService getMockService() {
 		return createMock(HTTPService.class);
 	}

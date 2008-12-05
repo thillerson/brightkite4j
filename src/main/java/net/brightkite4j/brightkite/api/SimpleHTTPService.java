@@ -70,6 +70,10 @@ public class SimpleHTTPService implements HTTPService {
 		execute(new DeleteMethod(url), null);
 	}
 
+	public void delete(String url, Parameter[] parameters) throws ServiceException {
+		execute(new DeleteMethod(url), parameters);
+	}
+
 	/* (non-Javadoc)
 	 * @see net.brightkite4j.brightkite.api.HTTPService#setCredentials(java.lang.String, java.lang.String)
 	 */

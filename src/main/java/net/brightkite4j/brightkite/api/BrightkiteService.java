@@ -29,9 +29,9 @@ public interface BrightkiteService {
 	public Checkin checkin(Place place);
 	public void deleteCheckin(Checkin checkin);
 
-	public Friendship makeFriendship(Friendship friendship);
+	public Friendship friend(Friendship friendship);
 	public Friendship updateFriendship(Friendship friendship);
-	public void breakFriendship(Friendship friendship);
+	public void unfriend(Person person);
 
 	public void nudge(Person person);
 	public void directMessage(Person person, String message);

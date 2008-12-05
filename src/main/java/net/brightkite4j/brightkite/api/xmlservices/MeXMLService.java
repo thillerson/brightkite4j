@@ -6,6 +6,7 @@ import net.brightkite4j.brightkite.api.Brightkite;
 import net.brightkite4j.brightkite.api.HTTPService;
 import net.brightkite4j.brightkite.resources.Comment;
 import net.brightkite4j.brightkite.resources.DirectMessage;
+import net.brightkite4j.brightkite.resources.Friendship;
 import net.brightkite4j.brightkite.resources.Person;
 import net.brightkite4j.brightkite.resources.PlaceObject;
 import net.brightkite4j.brightkite.resources.Placemark;
@@ -76,6 +77,19 @@ public class MeXMLService {
 		return stream.getPendingFriendList();
 	}
 
+	public Friendship friend(Friendship friendship) {
+		String url = meURL + "/friendship.xml";
+		friendship = Friendship.fromXML(httpService.post(url, friendship.toParams()));
+		return friendship;
+	}
+
+	public void unfriend(Person person) {
+		Friendship f = new Friendship();
+		f.setFriendable(person);
+		String url = meURL + "/friendship.xml";
+		httpService.delete(url, f.toParams());
+	}
+
 	public List<Person> getMyBlockedPeople() {
 		String response = httpService.get(meURL + "/blocked_people.xml");
 		PeopleList stream = PeopleList.fromXML(response);
@@ -99,5 +113,5 @@ public class MeXMLService {
 		DirectMessageList stream = DirectMessageList.fromXML(response);
 		return stream.getDirectMessageList();
 	}
-
+	
 }

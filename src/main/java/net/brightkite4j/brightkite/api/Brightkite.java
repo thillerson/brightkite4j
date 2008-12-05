@@ -130,8 +130,7 @@ public class Brightkite implements BrightkiteService {
 	}
 	
 	public List<Place> searchPlaces(String term) {
-		//TODO: implement
-		//FIXME: Somehow need to be able to deserialize the results
+		//TODO: implement. Somehow need to be able to deserialize the results
 		// which can be either wrapped in <places> or a single <place>
 		// which will break betwixt's little brain
 		return null;
@@ -178,9 +177,9 @@ public class Brightkite implements BrightkiteService {
 		return placeService.getPlacemarksAtPlace(place);
 	}
 	
-	public Friendship makeFriendship(Friendship friendship) {
-		//TODO: implement 
-		return null;
+	public Friendship friend(Friendship friendship) {
+		authRequired();
+		return meService.friend(friendship);
 	}
 	
 	public Friendship updateFriendship(Friendship friendship) {
@@ -188,8 +187,9 @@ public class Brightkite implements BrightkiteService {
 		return null;
 	}
 	
-	public void breakFriendship(Friendship friendship) {
-		//TODO: implement
+	public void unfriend(Person person) {
+		authRequired();
+		meService.unfriend(person);
 	}
 	
 	public void nudge(Person person) {
@@ -251,7 +251,6 @@ public class Brightkite implements BrightkiteService {
 		//TODO: implement
 		return null;
 	}
-	
 
 	public List<Comment> getCommentsAboutPlaceObject(PlaceObject placeObject) {
 		authRequired();

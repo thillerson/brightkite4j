@@ -43,5 +43,8 @@ public class BrightkiteUtils {
 		return bean;
 	}
 	
+	public final static int booleanToInt(boolean b) {
+		return (b ? 1 : 0);
+	}
 	
 }

@@ -74,7 +74,7 @@ public class PersonXMLService {
 		try {
 			httpService.post(peopleURL + "/" + person.getLogin() + "/block");
 		} catch(ServiceException e) {
-			//TODO: HAX!!! have to find out how to create a block with the xml service. This catches the 
+			//FIXME: HAX!!! have to find out how to create a block with the xml service. This catches the 
 			// redirect from the html service version.
 		}
 	}

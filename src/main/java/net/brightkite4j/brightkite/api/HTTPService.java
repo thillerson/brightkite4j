@@ -14,6 +14,8 @@ public interface HTTPService {
 
 	public abstract void delete(String url) throws ServiceException;
 	
+	public abstract void delete(String url, Parameter[] parameters) throws ServiceException;
+	
 	public abstract void setCredentials(String username, String password);
 
 	public abstract void clearCredentials();

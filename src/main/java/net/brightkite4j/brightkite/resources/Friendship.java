@@ -1,5 +1,6 @@
 package net.brightkite4j.brightkite.resources;
 
+import net.brightkite4j.brightkite.api.Parameter;
 import net.brightkite4j.brightkite.exceptions.DeserializationException;
 import net.brightkite4j.brightkite.utils.BrightkiteUtils;
 
@@ -83,8 +84,21 @@ public class Friendship extends BrightkiteObject {
 		return postEmailNotifications;
 	}
 
-	protected void setPostEmailNotifications(boolean postEmailNotifications) {
+	public void setPostEmailNotifications(boolean postEmailNotifications) {
 		this.postEmailNotifications = postEmailNotifications;
+	}
+	
+	public Parameter[] toParams() {
+		Parameter[] params = new Parameter[8];
+		params[0] = new Parameter("friendship[trusted]", BrightkiteUtils.booleanToInt(trusted));
+		params[1] = new Parameter("friendship[checkin_stream_feeding]", BrightkiteUtils.booleanToInt(checkinStreamFeeding));
+		params[2] = new Parameter("friendship[checkin_sms_notifications]", BrightkiteUtils.booleanToInt(checkinSMSNotifications));
+		params[3] = new Parameter("friendship[checkin_email_notifications]", BrightkiteUtils.booleanToInt(checkinEmailNotifications));
+		params[4] = new Parameter("friendship[post_stream_feeding]", BrightkiteUtils.booleanToInt(postStreamFeeding));
+		params[5] = new Parameter("friendship[post_sms_notifications]", BrightkiteUtils.booleanToInt(postSMSNotifications));
+		params[6] = new Parameter("friendship[post_email_notifications]", BrightkiteUtils.booleanToInt(postEmailNotifications));
+		params[6] = new Parameter("person_id", friendable.getLogin());
+		return params;
 	}
 	
 	public final static Friendship fromXML(String xml) {
@@ -92,8 +106,10 @@ public class Friendship extends BrightkiteObject {
 			Friendship friendship = (Friendship)BrightkiteUtils.fromXML(xml, Friendship.class);
 			return friendship;
 		} catch (Exception e) {
-			throw new DeserializationException("Unable to desierialize Friendship.", e);
+			throw new DeserializationException("Unable to deserialize Friendship.", e);
 		}
 	}
-
+	
+	
+	
 }
